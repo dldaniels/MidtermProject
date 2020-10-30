@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Bar {
@@ -35,6 +37,11 @@ public class Bar {
 	
 	@Column(name="logo_url")
 	private String logoUrl;
+	
+	
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
 	
 	
 
@@ -155,6 +162,14 @@ public class Bar {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 //	@Override

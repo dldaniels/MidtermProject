@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -24,9 +26,6 @@ public class User {
 	private String role;
 	
 	
-//	@Column(name = "address_id")
-//	private int addressId;
-	
 	@Column(name = "first_name") 
 	private String firstName;
 	
@@ -42,6 +41,9 @@ public class User {
 	@Column(name="create_date")	
 	private LocalDateTime createDate;
 	
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
 	
 	
 	public User() {
@@ -183,6 +185,16 @@ public class User {
 
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
+	}
+
+
+	public Address getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	
 
