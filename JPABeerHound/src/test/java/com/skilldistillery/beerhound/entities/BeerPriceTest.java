@@ -14,7 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class BeerPricePriceTest {
+class BeerPriceTest {
 
 	
 	private static EntityManagerFactory emf;
@@ -23,7 +23,7 @@ class BeerPricePriceTest {
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		 emf = Persistence.createEntityManagerFactory("BeerPriceHoundPU");
+		 emf = Persistence.createEntityManagerFactory("BeerHoundPU");
 	}
 
 	@AfterAll
@@ -44,11 +44,29 @@ class BeerPricePriceTest {
 	}
 
 	@Test
-	@DisplayName("test beerPrice entity")
+	@DisplayName("test beer price entity")
 	void test1() {
-		// TODO: complete entity tests
 		assertNotNull(beerPrice);
-		assertEquals("", beerPrice.getId());
+		assertEquals(1, beerPrice.getId());
+		assertEquals(2, beerPrice.getBeerPrice());
+	}
+	
+	@Test
+	@DisplayName("test beer price mapping to beer")
+	void test2() {
+		assertNotNull(beerPrice);
+		assertNotNull(beerPrice.getBeer());
+		assertEquals("Modus Hoperandi", beerPrice.getBeer().getName());
+		
+	}
+	
+	@Test
+	@DisplayName("test beer price mapping to bar")
+	void test3() {
+		assertNotNull(beerPrice);
+		assertNotNull(beerPrice.getBar());
+		assertEquals("Firefly Saloon", beerPrice.getBar().getName());
+		
 	}
 
 }
