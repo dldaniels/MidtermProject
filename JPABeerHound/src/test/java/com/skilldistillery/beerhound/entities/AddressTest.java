@@ -1,5 +1,5 @@
 package com.skilldistillery.beerhound.entities;
-
+ 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -11,6 +11,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class AddressTest {
@@ -44,12 +45,23 @@ class AddressTest {
 	
 	
 	@Test
+	@DisplayName("test address entity")
 	void test() {
+		
+		/*
+		 * mysql> select * from address where id = 1;
++----+----------------------+--------+-------+-------+
+| id | street               | city   | state | zip   |
++----+----------------------+--------+-------+-------+
+|  1 | 189 S Washington st. | Denver | CO    | 80221 |
++----+----------------------+--------+-------+-------+
+		 */
 		assertNotNull(address);
-		assertEquals("", address.getCity());
-		assertEquals("", address.getState());
-		assertEquals("", address.getZip());
-		assertEquals("", address.getId());
+		assertEquals("189 S Washington st.", address.getStreet());
+		assertEquals("Denver", address.getCity());
+		assertEquals("CO", address.getState());
+		assertEquals("80221", address.getZip());
+		assertEquals(1, address.getId());
 		
 		
 	}

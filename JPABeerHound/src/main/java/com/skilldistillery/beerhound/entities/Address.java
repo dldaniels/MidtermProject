@@ -16,7 +16,7 @@ public class Address {
 
 	private String city;
 
-	private char state;
+	private String state;
 
 	private String zip;
 
@@ -48,11 +48,11 @@ public class Address {
 		this.city = city;
 	}
 
-	public char getState() {
+	public String getState() {
 		return state;
 	}
 
-	public void setState(char state) {
+	public void setState(String state) {
 		this.state = state;
 	}
 
