@@ -1,6 +1,7 @@
 package com.skilldistillery.beerhound.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -55,6 +57,17 @@ public class User {
 	@JoinTable(name = "user_has_beer", joinColumns = @JoinColumn(name = "beer_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private Set<Beer> favoriteBeerList;
 
+	
+	
+	@OneToMany(mappedBy = "user")
+	private Set<BarRating> barRatings;
+	
+	@OneToMany(mappedBy = "user")
+	private Set<BeerRating> beerRatings;
+	
+	
+	
+	
 	public User() {
 		super();
 	}
@@ -198,6 +211,22 @@ public class User {
 
 	public void setFavoriteBeerList(Set<Beer> favoriteBeerList) {
 		this.favoriteBeerList = favoriteBeerList;
+	}
+
+	public Set<BarRating> getBarRatings() {
+		return barRatings;
+	}
+
+	public void setBarRatings(Set<BarRating> barRatings) {
+		this.barRatings = barRatings;
+	}
+
+	public Set<BeerRating> getBeerRatings() {
+		return beerRatings;
+	}
+
+	public void setBeerRatings(Set<BeerRating> beerRatings) {
+		this.beerRatings = beerRatings;
 	}
 
 }
