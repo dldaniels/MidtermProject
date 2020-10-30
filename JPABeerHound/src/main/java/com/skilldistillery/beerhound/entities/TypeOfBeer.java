@@ -1,14 +1,17 @@
 package com.skilldistillery.beerhound.entities;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class TypeOfBeer {
-
+ 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -18,6 +21,17 @@ public class TypeOfBeer {
 
 	@Column(name = "type_name")
 	private String typeName;
+	
+	@OneToMany(mappedBy = "typeOfBeer")
+	private Set<Beer> beers;
+
+	public Set<Beer> getBeers() {
+		return beers;
+	}
+
+	public void setBeers(Set<Beer> beers) {
+		this.beers = beers;
+	}
 
 	public TypeOfBeer() {
 		super();
