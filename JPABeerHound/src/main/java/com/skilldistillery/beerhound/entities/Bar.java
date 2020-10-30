@@ -1,12 +1,17 @@
 package com.skilldistillery.beerhound.entities;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Bar {
@@ -14,30 +19,39 @@ public class Bar {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
-	@Column(name="phone_number")
+
+	@Column(name = "phone_number")
 	private String phoneNumber;
-	
+
 	private String website;
-	
+
 	private Long description;
-	
+
 //	@Column(name ="address_id")
 //	private int addressId;
-	
-	@Column(name ="time_last_updated")
+
+	@Column(name = "time_last_updated")
 	private LocalDate timeLastUpdated;
-	
+
 //	@Column(name="owner_id")
 //	private int ownerId;
-	
-	@Column(name="logo_url")
-	private String logoUrl;
-	
-	
 
+	@Column(name = "logo_url")
+	private String logoUrl;
+
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+
+	@ManyToMany(mappedBy = "favoriteBarList")
+	private Set<User> users;
+
+	@OneToMany(mappedBy = "bar")
+	private Set<BarRating> barRatings;
+	
+	
 	public Bar() {
 		super();
 	}
@@ -157,14 +171,35 @@ public class Bar {
 		return true;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+
+	public Set<BarRating> getBarRatings() {
+		return barRatings;
+	}
+
+	public void setBarRatings(Set<BarRating> barRatings) {
+		this.barRatings = barRatings;
+	}
+
 //	@Override
 //	public String toString() {
 //		return "Bar [id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", website=" + website
 //				+ ", description=" + description + ", addressId=" + addressId + ", timeLastUpdated=" + timeLastUpdated
 //				+ ", ownerId=" + ownerId + ", logoUrl=" + logoUrl + "]";
 //	}
-	
-	
-	
-	
+
 }

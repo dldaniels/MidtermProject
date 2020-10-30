@@ -7,22 +7,35 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class BarRating {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(name = "star_rating")
 	private Integer starRating;
-	
+
 	private String review;
-	
+
 	@Column(name = "rating_date")
 	private LocalDateTime ratingDate;
 
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+
+	@ManyToOne
+	@JoinColumn(name = "bar_id")
+	private Bar bar;
+
+	
+	
+	
 	public BarRating() {
 		super();
 	}
@@ -86,5 +99,21 @@ public class BarRating {
 	public void setRatingDate(LocalDateTime ratingDate) {
 		this.ratingDate = ratingDate;
 	}
-	
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Bar getBar() {
+		return bar;
+	}
+
+	public void setBar(Bar bar) {
+		this.bar = bar;
+	}
+
 }
