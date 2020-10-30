@@ -53,12 +53,21 @@ class BeerTest {
 		assertEquals(7, beer.getAlcoholContent());
 	}
 
-//	@Test
-//	@DisplayName("test mapping between beer and user")
-//	void test2() {
-//		assertNotNull(beer);
-//		assertNotNull(beer.getUsers());
-//		assertTrue(beer.getUsers().size()>0);
-//		assertEquals("Bob", beer.getUsers().getfirstName());
-//	}
+	@Test
+	@DisplayName("test mapping between beer and type of beer")
+	void test2() {
+		assertNotNull(beer);
+		assertNotNull(beer.getTypeOfBeer());
+//		assertTrue(beer.getTypeOfBeer().;
+		assertEquals("IPA-American", beer.getTypeOfBeer().getTypeDescription());
+	}
+	
+	@Test
+	@DisplayName("test mapping between beer and brewery")
+	void test3() {
+		assertNotNull(beer);
+		assertNotNull(beer.getBrewery());
+//		assertTrue(beer.getBrewery().)
+		assertEquals("Ska Brewing", beer.getBrewery().getName());
+	}
 }
