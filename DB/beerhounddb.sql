@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS `address` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `street` VARCHAR(45) NULL,
   `city` VARCHAR(45) NULL,
-  `state` VARCHAR(45) NULL,
-  `zip` INT NULL,
+  `state` CHAR(2) NULL,
+  `zip` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -42,7 +42,12 @@ CREATE TABLE IF NOT EXISTS `user` (
   `enabled` TINYINT NOT NULL DEFAULT 1,
   `role` VARCHAR(45) NULL,
   `address_id` INT NULL,
-  `name` VARCHAR(45) NULL,
+  `first_name` VARCHAR(45) NULL,
+  `last_name` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `biography` VARCHAR(5000) NULL,
+  `image` VARCHAR(5000) NULL,
+  `create_date` DATETIME NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_user_address1_idx` (`address_id` ASC),
   CONSTRAINT `fk_user_address1`
@@ -62,6 +67,8 @@ CREATE TABLE IF NOT EXISTS `brewery` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `address_id` INT NULL,
+  `brewery_website` VARCHAR(5000) NULL,
+  `brewery_logo_url` VARCHAR(5000) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_brewery_address1_idx` (`address_id` ASC),
   CONSTRAINT `fk_brewery_address1`
@@ -73,6 +80,19 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `type_of_beer`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `type_of_beer` ;
+
+CREATE TABLE IF NOT EXISTS `type_of_beer` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `type_description` TEXT NULL,
+  `type_name` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `beer`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `beer` ;
@@ -80,14 +100,21 @@ DROP TABLE IF EXISTS `beer` ;
 CREATE TABLE IF NOT EXISTS `beer` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
-  `type` VARCHAR(45) NULL,
   `alcohol_content` DECIMAL NULL,
   `brewery_id` INT NOT NULL,
+  `type_of_beer_id` INT NOT NULL,
+  `image_url` VARCHAR(5000) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_beer_brewery1_idx` (`brewery_id` ASC),
+  INDEX `fk_beer_type_of_beer1_idx` (`type_of_beer_id` ASC),
   CONSTRAINT `fk_beer_brewery1`
     FOREIGN KEY (`brewery_id`)
     REFERENCES `brewery` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_beer_type_of_beer1`
+    FOREIGN KEY (`type_of_beer_id`)
+    REFERENCES `type_of_beer` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -102,30 +129,39 @@ CREATE TABLE IF NOT EXISTS `bar` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `phone_number` VARCHAR(45) NULL,
-  `website` VARCHAR(45) NULL,
+  `website` VARCHAR(5000) NULL,
   `description` LONGTEXT NULL,
   `address_id` INT NULL,
   `time_last_updated` DATETIME NULL,
+  `owner_id` INT NOT NULL,
+  `logo_url` VARCHAR(5000) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_bar_address1_idx` (`address_id` ASC),
+  INDEX `fk_bar_user1_idx` (`owner_id` ASC),
   CONSTRAINT `fk_bar_address1`
     FOREIGN KEY (`address_id`)
     REFERENCES `address` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_bar_user1`
+    FOREIGN KEY (`owner_id`)
+    REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `price`
+-- Table `beer_price`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `price` ;
+DROP TABLE IF EXISTS `beer_price` ;
 
-CREATE TABLE IF NOT EXISTS `price` (
+CREATE TABLE IF NOT EXISTS `beer_price` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `beer_price` DECIMAL NULL,
   `bar_id` INT NOT NULL,
   `beer_id` INT NOT NULL,
+  `size_price` DOUBLE NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_price_bar1_idx` (`bar_id` ASC),
   INDEX `fk_price_beer1_idx` (`beer_id` ASC),
@@ -153,6 +189,7 @@ CREATE TABLE IF NOT EXISTS `beer_rating` (
   `review` LONGTEXT NULL,
   `beer_id` INT NOT NULL,
   `user_id` INT NOT NULL,
+  `rating_date` DATETIME NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_beer_rating_beer1_idx` (`beer_id` ASC),
   INDEX `fk_beer_rating_user1_idx` (`user_id` ASC),
@@ -180,6 +217,7 @@ CREATE TABLE IF NOT EXISTS `bar_rating` (
   `review` LONGTEXT NULL,
   `bar_id` INT NOT NULL,
   `user_id` INT NOT NULL,
+  `rating_date` DATETIME NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_bar_rating_bar1_idx` (`bar_id` ASC),
   INDEX `fk_bar_rating_user1_idx` (`user_id` ASC),
@@ -191,6 +229,54 @@ CREATE TABLE IF NOT EXISTS `bar_rating` (
   CONSTRAINT `fk_bar_rating_user1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `user_has_bar`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `user_has_bar` ;
+
+CREATE TABLE IF NOT EXISTS `user_has_bar` (
+  `user_id` INT NOT NULL,
+  `bar_id` INT NOT NULL,
+  PRIMARY KEY (`user_id`, `bar_id`),
+  INDEX `fk_user_has_bar_bar1_idx` (`bar_id` ASC),
+  INDEX `fk_user_has_bar_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_has_bar_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_has_bar_bar1`
+    FOREIGN KEY (`bar_id`)
+    REFERENCES `bar` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `user_has_beer`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `user_has_beer` ;
+
+CREATE TABLE IF NOT EXISTS `user_has_beer` (
+  `user_id` INT NOT NULL,
+  `beer_id` INT NOT NULL,
+  PRIMARY KEY (`user_id`, `beer_id`),
+  INDEX `fk_user_has_beer_beer1_idx` (`beer_id` ASC),
+  INDEX `fk_user_has_beer_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_has_beer_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_has_beer_beer1`
+    FOREIGN KEY (`beer_id`)
+    REFERENCES `beer` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -211,7 +297,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `beerhounddb`;
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (1, 'address', 'denver', 'CO', 80221);
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (1, 'address', 'denver', 'CO', '80221');
 
 COMMIT;
 
@@ -221,7 +307,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `beerhounddb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `name`) VALUES (1, 'admin', 'admin', 1, 'ADMIN', 1, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `first_name`, `last_name`, `email`, `biography`, `image`, `create_date`) VALUES (1, 'admin', 'admin', 1, 'ADMIN', 1, NULL, NULL, NULL, NULL, NULL, NULL);
 
 COMMIT;
 
@@ -231,7 +317,17 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `beerhounddb`;
-INSERT INTO `brewery` (`id`, `name`, `address_id`) VALUES (1, 'Test Brewery', 1);
+INSERT INTO `brewery` (`id`, `name`, `address_id`, `brewery_website`, `brewery_logo_url`) VALUES (1, 'Test Brewery', 1, NULL, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `type_of_beer`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `beerhounddb`;
+INSERT INTO `type_of_beer` (`id`, `type_description`, `type_name`) VALUES (1, 'Lager', 'Lager');
 
 COMMIT;
 
@@ -241,9 +337,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `beerhounddb`;
-INSERT INTO `beer` (`id`, `name`, `type`, `alcohol_content`, `brewery_id`) VALUES (1, 'Test Beer', 'Some Type', 5.2, 1);
-INSERT INTO `beer` (`id`, `name`, `type`, `alcohol_content`, `brewery_id`) VALUES (2, NULL, NULL, NULL, 1);
-INSERT INTO `beer` (`id`, `name`, `type`, `alcohol_content`, `brewery_id`) VALUES (3, NULL, NULL, NULL, 1);
+INSERT INTO `beer` (`id`, `name`, `alcohol_content`, `brewery_id`, `type_of_beer_id`, `image_url`) VALUES (1, 'Test Beer', 5.2, 1, 1, NULL);
+INSERT INTO `beer` (`id`, `name`, `alcohol_content`, `brewery_id`, `type_of_beer_id`, `image_url`) VALUES (2, NULL, NULL, 1, 1, NULL);
+INSERT INTO `beer` (`id`, `name`, `alcohol_content`, `brewery_id`, `type_of_beer_id`, `image_url`) VALUES (3, NULL, NULL, 1, 1, NULL);
 
 COMMIT;
 
@@ -253,18 +349,18 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `beerhounddb`;
-INSERT INTO `bar` (`id`, `name`, `phone_number`, `website`, `description`, `address_id`, `time_last_updated`) VALUES (1, 'Some Bar', 'phone number', 'website', 'description', 1, NULL);
-INSERT INTO `bar` (`id`, `name`, `phone_number`, `website`, `description`, `address_id`, `time_last_updated`) VALUES (2, 'another bar', NULL, NULL, NULL, 1, NULL);
+INSERT INTO `bar` (`id`, `name`, `phone_number`, `website`, `description`, `address_id`, `time_last_updated`, `owner_id`, `logo_url`) VALUES (1, 'Some Bar', 'phone number', 'website', 'description', 1, NULL, 1, NULL);
+INSERT INTO `bar` (`id`, `name`, `phone_number`, `website`, `description`, `address_id`, `time_last_updated`, `owner_id`, `logo_url`) VALUES (2, 'another bar', NULL, NULL, NULL, 1, NULL, 1, NULL);
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `price`
+-- Data for table `beer_price`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `beerhounddb`;
-INSERT INTO `price` (`id`, `beer_price`, `bar_id`, `beer_id`) VALUES (1, 1.50, 1, 1);
+INSERT INTO `beer_price` (`id`, `beer_price`, `bar_id`, `beer_id`, `size_price`) VALUES (1, 1.50, 1, 1, NULL);
 
 COMMIT;
 
@@ -274,7 +370,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `beerhounddb`;
-INSERT INTO `beer_rating` (`id`, `star_rating`, `review`, `beer_id`, `user_id`) VALUES (1, 2, NULL, 1, 1);
+INSERT INTO `beer_rating` (`id`, `star_rating`, `review`, `beer_id`, `user_id`, `rating_date`) VALUES (1, 2, NULL, 1, 1, NULL);
 
 COMMIT;
 
@@ -284,7 +380,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `beerhounddb`;
-INSERT INTO `bar_rating` (`id`, `star_rating`, `review`, `bar_id`, `user_id`) VALUES (1, 1, NULL, 1, 1);
+INSERT INTO `bar_rating` (`id`, `star_rating`, `review`, `bar_id`, `user_id`, `rating_date`) VALUES (1, 1, NULL, 1, 1, NULL);
 
 COMMIT;
 
