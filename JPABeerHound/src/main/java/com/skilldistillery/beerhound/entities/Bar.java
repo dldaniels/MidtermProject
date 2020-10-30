@@ -48,8 +48,19 @@ public class Bar {
 	@ManyToMany(mappedBy = "favoriteBarList")
 	private Set<User> users;
 
+	public Set<BeerPrice> getBeerPrices() {
+		return beerPrices;
+	}
+
+	public void setBeerPrices(Set<BeerPrice> beerPrices) {
+		this.beerPrices = beerPrices;
+	}
+
 	@OneToMany(mappedBy = "bar")
 	private Set<BarRating> barRatings;
+	
+	@OneToMany(mappedBy = "bar")
+	private Set<BeerPrice> beerPrices;
 	
 	
 	public Bar() {
