@@ -15,7 +15,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class BeerTest {
-
+ 
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
@@ -48,7 +48,7 @@ class BeerTest {
 	void test1() {
 		// TODO: complete entity tests
 		assertNotNull(beer);
-		assertEquals("", beer.getName());
+		assertEquals("Modus Hoperandi", beer.getName());
 	}
 
 }

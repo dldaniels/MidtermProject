@@ -37,7 +37,7 @@ public class Beer {
 	private Set<BeerRating> beerRating;
 	
 	@ManyToOne
-	@JoinColumn(name = "type_of_beer")
+	@JoinColumn(name = "type_of_beer_id")
 	private TypeOfBeer typeOfBeer;
 	
 	@ManyToOne
