@@ -43,6 +43,6 @@ class BreweryTest {
 	@Test
 	void test() {
 		assertNotNull(brewery);
-		assertEquals("", brewery.getName());
+		assertEquals("Ska Brewing", brewery.getName());
 	}
 }
