@@ -9,7 +9,15 @@
     </provider>
 	
 	<!-- List Entities Here -->
-	<class>com.skilldistillery.beerhound.entities;User</class>
+	<class>com.skilldistillery.beerhound.entities.Address</class>
+	<class>com.skilldistillery.beerhound.entities.Bar</class>
+	<class>com.skilldistillery.beerhound.entities.BarRating</class>
+	<class>com.skilldistillery.beerhound.entities.Beer</class>
+	<class>com.skilldistillery.beerhound.entities.BeerPrice</class>
+	<class>com.skilldistillery.beerhound.entities.BeerRating</class>
+	<class>com.skilldistillery.beerhound.entities.Brewery</class>
+	<class>com.skilldistillery.beerhound.entities.TypeOfBeer</class>
+	<class>com.skilldistillery.beerhound.entities.User</class>
 	
 
     <properties>
