@@ -15,7 +15,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class BeerTest {
-
+ 
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
