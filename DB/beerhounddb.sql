@@ -41,8 +41,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` VARCHAR(200) NOT NULL,
   `enabled` TINYINT NOT NULL DEFAULT 1,
   `role` VARCHAR(45) NULL,
-  `address_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `address_id`),
+  `address_id` INT NULL,
+  `name` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`),
   INDEX `fk_user_address1_idx` (`address_id` ASC),
   CONSTRAINT `fk_user_address1`
     FOREIGN KEY (`address_id`)
@@ -60,8 +61,8 @@ DROP TABLE IF EXISTS `brewery` ;
 CREATE TABLE IF NOT EXISTS `brewery` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
-  `address_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `address_id`),
+  `address_id` INT NULL,
+  PRIMARY KEY (`id`),
   INDEX `fk_brewery_address1_idx` (`address_id` ASC),
   CONSTRAINT `fk_brewery_address1`
     FOREIGN KEY (`address_id`)
@@ -103,9 +104,9 @@ CREATE TABLE IF NOT EXISTS `bar` (
   `phone_number` VARCHAR(45) NULL,
   `website` VARCHAR(45) NULL,
   `description` LONGTEXT NULL,
-  `address_id` INT NOT NULL,
+  `address_id` INT NULL,
   `time_last_updated` DATETIME NULL,
-  PRIMARY KEY (`id`, `address_id`),
+  PRIMARY KEY (`id`),
   INDEX `fk_bar_address1_idx` (`address_id` ASC),
   CONSTRAINT `fk_bar_address1`
     FOREIGN KEY (`address_id`)
@@ -220,7 +221,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `beerhounddb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`) VALUES (1, 'admin', 'admin', 1, 'ADMIN', 1);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `address_id`, `name`) VALUES (1, 'admin', 'admin', 1, 'ADMIN', 1, NULL);
 
 COMMIT;
 
