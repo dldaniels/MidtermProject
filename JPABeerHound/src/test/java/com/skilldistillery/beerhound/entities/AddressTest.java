@@ -15,7 +15,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class AddressTest {
-
+ 
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
@@ -47,7 +47,6 @@ class AddressTest {
 	@Test
 	@DisplayName("test address entity")
 	void test() {
-		
 		/*
 		 * mysql> select * from address where id = 1;
 +----+----------------------+--------+-------+-------+
@@ -62,8 +61,6 @@ class AddressTest {
 		assertEquals("CO", address.getState());
 		assertEquals("80221", address.getZip());
 		assertEquals(1, address.getId());
-		
-		
 	}
-
+	
 }
