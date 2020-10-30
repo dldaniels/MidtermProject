@@ -1,7 +1,6 @@
 package com.skilldistillery.beerhound.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,16 +12,15 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class BreweryTest {
 
-	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
-	
+	private Brewery brewery;
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		 emf = Persistence.createEntityManagerFactory("BeerHoundPU");
+		emf = Persistence.createEntityManagerFactory("BeerHoundPU");
 	}
 
 	@AfterAll
@@ -33,22 +31,18 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		brewery = em.find(Brewery.class, 1);
+
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
 	}
 
 	@Test
-	void test1() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-		assertEquals("", user.getFirstName());
-		assertEquals("", user.getLastName());
-//		assertEquals( , user.getId());
+	void test() {
+		assertNotNull(brewery);
+		assertEquals("", brewery.getName());
 	}
-
 }

@@ -19,7 +19,7 @@ public class User {
 
 	private String password;
 	
-	private int enabled;
+	private Boolean enabled;
 	
 	private String role;
 	
@@ -106,12 +106,12 @@ public class User {
 	}
 
 
-	public int getEnabled() {
+	public Boolean getEnabled() {
 		return enabled;
 	}
 
 
-	public void setEnabled(int enabled) {
+	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 
