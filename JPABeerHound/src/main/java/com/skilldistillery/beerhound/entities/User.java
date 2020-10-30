@@ -66,8 +66,6 @@ public class User {
 	private Set<BeerRating> beerRatings;
 	
 	
-	
-	
 	public User() {
 		super();
 	}
