@@ -29,16 +29,24 @@ public class Beer {
 
 	// TODO: Add relationship with beer price
 	
-	@ManyToOne
-	@JoinColumn(name = "type_of_beer")
-	private TypeOfBeer typeOfBeer;
 
 	@ManyToMany(mappedBy = "favoriteBeerList")
 	private Set<User> users;
 	
 	@OneToMany(mappedBy="beer")
 	private Set<BeerRating> beerRating;
+	
+	@ManyToOne
+	@JoinColumn(name = "type_of_beer")
+	private TypeOfBeer typeOfBeer;
+	
+	@ManyToOne
+	@JoinColumn(name="brewery_id")
+	private Brewery brewery;
 
+	@OneToMany(mappedBy="beer")
+	private Set<BeerPrice> beerPrice;
+	
 	@Override
 	public String toString() {
 		return "Beer [id=" + id + ", name=" + name + ", alcoholContent=" + alcoholContent + ", imageUrl=" + imageUrl
@@ -80,6 +88,47 @@ public class Beer {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
+	public Set<User> getUsers() {
+		return users;
+	}
+	
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+	
+	public Set<BeerRating> getBeerRating() {
+		return beerRating;
+	}
+	
+	public void setBeerRating(Set<BeerRating> beerRating) {
+		this.beerRating = beerRating;
+	}
+	
+
+	public Brewery getBrewery() {
+		return brewery;
+	}
+
+	public void setBrewery(Brewery brewery) {
+		this.brewery = brewery;
+	}
+
+	public TypeOfBeer getTypeOfBeer() {
+		return typeOfBeer;
+	}
+
+	public void setTypeOfBeer(TypeOfBeer typeOfBeer) {
+		this.typeOfBeer = typeOfBeer;
+	}
+	
+
+	public Set<BeerPrice> getBeerPrice() {
+		return beerPrice;
+	}
+
+	public void setBeerPrice(Set<BeerPrice> beerPrice) {
+		this.beerPrice = beerPrice;
+	}
 
 	@Override
 	public int hashCode() {
@@ -103,20 +152,5 @@ public class Beer {
 		return true;
 	}
 
-	public Set<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(Set<User> users) {
-		this.users = users;
-	}
-
-	public Set<BeerRating> getBeerRating() {
-		return beerRating;
-	}
-
-	public void setBeerRating(Set<BeerRating> beerRating) {
-		this.beerRating = beerRating;
-	}
 
 }
