@@ -46,8 +46,7 @@ class TypeOfBeerTest {
 	@Test
 	void test() {
 		assertNotNull(type);
-		assertEquals("", type.getTypeName());
-		assertEquals("", type.getId());
+		assertEquals(1, type.getId());
 		
 	}
 
