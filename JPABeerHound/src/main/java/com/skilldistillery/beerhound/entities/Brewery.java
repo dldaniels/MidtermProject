@@ -1,11 +1,14 @@
 package com.skilldistillery.beerhound.entities;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -28,6 +31,9 @@ public class Brewery {
 	@JoinColumn(name = "address_id")
 	private Address address;
 	
+	
+	@OneToMany(mappedBy = "brewery")
+	private Set<Beer> beers;
 	
 
 	public Brewery() {
