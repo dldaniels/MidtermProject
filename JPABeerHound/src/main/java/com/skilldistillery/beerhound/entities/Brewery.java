@@ -115,5 +115,13 @@ public class Brewery {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+	public Set<Beer> getBeers() {
+		return beers;
+	}
+
+	public void setBeers(Set<Beer> beers) {
+		this.beers = beers;
+	}
 	
 }
