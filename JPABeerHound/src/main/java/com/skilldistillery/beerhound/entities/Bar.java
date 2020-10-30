@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -47,7 +48,8 @@ public class Bar {
 	@ManyToMany(mappedBy = "favoriteBarList")
 	private Set<User> users;
 
-	
+	@OneToMany(mappedBy = "bar")
+	private Set<BarRating> barRatings;
 	
 	
 	public Bar() {
@@ -183,6 +185,14 @@ public class Bar {
 
 	public void setUsers(Set<User> users) {
 		this.users = users;
+	}
+
+	public Set<BarRating> getBarRatings() {
+		return barRatings;
+	}
+
+	public void setBarRatings(Set<BarRating> barRatings) {
+		this.barRatings = barRatings;
 	}
 
 //	@Override
