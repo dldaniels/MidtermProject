@@ -2,7 +2,7 @@ package com.skilldistillery.beerhound.entities;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -51,19 +51,19 @@ public class User {
 
 	@ManyToMany
 	@JoinTable(name = "user_has_bar", joinColumns = @JoinColumn(name = "bar_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
-	private Set<Bar> favoriteBarList;
+	private List<Bar> favoriteBarList;
 
 	@ManyToMany
 	@JoinTable(name = "user_has_beer", joinColumns = @JoinColumn(name = "beer_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
-	private Set<Beer> favoriteBeerList;
+	private List<Beer> favoriteBeerList;
 
 	
 	
 	@OneToMany(mappedBy = "user")
-	private Set<BarRating> barRatings;
+	private List<BarRating> barRatings;
 	
 	@OneToMany(mappedBy = "user")
-	private Set<BeerRating> beerRatings;
+	private List<BeerRating> beerRatings;
 	
 	
 	public User() {
@@ -74,7 +74,7 @@ public class User {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void ListId(int id) {
 		this.id = id;
 	}
 
@@ -82,7 +82,7 @@ public class User {
 		return username;
 	}
 
-	public void setUsername(String username) {
+	public void ListUsername(String username) {
 		this.username = username;
 	}
 
@@ -119,7 +119,7 @@ public class User {
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void ListPassword(String password) {
 		this.password = password;
 	}
 
@@ -127,7 +127,7 @@ public class User {
 		return enabled;
 	}
 
-	public void setEnabled(Boolean enabled) {
+	public void ListEnabled(Boolean enabled) {
 		this.enabled = enabled;
 	}
 
@@ -135,7 +135,7 @@ public class User {
 		return role;
 	}
 
-	public void setRole(String role) {
+	public void ListRole(String role) {
 		this.role = role;
 	}
 
@@ -143,7 +143,7 @@ public class User {
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
+	public void ListFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
@@ -151,7 +151,7 @@ public class User {
 		return lastName;
 	}
 
-	public void setLastName(String lastName) {
+	public void ListLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
@@ -159,7 +159,7 @@ public class User {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void ListEmail(String email) {
 		this.email = email;
 	}
 
@@ -167,7 +167,7 @@ public class User {
 		return biography;
 	}
 
-	public void setBiography(String biography) {
+	public void ListBiography(String biography) {
 		this.biography = biography;
 	}
 
@@ -175,7 +175,7 @@ public class User {
 		return image;
 	}
 
-	public void setImage(String image) {
+	public void ListImage(String image) {
 		this.image = image;
 	}
 
@@ -183,7 +183,7 @@ public class User {
 		return createDate;
 	}
 
-	public void setCreateDate(LocalDateTime createDate) {
+	public void ListCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
 
@@ -191,39 +191,39 @@ public class User {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void ListAddress(Address address) {
 		this.address = address;
 	}
 
-	public Set<Bar> getFavoriteBarList() {
+	public List<Bar> getFavoriteBarList() {
 		return favoriteBarList;
 	}
 
-	public void setFavoriteBarList(Set<Bar> favoriteBarList) {
+	public void ListFavoriteBarList(List<Bar> favoriteBarList) {
 		this.favoriteBarList = favoriteBarList;
 	}
 
-	public Set<Beer> getFavoriteBeerList() {
+	public List<Beer> getFavoriteBeerList() {
 		return favoriteBeerList;
 	}
 
-	public void setFavoriteBeerList(Set<Beer> favoriteBeerList) {
+	public void ListFavoriteBeerList(List<Beer> favoriteBeerList) {
 		this.favoriteBeerList = favoriteBeerList;
 	}
 
-	public Set<BarRating> getBarRatings() {
+	public List<BarRating> getBarRatings() {
 		return barRatings;
 	}
 
-	public void setBarRatings(Set<BarRating> barRatings) {
+	public void ListBarRatings(List<BarRating> barRatings) {
 		this.barRatings = barRatings;
 	}
 
-	public Set<BeerRating> getBeerRatings() {
+	public List<BeerRating> getBeerRatings() {
 		return beerRatings;
 	}
 
-	public void setBeerRatings(Set<BeerRating> beerRatings) {
+	public void ListBeerRatings(List<BeerRating> beerRatings) {
 		this.beerRatings = beerRatings;
 	}
 
