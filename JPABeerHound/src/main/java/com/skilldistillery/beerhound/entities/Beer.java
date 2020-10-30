@@ -1,30 +1,35 @@
 package com.skilldistillery.beerhound.entities;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Beer {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
+
 	@Column(name = "alcohol_content")
 	private Double alcoholContent;
-	
+
 	@Column(name = "image_url")
 	private String imageUrl;
-	
+
 	// TODO: Add relationship with beer rating
 	// TODO: Add relationship with beer price
 	// TODO: Add relationship with beer type
-	
+
+	@ManyToMany(mappedBy = "favoriteBeerList")
+	private Set<User> users;
 
 	@Override
 	public String toString() {
@@ -89,5 +94,13 @@ public class Beer {
 			return false;
 		return true;
 	}
-	
+
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+
 }
