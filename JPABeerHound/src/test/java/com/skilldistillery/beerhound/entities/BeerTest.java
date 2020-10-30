@@ -2,6 +2,7 @@ package com.skilldistillery.beerhound.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -49,6 +50,24 @@ class BeerTest {
 		// TODO: complete entity tests
 		assertNotNull(beer);
 		assertEquals("Modus Hoperandi", beer.getName());
+		assertEquals(7, beer.getAlcoholContent());
 	}
 
+	@Test
+	@DisplayName("test mapping between beer and type of beer")
+	void test2() {
+		assertNotNull(beer);
+		assertNotNull(beer.getTypeOfBeer());
+//		assertTrue(beer.getTypeOfBeer().;
+		assertEquals("IPA-American", beer.getTypeOfBeer().getTypeDescription());
+	}
+	
+	@Test
+	@DisplayName("test mapping between beer and brewery")
+	void test3() {
+		assertNotNull(beer);
+		assertNotNull(beer.getBrewery());
+//		assertTrue(beer.getBrewery().)
+		assertEquals("Ska Brewing", beer.getBrewery().getName());
+	}
 }
