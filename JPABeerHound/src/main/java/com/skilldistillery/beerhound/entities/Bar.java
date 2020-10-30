@@ -27,7 +27,7 @@ public class Bar {
 
 	private String website;
 
-	private Long description;
+	private String description;
 
 //	@Column(name ="address_id")
 //	private int addressId;
@@ -67,7 +67,7 @@ public class Bar {
 		super();
 	}
 
-	public Bar(int id, String name, String phoneNumber, String website, Long description, int addressId,
+	public Bar(int id, String name, String phoneNumber, String website, String description, int addressId,
 			LocalDate timeLastUpdated, int ownerId, String logoUrl) {
 		super();
 		this.id = id;
@@ -113,11 +113,11 @@ public class Bar {
 		this.website = website;
 	}
 
-	public Long getDescription() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(Long description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
