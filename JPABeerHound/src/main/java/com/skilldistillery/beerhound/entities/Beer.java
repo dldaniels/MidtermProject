@@ -7,10 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
-import antlr.collections.List;
 
 @Entity
 public class Beer {
@@ -27,9 +27,11 @@ public class Beer {
 	@Column(name = "image_url")
 	private String imageUrl;
 
-	// TODO: Add relationship with beer rating
 	// TODO: Add relationship with beer price
-	// TODO: Add relationship with beer type
+	
+	@ManyToOne
+	@JoinColumn(name = "type_of_beer")
+	private TypeOfBeer typeOfBeer;
 
 	@ManyToMany(mappedBy = "favoriteBeerList")
 	private Set<User> users;
