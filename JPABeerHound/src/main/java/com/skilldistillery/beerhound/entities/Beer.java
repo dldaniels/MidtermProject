@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import antlr.collections.List;
 
 @Entity
 public class Beer {
@@ -30,6 +33,9 @@ public class Beer {
 
 	@ManyToMany(mappedBy = "favoriteBeerList")
 	private Set<User> users;
+	
+	@OneToMany(mappedBy="beer")
+	private Set<BeerRating> beerRating;
 
 	@Override
 	public String toString() {
@@ -101,6 +107,14 @@ public class Beer {
 
 	public void setUsers(Set<User> users) {
 		this.users = users;
+	}
+
+	public Set<BeerRating> getBeerRating() {
+		return beerRating;
+	}
+
+	public void setBeerRating(Set<BeerRating> beerRating) {
+		this.beerRating = beerRating;
 	}
 
 }
