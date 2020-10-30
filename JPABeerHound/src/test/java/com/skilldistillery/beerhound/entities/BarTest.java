@@ -11,6 +11,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class BarTest {
@@ -43,7 +44,19 @@ class BarTest {
 	@Test
 	void test() {
 		assertNotNull(bar);
-		assertEquals("", bar.getName());
+		assertEquals("Firefly Saloon", bar.getName());
+		assertEquals("(303) 424-3670", bar.getPhoneNumber());
+	}
+	
+	@Test
+	@DisplayName("testing the mapping bar and address")
+	void test2() {
+		assertNotNull(bar);
+		assertNotNull(bar.getAddress());
+		assertEquals("80033" , bar.getAddress().getZip());
+		assertEquals("Wheat Ridge" , bar.getAddress().getCity());
+		assertEquals("CO" , bar.getAddress().getState());
+
 	}
 
 }
