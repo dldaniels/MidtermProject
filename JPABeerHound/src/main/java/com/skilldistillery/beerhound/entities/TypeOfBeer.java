@@ -8,7 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
+import javax.persistence.Table;
+@Table(name="type_of_beer")
 @Entity
 public class TypeOfBeer {
  

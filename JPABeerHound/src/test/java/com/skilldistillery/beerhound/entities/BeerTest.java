@@ -48,7 +48,7 @@ class BeerTest {
 	void test1() {
 		// TODO: complete entity tests
 		assertNotNull(beer);
-		assertEquals("", beer.getName());
+		assertEquals("Modus Hoperandi", beer.getName());
 	}
 
 }
