@@ -1,7 +1,7 @@
 package com.skilldistillery.beerhound.entities;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,26 +46,30 @@ public class Bar {
 	private Address address;
 
 	@ManyToMany(mappedBy = "favoriteBarList")
-	private Set<User> users;
-
-	public Set<BeerPrice> getBeerPrices() {
-		return beerPrices;
-	}
-
-	public void setBeerPrices(Set<BeerPrice> beerPrices) {
-		this.beerPrices = beerPrices;
-	}
+	private List<User> users;
 
 	@OneToMany(mappedBy = "bar")
-	private Set<BarRating> barRatings;
+	private List<BeerPrice> beerPrices;
 	
 	@OneToMany(mappedBy = "bar")
-	private Set<BeerPrice> beerPrices;
+	private List<BarRating> barRatings;
 	
 	
 	public Bar() {
 		super();
 	}
+	
+	
+	public List<BeerPrice> getBeerPrices() {
+		return beerPrices;
+	}
+
+	public void ListBeerPrices(List<BeerPrice> beerPrices) {
+		this.beerPrices = beerPrices;
+	}
+
+	
+	
 
 	public Bar(int id, String name, String phoneNumber, String website, String description, int addressId,
 			LocalDate timeLastUpdated, int ownerId, String logoUrl) {
@@ -85,7 +89,7 @@ public class Bar {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void ListId(int id) {
 		this.id = id;
 	}
 
@@ -93,7 +97,7 @@ public class Bar {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void ListName(String name) {
 		this.name = name;
 	}
 
@@ -101,7 +105,7 @@ public class Bar {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
+	public void ListPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -109,7 +113,7 @@ public class Bar {
 		return website;
 	}
 
-	public void setWebsite(String website) {
+	public void ListWebsite(String website) {
 		this.website = website;
 	}
 
@@ -117,7 +121,7 @@ public class Bar {
 		return description;
 	}
 
-	public void setDescription(String description) {
+	public void ListDescription(String description) {
 		this.description = description;
 	}
 
@@ -125,7 +129,7 @@ public class Bar {
 //		return addressId;
 //	}
 //
-//	public void setAddressId(int addressId) {
+//	public void ListAddressId(int addressId) {
 //		this.addressId = addressId;
 //	}
 
@@ -133,7 +137,7 @@ public class Bar {
 		return timeLastUpdated;
 	}
 
-	public void setTimeLastUpdated(LocalDate timeLastUpdated) {
+	public void ListTimeLastUpdated(LocalDate timeLastUpdated) {
 		this.timeLastUpdated = timeLastUpdated;
 	}
 
@@ -141,7 +145,7 @@ public class Bar {
 //		return ownerId;
 //	}
 //
-//	public void setOwnerId(int ownerId) {
+//	public void ListOwnerId(int ownerId) {
 //		this.ownerId = ownerId;
 //	}
 
@@ -149,7 +153,7 @@ public class Bar {
 		return logoUrl;
 	}
 
-	public void setLogoUrl(String logoUrl) {
+	public void ListLogoUrl(String logoUrl) {
 		this.logoUrl = logoUrl;
 	}
 
@@ -186,23 +190,23 @@ public class Bar {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void ListAddress(Address address) {
 		this.address = address;
 	}
 
-	public Set<User> getUsers() {
+	public List<User> getUsers() {
 		return users;
 	}
 
-	public void setUsers(Set<User> users) {
+	public void ListUsers(List<User> users) {
 		this.users = users;
 	}
 
-	public Set<BarRating> getBarRatings() {
+	public List<BarRating> getBarRatings() {
 		return barRatings;
 	}
 
-	public void setBarRatings(Set<BarRating> barRatings) {
+	public void ListBarRatings(List<BarRating> barRatings) {
 		this.barRatings = barRatings;
 	}
 

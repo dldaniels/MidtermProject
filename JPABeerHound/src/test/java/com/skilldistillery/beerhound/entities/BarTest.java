@@ -2,6 +2,7 @@ package com.skilldistillery.beerhound.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -59,4 +60,28 @@ class BarTest {
 
 	}
 
+//	@Test
+//	@DisplayName("testing the mapping bar and favoriteBarList")
+//	void test3() {
+//		assertNotNull(bar);
+//		assertNotNull(bar.getUsers().size());
+//		assertTrue(bar.getUsers().size() > 0);
+//		assertEquals("" , bar.getUsers().get(0).getFirstName());
+//		assertEquals("" , bar.getUsers().get(0).getLastName());
+//		assertEquals(, bar.getUsers().get(0).getId());
+//		
+//	}
+	
+	@Test
+	@DisplayName("testing the mapping bar and favoriteBarList")
+	void test3() {
+		assertNotNull(bar);
+		assertNotNull(bar.getBeerPrices().size());
+		assertTrue(bar.getBeerPrices().size() > 0);
+		assertEquals("", bar.getBeerPrices().get(0).getBeer().getName());
+		
+	}
+	
+	
+	
 }
