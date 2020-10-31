@@ -1,6 +1,6 @@
 package com.skilldistillery.beerhound.entities;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,13 +24,13 @@ public class TypeOfBeer {
 	private String typeName;
 	
 	@OneToMany(mappedBy = "typeOfBeer")
-	private Set<Beer> beers;
+	private List<Beer> beers;
 
-	public Set<Beer> getBeers() {
+	public List<Beer> getBeers() {
 		return beers;
 	}
 
-	public void setBeers(Set<Beer> beers) {
+	public void setBeers(List<Beer> beers) {
 		this.beers = beers;
 	}
 
