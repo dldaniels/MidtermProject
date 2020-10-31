@@ -13,27 +13,36 @@ import com.skilldistillery.beerhound.entities.Bar;
 @Transactional
 @Service
 public class BarDAOImpl implements BarDAO {
-
 	@PersistenceContext
 	private EntityManager em;
 
 	@Override
 	public Bar createBar(Bar bar) {
+		Bar createBar = new Bar();
+		createBar.setName(bar.getName());
+		createBar.setPhoneNumber(bar.getPhoneNumber());
+		createBar.setWebsite(bar.getWebsite());
+		createBar.setDescription(bar.getDescription());
+		createBar.setAddress(bar.getAddress());
+		createBar.setTimeLastUpdated(bar.getTimeLastUpdated());
+		createBar.setLogoUrl(bar.getLogoUrl());
+		createBar.setBeerPrices(bar.getBeerPrices());
+		createBar.setBarRatings(bar.getBarRatings());
+		
 		em.persist(bar);
 		return bar;
 	}
 
 	@Override
 	public List<Bar> searchBarByKeyWord(String keyword) {
-//		List <Bar> bar
-		
-//		return em.find(<Bar>.class, keyword);
-		return null;
+		String jpql = "SELECT b FROM Bar b";
+		return em.createQuery(jpql, Bar.class).getResultList();
 	}
 
 	@Override
 	public Bar updateBar(Bar bar) {
-		Bar updateBar = em.find(Bar.class, bar);
+		int id = bar.getId();
+		Bar updateBar = em.find(Bar.class, id);
 		updateBar.setName(bar.getName());
 		updateBar.setPhoneNumber(bar.getPhoneNumber());
 		updateBar.setWebsite(bar.getWebsite());
@@ -41,7 +50,10 @@ public class BarDAOImpl implements BarDAO {
 		updateBar.setAddress(bar.getAddress());
 		updateBar.setTimeLastUpdated(bar.getTimeLastUpdated());
 		updateBar.setLogoUrl(bar.getLogoUrl());
-		
+		updateBar.setBeerPrices(bar.getBeerPrices());
+		updateBar.setBarRatings(bar.getBarRatings());
+
+		em.persist(updateBar);
 		return updateBar;
 	}
 
@@ -49,6 +61,7 @@ public class BarDAOImpl implements BarDAO {
 	public boolean deleteBar(int id) {
 		Bar deleteBar = em.find(Bar.class, id);
 		em.remove(deleteBar);
+		
 		boolean deleted =! em.contains(deleteBar);
 		return deleted;
 	}
