@@ -14,6 +14,7 @@ import com.skilldistillery.beerhound.entities.User;
 @Transactional
 public class UserDAOImpl implements UserDAO {
 	
+	
 	@PersistenceContext
 	private EntityManager em;
 
@@ -51,8 +52,9 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<User> findUser(String keyword) {
-		String query = "SELECT u FROM User u WHERE u.username = :keyword";
+	public List<User> searchUsernames(String keyword) {
+		keyword = "%"+keyword+"%";
+		String query = "SELECT u FROM User u WHERE u.username LIKE :keyword";
 		return em.createQuery(query, User.class).setParameter("keyword", keyword).getResultList();
 	}
 
@@ -65,6 +67,18 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User getUserById(int id) {
 		return em.find(User.class, id);
+	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		String query = "SELECT u FROM User u WHERE u.email = :email";
+		User result = null;
+		try {
+			em.createQuery(query, User.class).setParameter("email", email).getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 }

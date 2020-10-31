@@ -9,8 +9,9 @@ public interface UserDAO {
 	
 	boolean deleteUser(int id);
 	User updateUser(User user);
-	List<User> findUser(String keyword);
+	List<User> searchUsernames(String keyword);
 	User createUser(User user);
 	User getUserById(int id);
+	User getUserByEmail(String email);
 	
 }
