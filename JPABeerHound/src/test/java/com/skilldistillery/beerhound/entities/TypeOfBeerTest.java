@@ -35,7 +35,7 @@ class TypeOfBeerTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		type = em.find(TypeOfBeer.class, 1);
+		type = em.find(TypeOfBeer.class, 7);
 	}
 
 	@AfterEach
@@ -48,7 +48,7 @@ class TypeOfBeerTest {
 	@Test
 	void test() {
 		assertNotNull(type);
-		assertEquals(1, type.getId());
+		assertEquals(7, type.getId());
 		
 	}
 	
@@ -58,7 +58,7 @@ class TypeOfBeerTest {
 		assertNotNull(type);
 		assertNotNull(type.getBeers());
 		assertTrue(type.getBeers().size() > 0);
-		assertEquals(0, type.getBeers().size());
+		assertEquals(1, type.getBeers().size());
 	}
 
 }
