@@ -35,8 +35,8 @@ public class BarDAOImpl implements BarDAO {
 
 	@Override
 	public List<Bar> searchBarByKeyWord(String keyword) {
-		String jpql = "SELECT b FROM Bar b";
-		return em.createQuery(jpql, Bar.class).getResultList();
+		String jpql = "SELECT b FROM Bar b WHERE b.name LIKE :key";
+		return em.createQuery(jpql, Bar.class).setParameter("key", keyword).getResultList();
 	}
 
 	@Override
