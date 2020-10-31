@@ -19,7 +19,28 @@
 <c:when test="${not empty user }">
 	<h3>${user.username }</h3>
 	
-	
+	<div class="row">
+		<div class="col">
+			<h4>Info</h4>
+			
+		</div>
+		<div class="col">
+			<h4>Actions</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<h4>Favorites</h4>
+		
+		</div>
+		
+		
+		<div class="col">
+			<h4>Reviews</h4>
+			
+			
+		</div>
+	</div>
 	
 	
 	
