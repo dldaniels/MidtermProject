@@ -60,13 +60,6 @@ public class Bar {
 	}
 	
 	
-	public List<BeerPrice> getBeerPrices() {
-		return beerPrices;
-	}
-
-	public void ListBeerPrices(List<BeerPrice> beerPrices) {
-		this.beerPrices = beerPrices;
-	}
 
 	
 	
@@ -84,78 +77,205 @@ public class Bar {
 //		this.ownerId = ownerId;
 		this.logoUrl = logoUrl;
 	}
+	
 
 	public int getId() {
 		return id;
 	}
 
-	public void ListId(int id) {
+
+
+
+
+
+	public void setId(int id) {
 		this.id = id;
 	}
+
+
+
+
+
 
 	public String getName() {
 		return name;
 	}
 
-	public void ListName(String name) {
+
+
+
+
+
+	public void setName(String name) {
 		this.name = name;
 	}
+
+
+
+
+
 
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void ListPhoneNumber(String phoneNumber) {
+
+
+
+
+
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
+
+
+
+
 
 	public String getWebsite() {
 		return website;
 	}
 
-	public void ListWebsite(String website) {
+
+
+
+
+
+	public void setWebsite(String website) {
 		this.website = website;
 	}
+
+
+
+
+
 
 	public String getDescription() {
 		return description;
 	}
 
-	public void ListDescription(String description) {
+
+
+
+
+
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
-//	public int getAddressId() {
-//		return addressId;
-//	}
-//
-//	public void ListAddressId(int addressId) {
-//		this.addressId = addressId;
-//	}
+
+
+
+
 
 	public LocalDate getTimeLastUpdated() {
 		return timeLastUpdated;
 	}
 
-	public void ListTimeLastUpdated(LocalDate timeLastUpdated) {
+
+
+
+
+
+	public void setTimeLastUpdated(LocalDate timeLastUpdated) {
 		this.timeLastUpdated = timeLastUpdated;
 	}
 
-//	public int getOwnerId() {
-//		return ownerId;
-//	}
-//
-//	public void ListOwnerId(int ownerId) {
-//		this.ownerId = ownerId;
-//	}
+
+
+
+
 
 	public String getLogoUrl() {
 		return logoUrl;
 	}
 
-	public void ListLogoUrl(String logoUrl) {
+
+
+
+
+
+	public void setLogoUrl(String logoUrl) {
 		this.logoUrl = logoUrl;
 	}
+
+
+
+
+
+
+	public Address getAddress() {
+		return address;
+	}
+
+
+
+
+
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+
+
+
+
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+
+
+
+
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+
+
+
+
+
+	public List<BeerPrice> getBeerPrices() {
+		return beerPrices;
+	}
+
+
+
+
+
+
+	public void setBeerPrices(List<BeerPrice> beerPrices) {
+		this.beerPrices = beerPrices;
+	}
+
+
+
+
+
+
+	public List<BarRating> getBarRatings() {
+		return barRatings;
+	}
+
+
+
+
+
+
+	public void setBarRatings(List<BarRating> barRatings) {
+		this.barRatings = barRatings;
+	}
+
+
+
+
+
 
 	@Override
 	public String toString() {
@@ -186,29 +306,8 @@ public class Bar {
 		return true;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
 
-	public void ListAddress(Address address) {
-		this.address = address;
-	}
-
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void ListUsers(List<User> users) {
-		this.users = users;
-	}
-
-	public List<BarRating> getBarRatings() {
-		return barRatings;
-	}
-
-	public void ListBarRatings(List<BarRating> barRatings) {
-		this.barRatings = barRatings;
-	}
+	
 
 //	@Override
 //	public String toString() {
