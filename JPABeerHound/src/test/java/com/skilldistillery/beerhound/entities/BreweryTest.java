@@ -45,4 +45,16 @@ class BreweryTest {
 		assertNotNull(brewery);
 		assertEquals("Ska Brewing", brewery.getName());
 	}
+	
+	@Test
+	void test_brewery_mapping_to_address() {
+		assertNotNull(brewery);
+		assertNotNull(brewery.getAddress());
+		assertEquals("81303" , brewery.getAddress().getZip());
+		assertEquals("Durango" , brewery.getAddress().getCity());
+		assertEquals("CO" , brewery.getAddress().getState());
+		
+		
+		
+	}
 }

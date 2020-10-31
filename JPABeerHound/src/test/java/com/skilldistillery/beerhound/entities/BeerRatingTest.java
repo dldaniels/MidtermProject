@@ -15,14 +15,13 @@ import org.junit.jupiter.api.Test;
 
 class BeerRatingTest {
 
-	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private BeerRating rating;
-	
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		 emf = Persistence.createEntityManagerFactory("BeerHoundPU");
+		emf = Persistence.createEntityManagerFactory("BeerHoundPU");
 	}
 
 	@AfterAll
@@ -43,11 +42,29 @@ class BeerRatingTest {
 	}
 
 	@Test
-	@DisplayName("test beer entity")
+	@DisplayName("test beer_rating entity")
 	void test1() {
 		// TODO: complete entity tests
 		assertNotNull(rating);
-		assertEquals("", rating.getStarRating());
+		assertEquals(2, rating.getStarRating());
+	}
+
+	@Test
+	@DisplayName("test rating to beer mapping")
+	void test2() {
+		assertNotNull(rating);
+		assertNotNull(rating.getBeer());
+		assertEquals("Modus Hoperandi", rating.getBeer().getName());
+
+	}
+
+	@Test
+	@DisplayName("test rating to user mapping")
+	void test3() {
+		assertNotNull(rating);
+		assertNotNull(rating.getUser());
+		assertEquals("admin", rating.getUser().getUsername());
+
 	}
 
 }
