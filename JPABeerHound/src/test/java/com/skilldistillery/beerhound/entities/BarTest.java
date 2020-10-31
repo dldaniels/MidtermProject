@@ -50,7 +50,7 @@ class BarTest {
 	}
 	
 	@Test
-	@DisplayName("testing the mapping bar and address")
+	@DisplayName("test for mapping bar and address")
 	void test2() {
 		assertNotNull(bar);
 		assertNotNull(bar.getAddress());
@@ -59,7 +59,7 @@ class BarTest {
 		assertEquals("CO" , bar.getAddress().getState());
 
 	}
-
+//
 //	@Test
 //	@DisplayName("testing the mapping bar and favoriteBarList")
 //	void test3() {
@@ -68,17 +68,17 @@ class BarTest {
 //		assertTrue(bar.getUsers().size() > 0);
 //		assertEquals("" , bar.getUsers().get(0).getFirstName());
 //		assertEquals("" , bar.getUsers().get(0).getLastName());
-//		assertEquals(, bar.getUsers().get(0).getId());
-//		
+////		assertEquals(, bar.getUsers().get(0).getId());	
 //	}
 	
 	@Test
-	@DisplayName("testing the mapping bar and favoriteBarList")
-	void test3() {
+	@DisplayName("testing the mapping bar and and beer prices")
+	void test4() {
 		assertNotNull(bar);
 		assertNotNull(bar.getBeerPrices().size());
 		assertTrue(bar.getBeerPrices().size() > 0);
-		assertEquals("", bar.getBeerPrices().get(0).getBeer().getName());
+		assertEquals("Modus Hoperandi", bar.getBeerPrices().get(0).getBeer().getName());
+		assertEquals(2, bar.getBeerPrices().get(0).getBeerPrice());
 		
 	}
 	
