@@ -12,10 +12,12 @@ import com.skilldistillery.beerhound.entities.Brewery;
 
 
 
+
 @Transactional
 @Service
 public class BreweryDAOImpl implements BreweryDAO {
-
+	
+	
 	
 	@PersistenceContext
 	private EntityManager em;
@@ -69,10 +71,16 @@ public class BreweryDAOImpl implements BreweryDAO {
 		return em.find(Brewery.class, id);
 	}
 
+	
+	
 	@Override
 	public List<Brewery> findBrewery(String keyword) {
-		String jpql = "SELECT breweries FROM Brewery breweries";
-		return em.createQuery(jpql, Brewery.class).getResultList();
+		keyword = "%"+keyword+"%";
+		String jpql = "SELECT breweries FROM Brewery breweries WHERE breweries.name LIKE :keyword";
+		System.out.println(jpql);
+		
+		return em.createQuery(jpql, Brewery.class).setParameter("keyword", keyword).getResultList();
+		
 		
 		
 	}
