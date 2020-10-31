@@ -81,8 +81,6 @@ public class BreweryDAOImpl implements BreweryDAO {
 		
 		return em.createQuery(jpql, Brewery.class).setParameter("keyword", keyword).getResultList();
 		
-		
-		
 	}
 
 }
