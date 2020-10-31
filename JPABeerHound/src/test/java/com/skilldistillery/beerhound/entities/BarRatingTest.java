@@ -13,7 +13,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
+ 
 class BarRatingTest {
 
 	
@@ -23,7 +23,7 @@ class BarRatingTest {
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		 emf = Persistence.createEntityManagerFactory("BarRatingHoundPU");
+		 emf = Persistence.createEntityManagerFactory("BeerHoundPU");
 	}
 
 	@AfterAll
@@ -46,9 +46,25 @@ class BarRatingTest {
 	@Test
 	@DisplayName("test barRating entity")
 	void test1() {
-		// TODO: complete entity tests
 		assertNotNull(barRating);
 		assertEquals(1, barRating.getId());
+		assertEquals(1, barRating.getStarRating());
+	}
+	
+	@Test
+	@DisplayName("test bar rating mapping to bar")
+	void test2() {
+		assertNotNull(barRating);
+		assertNotNull(barRating.getBar());
+		assertEquals("Firefly Saloon", barRating.getBar().getName());
+	}
+	
+	@Test
+	@DisplayName("test bar rating mapping to user")
+	void test3() {
+		assertNotNull(barRating);
+		assertNotNull(barRating.getUser());
+		assertEquals("Adam", barRating.getUser().getFirstName());
 	}
 
 }
