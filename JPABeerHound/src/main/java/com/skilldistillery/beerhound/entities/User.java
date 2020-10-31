@@ -2,7 +2,6 @@ package com.skilldistillery.beerhound.entities;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +13,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class User {
@@ -43,6 +44,7 @@ public class User {
 	private String image;
 
 	@Column(name = "create_date")
+	@CreationTimestamp
 	private LocalDateTime createDate;
 
 	@OneToOne
@@ -221,6 +223,70 @@ public class User {
 
 	public List<BeerRating> getBeerRatings() {
 		return beerRatings;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setBiography(String biography) {
+		this.biography = biography;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public void setCreateDate(LocalDateTime createDate) {
+		this.createDate = createDate;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public void setFavoriteBarList(List<Bar> favoriteBarList) {
+		this.favoriteBarList = favoriteBarList;
+	}
+
+	public void setFavoriteBeerList(List<Beer> favoriteBeerList) {
+		this.favoriteBeerList = favoriteBeerList;
+	}
+
+	public void setBarRatings(List<BarRating> barRatings) {
+		this.barRatings = barRatings;
+	}
+
+	public void setBeerRatings(List<BeerRating> beerRatings) {
+		this.beerRatings = beerRatings;
 	}
 
 	public void ListBeerRatings(List<BeerRating> beerRatings) {
