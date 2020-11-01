@@ -26,7 +26,6 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@NotNull
 	private String username;
 	
 	@Size(min=6, max=25)
@@ -37,13 +36,11 @@ public class User {
 	private String role;
 
 	@Column(name = "first_name")
-	@NotNull
 	private String firstName;
 
 	@Column(name = "last_name")
 	private String lastName;
 	
-	@NotNull
 	@Email
 	private String email;
 

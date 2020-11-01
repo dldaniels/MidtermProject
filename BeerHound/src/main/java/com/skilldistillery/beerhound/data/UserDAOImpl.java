@@ -13,8 +13,7 @@ import com.skilldistillery.beerhound.entities.User;
 @Service
 @Transactional
 public class UserDAOImpl implements UserDAO {
-	
-	
+
 	@PersistenceContext
 	private EntityManager em;
 
@@ -25,7 +24,7 @@ public class UserDAOImpl implements UserDAO {
 			return false;
 		}
 		em.remove(user);
-		return ! em.contains(user);
+		return !em.contains(user);
 	}
 
 	@Override
@@ -53,7 +52,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public List<User> searchUsernames(String keyword) {
-		keyword = "%"+keyword+"%";
+		keyword = "%" + keyword + "%";
 		String query = "SELECT u FROM User u WHERE u.username LIKE :keyword";
 		return em.createQuery(query, User.class).setParameter("keyword", keyword).getResultList();
 	}
@@ -83,10 +82,28 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public boolean isEmailUnique(String email) {
-		if(getUserByEmail(email) == null) {
+		if (getUserByEmail(email) == null) {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public User login(User user) {
+		if (user == null) { return null; }
+		User dbUser = null;
+		if (user.getEmail() != null) {
+			dbUser = getUserByEmail(user.getEmail());
+			if (dbUser == null) {
+				return null;
+			}
+		} else if (user.getUsername() != null) {
+			// TODO: dbUser = getUserByUsername(user.getUsername());
+		}
+		if (dbUser.getPassword().equals(user.getPassword())) {
+			return dbUser;
+		}
+		return dbUser;
 	}
 
 }
