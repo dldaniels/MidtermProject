@@ -32,10 +32,10 @@ public class BeerController {
 		return "beer/showBeer";
 	}
 
-	@RequestMapping(path = "getBeerList.do", method = RequestMethod.GET)
-	public String getBeerKeyWordSearch(String keyword, Model model) {
-		List<Beer> beer = beerDao.findByKeyword(keyword);
-		model.addAttribute("beer", beer);
+	@RequestMapping(path = "beerIndex.do", method = RequestMethod.GET)
+	public String getBeerKeyWordSearch(Integer bid, Model model) {
+		List<Beer> beerList = beerDao.findAll();
+		model.addAttribute("beers", beerList);
 		return "beer/beerList";
 	}
 
