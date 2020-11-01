@@ -112,5 +112,23 @@ public class UserController {
 		model.addAttribute("user", loggedInUser);
 		return "user/user";
 	}
+	
+	@RequestMapping(path="updateUser")
+	public String update(Model model, HttpSession session, Integer id) {
+		model.addAttribute("user", userDao.getUserById(id));
+		return "user/update";
+	}
+	
+	@RequestMapping(path="updateUser.do", method=RequestMethod.POST)
+	public String doUpdate(Model model, @Valid User user, Errors errors, HttpSession session) {
+		if (errors.hasErrors()) {
+			model.addAttribute("user", user);
+			return "user/update";
+		}
+		user = userDao.updateUser(user);
+		session.setAttribute("loginUser", user);
+		model.addAttribute("user", user);
+		return "user/user";
+	}
 
 }

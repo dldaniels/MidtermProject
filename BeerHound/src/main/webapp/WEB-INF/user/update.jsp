@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,10 +26,7 @@
 		<c:when test="${user.id == loginUser.id }">
 		<div class="col">
 			<h4>Actions</h4>
-			<form action="updateUser">
-				<input type="hidden" name="id" value="${user.id }">
-				<input type="submit" value="Update Profile" class="button">
-			</form>
+			<a href="updateUser.do">Update Profile</a>
 			<br>
 			<form action="deleteUser.do">
 				<input type="hidden" name="id" value="${user.id }">
@@ -45,14 +44,28 @@
 		<div class="col">
 			<h4>Info</h4>
 			<table class="table">
+				<form:form action="updateUser.do" method="POST" modelAttribute="user">
+				<form:hidden path="id" value="${user.id }"/>
+				<form:hidden path="enabled" value="${user.enabled }"/>
+				<form:hidden path="role" value="${user.role }"/>
+				<form:hidden path="image" value="${user.image }"/>
+				<form:hidden path="favoriteBarList" value="${user.favoriteBarList }"/>
+				<form:hidden path="favoriteBeerList" value="${user.favoriteBeerList }"/>
+				<form:hidden path="barRatings" value="${user.barRatings }"/>
+				<form:hidden path="beerRatings" value="${user.beerRatings }"/>
+				<form:hidden path="biography" value="${user.biography }"/>
 				<tr>
 					<td>ID</td><td>${user.id }</td>
 				</tr>
 				<tr>
-					<td>Username</td><td>${user.username }</td>
+					<td><form:label path="username">Username</form:label></td>
+					<td><form:input path="username" value="${user.username }"/></td>
+					<td><form:errors path="username"/></td>
 				</tr>
 				<tr>
-					<td>Password</td><td>${user.password }</td>
+					<td><form:label path="password">Password</form:label></td>
+					<td><form:input path="password" value="${user.password }"/></td>
+					<td><form:errors path="password"/></td>
 				</tr>
 				<tr>
 					<td>Enabled</td><td>${user.enabled }</td>
@@ -61,13 +74,19 @@
 					<td>Role</td><td>${user.role }</td>
 				</tr>
 				<tr>
-					<td>First Name</td><td>${user.firstName }</td>
+					<td><form:label path="firstName">First Name</form:label></td>
+					<td><form:input path="firstName" value="${user.firstName }"/></td>
+					<td><form:errors path="firstName"/></td>
 				</tr>
 				<tr>
-					<td>Last Name</td><td>${user.lastName }</td>
+					<td><form:label path="lastName">Last Name</form:label></td>
+					<td><form:input path="lastName" value="${user.lastName }"/></td>
+					<td><form:errors path="lastName"/></td>
 				</tr>
 				<tr>
-					<td>Email</td><td>${user.email }</td>
+					<td><form:label path="email">Email</form:label></td>
+					<td><form:input path="email" value="${user.email }"/></td>
+					<td><form:errors path="email"/></td>
 				</tr>
 				<tr>
 					<td>User Since</td><td>${user.createDate }</td>
@@ -84,6 +103,10 @@
 				<tr>
 					<td>ZIP</td><td>${user.address.zip }</td>
 				</tr>
+				<tr>
+					<td><input type="submit" value="Update"/></td>
+				</tr>
+				</form:form>
 			</table>
 			
 		</div>

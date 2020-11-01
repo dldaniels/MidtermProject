@@ -33,14 +33,14 @@ public class UserDAOImpl implements UserDAO {
 		if (dbUser == null) {
 			return null;
 		}
-		dbUser.setAddress(user.getAddress());
-		dbUser.setBarRatings(user.getBarRatings());
-		dbUser.setBeerRatings(user.getBeerRatings());
+//		dbUser.setAddress(user.getAddress());
+//		dbUser.setBarRatings(user.getBarRatings());
+//		dbUser.setBeerRatings(user.getBeerRatings());
 		dbUser.setBiography(user.getBiography());
 		dbUser.setEmail(user.getEmail());
 		dbUser.setEnabled(user.getEnabled());
-		dbUser.setFavoriteBarList(user.getFavoriteBarList());
-		dbUser.setFavoriteBeerList(user.getFavoriteBeerList());
+//		dbUser.setFavoriteBarList(user.getFavoriteBarList());
+//		dbUser.setFavoriteBeerList(user.getFavoriteBeerList());
 		dbUser.setFirstName(user.getFirstName());
 		dbUser.setLastName(user.getLastName());
 		dbUser.setPassword(user.getPassword());
