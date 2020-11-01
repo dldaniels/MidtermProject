@@ -13,11 +13,13 @@
 <body>
 
 
-	<h5>New Beer</h5>
+
+	<h5>New Beer:</h5>
 	<form action="addBeer.do" method="GET">
 
 		Name of Beer: <input type="text" name="name" placeholder="name"
 			required="required" /><br> 
+			Brewery name: <input type="text" name="brewery" placeholder="type"/><br>
 			Type of Beer: <input type="text" name="type" placeholder="type" /><br>
 			Alcohol content: <input type="number" name="Alcohol content" step=".1" placeholder="Alcohol Content" /><br>
 			ImageUrl: <input type="text"name="image" placeholder="image" /><br> 

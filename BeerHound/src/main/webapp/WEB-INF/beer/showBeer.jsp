@@ -8,11 +8,12 @@
 </head>
 <body>
 
+
 <h2>${beer.name}</h2>
 <br>
-<h2>${beer.typeOfBeer}</h2>
+<h2>${beer.typeOfBeer.typeName}</h2>
 <br>
-<h2>${beer.brewery}</h2>
+<h2>${beer.brewery.name}</h2>
 <br>
 <img src="${beer.imageUrl}" width = "200" height = "200">
 
