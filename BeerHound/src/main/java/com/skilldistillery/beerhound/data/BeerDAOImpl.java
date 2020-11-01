@@ -13,7 +13,6 @@ import com.skilldistillery.beerhound.entities.Beer;
 @Transactional
 @Service
 public class BeerDAOImpl implements BeerDAO {
-	
 
 	@PersistenceContext
 	private EntityManager em;
@@ -43,8 +42,8 @@ public class BeerDAOImpl implements BeerDAO {
 
 	@Override
 	public List<Beer> findByKeyword(String keyword) {
-		keyword = "%"+keyword+"%";
-	String jpql = "SELECT b FROM Beer b WHERE b.name LIKE :keyword";
+		keyword = "%" + keyword + "%";
+		String jpql = "SELECT b FROM Beer b WHERE b.name LIKE :keyword";
 		return em.createQuery(jpql, Beer.class).setParameter("keyword", keyword).getResultList();
 	}
 
@@ -74,6 +73,19 @@ public class BeerDAOImpl implements BeerDAO {
 		em.remove(beer);
 		boolean beerDeleted = !em.contains(beer);
 		return beerDeleted;
+	}
+
+	@Override
+	public Beer findBeerbyName(String name) {
+		String jpql = "SELECT b FROM Beer b WHERE b.name = :name";
+		Beer result = null;
+		try {
+			em.createQuery(jpql, Beer.class).setParameter("name", name).getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+
 	}
 
 }
