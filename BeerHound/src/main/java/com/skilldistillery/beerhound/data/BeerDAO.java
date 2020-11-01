@@ -11,6 +11,7 @@ public interface BeerDAO {
 	List<Beer> findByKeyword(String keyword);
 	Beer updateBeer(Beer beer);
 	boolean deleteBeer(int id);
+	Beer findBeerbyName(String name);
 	
 
 	
