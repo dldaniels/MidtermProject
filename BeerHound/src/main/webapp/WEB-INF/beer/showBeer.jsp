@@ -9,6 +9,23 @@
 <body>
 
 
+<form action="updateBeerForm.do" method="GET">
+				<input type="hidden" name="id" value="${beer.id }" /> <input
+					type="submit" value="Edit Beer" />
+			</form>
+			<br>
+
+			<form action="deleteBeer.do" method="GET">
+				<input type="hidden" name="id" value="${beer.id}" /> <input
+					type="submit" value="Delete Beer" />
+			</form>
+			<br>
+
+			<form action="/" method="GET">
+				<input type="hidden" name="" value="" /> <input type="submit"
+					value="Home" />
+			</form>
+
 <h2>${beer.name}</h2>
 <br>
 <h2>${beer.typeOfBeer.typeName}</h2>

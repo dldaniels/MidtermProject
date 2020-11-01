@@ -13,8 +13,6 @@
 		<c:when test="${! empty beer }">
 		<p>beer updated -- ${beer.name}</p><br>
 			
-		
-		
 		</c:when>
 		<c:when test="${empty beer }">
 			Beer deleted
