@@ -74,11 +74,19 @@ public class UserDAOImpl implements UserDAO {
 		String query = "SELECT u FROM User u WHERE u.email = :email";
 		User result = null;
 		try {
-			em.createQuery(query, User.class).setParameter("email", email).getSingleResult();
+			result = em.createQuery(query, User.class).setParameter("email", email).getSingleResult();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	@Override
+	public boolean isEmailUnique(String email) {
+		if(getUserByEmail(email) == null) {
+			return true;
+		}
+		return false;
 	}
 
 }
