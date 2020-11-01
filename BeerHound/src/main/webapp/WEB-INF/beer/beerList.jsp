@@ -28,12 +28,14 @@
 			<thead class="thead thead-dark">
 				<tr>
 					<th>Beer Name</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${beers}" var="beer">
 					<tr>
 						<td><a href="getBeer.do?id=${beer.id}">${beer.name}</a></td>
+						<td><img src="${beer.imageUrl}" width ="100" height = "100"> 
 					</tr>
 				</c:forEach>
 			</tbody>
