@@ -22,9 +22,12 @@
 	<div class="row">
 		<div class="col">
 			<h4>Actions</h4>
-			<a href="userUpdate.do">Update Profile</a>
+			<a href="updateUser.do">Update Profile</a>
 			<br>
-			<a href="userDelete.do">Delete Profile</a>
+			<form action="deleteUser.do">
+				<input type="hidden" name="id" value="${user.id }">
+				<input type="submit" value="Delete Profile" class="button">
+			</form>
 		</div>
 		<div class="col">
 			<img alt="User Profile Image" src="${user.image }">

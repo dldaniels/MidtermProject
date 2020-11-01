@@ -58,8 +58,21 @@ public class UserController {
 			errors.rejectValue("email", "error.email", user.getEmail() + " is already registered");
 			return "user/register";
 		}
-		userDao.createUser(user);
+		model.addAttribute("user", userDao.createUser(user));
 		return "user/user";
+	}
+	
+	@RequestMapping(path="deleteUser.do")
+	public String delete(Model model, Integer id) {
+		
+		boolean wasDeleted = userDao.deleteUser(id);
+		model.addAttribute("deleted", wasDeleted);
+		if (wasDeleted) {
+			return "user/delete";
+		} else {
+			model.addAttribute("user", userDao.getUserById(id));
+			return "user/delete";
+		}
 	}
 
 }
