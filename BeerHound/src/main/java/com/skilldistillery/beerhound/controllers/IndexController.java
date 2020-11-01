@@ -17,7 +17,7 @@ public class IndexController {
 	@Autowired
 	private IndexDAO indexDao;
 	
-	@RequestMapping(path="/")
+	@RequestMapping(path={"/", "index.do"})
 	public String getIndex(Model model) {
 		model.addAttribute("userList", indexDao.getUsers());
 		model.addAttribute("barList", indexDao.getBars());

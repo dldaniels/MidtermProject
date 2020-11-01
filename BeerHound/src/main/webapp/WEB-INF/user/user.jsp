@@ -17,8 +17,120 @@
 <div class="container">
 <c:choose>
 <c:when test="${not empty user }">
-	<h3>${user.username }</h3>
+	<div class="row"><h3>${user.username }</h3></div>
 	
+	<div class="row">
+		<div class="col">
+			<h4>Actions</h4>
+			<a href="updateUser.do">Update Profile</a>
+			<br>
+			<form action="deleteUser.do">
+				<input type="hidden" name="id" value="${user.id }">
+				<input type="submit" value="Delete Profile" class="button">
+			</form>
+		</div>
+		<div class="col">
+			<img alt="User Profile Image" src="${user.image }">
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col">
+			<h4>Info</h4>
+			<table class="table">
+				<tr>
+					<td>ID</td><td>${user.id }</td>
+				</tr>
+				<tr>
+					<td>Username</td><td>${user.username }</td>
+				</tr>
+				<tr>
+					<td>Password</td><td>${user.password }</td>
+				</tr>
+				<tr>
+					<td>Enabled</td><td>${user.enabled }</td>
+				</tr>
+				<tr>
+					<td>Role</td><td>${user.role }</td>
+				</tr>
+				<tr>
+					<td>First Name</td><td>${user.firstName }</td>
+				</tr>
+				<tr>
+					<td>Last Name</td><td>${user.lastName }</td>
+				</tr>
+				<tr>
+					<td>Email</td><td>${user.email }</td>
+				</tr>
+				<tr>
+					<td>User Since</td><td>${user.createDate }</td>
+				</tr>
+				<tr>
+					<td>Street</td><td>${user.address.street }</td>
+				</tr>
+				<tr>
+					<td>City</td><td>${user.address.city }</td>
+				</tr>
+				<tr>
+					<td>State</td><td>${user.address.state }</td>
+				</tr>
+				<tr>
+					<td>ZIP</td><td>${user.address.zip }</td>
+				</tr>
+			</table>
+			
+		</div>
+		<div class="col">
+			<h4>Bio</h4>
+				<p>${user.biography }</p>
+			<h4>Favorites</h4>
+			<table class="table">
+					<tr>
+						<th>Bars</th>
+					</tr>
+				<c:forEach items="${user.favoriteBarList }" var="i">
+					<tr>
+						<td><a href="getBar.do?id=${i.id }">${i.name }</a></td>
+					</tr>
+				</c:forEach>
+					<tr>
+						<th>Beer</th>
+					</tr>
+				<c:forEach items="${user.favoriteBeerList }" var="i">
+					<tr>
+						<td><a href="getBeer.do?id=${i.id }">${i.name }</a></td>
+					</tr>
+				</c:forEach>
+			
+			</table>
+			<h4>Reviews</h4>
+			<table class="table">
+					<tr>
+						<th>Bars</th>
+					</tr>
+				<c:forEach items="${user.barRatings }" var="i">
+					<tr>
+						<td><a href="getBar.do?id=${i.bar.id }">${i.bar.name }</a></td>
+					</tr>
+				</c:forEach>
+					<tr>
+						<th>Beer</th>
+					</tr>
+				<c:forEach items="${user.beerRatings }" var="i">
+					<tr>
+						<td><a href="getBeer.do?id=${i.beer.id }">${i.beer.name }</a></td>
+					</tr>
+				</c:forEach>
+			
+			</table>
+		</div>
+		
+			
+		
+	</div>
+	
+		
+		
 	
 	
 	
