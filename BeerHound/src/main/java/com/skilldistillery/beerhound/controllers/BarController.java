@@ -17,7 +17,7 @@ public class BarController {
 	@Autowired
 	private BarDAO barDao;
 	
-	@RequestMapping(path="getBar.do", params = "id")
+	@RequestMapping(path="getBar.do", method = RequestMethod.GET)
 	public String getBarById(Integer id, Model model) {
 		
 		Bar bar = barDao.findBarById(id);
@@ -27,7 +27,7 @@ public class BarController {
 		return "bar/bar";
 	}
 	
-	@RequestMapping(path="getBarkw.do")
+	@RequestMapping(path="getBarkw.do", method = RequestMethod.GET)
 	public String getBarbyKw(Model model, String keyword) {
 		
 		List<Bar> bars = barDao.searchBarByKeyWord(keyword);
@@ -40,7 +40,6 @@ public class BarController {
 	
 	@RequestMapping(path="createBar.do", method = RequestMethod.GET)
 	public String createBar(Model model) {
-		
 		return "bar/createBar";
 	}
 	@RequestMapping(path="createdBar.do")
@@ -50,7 +49,8 @@ public class BarController {
 		
 	}
 	
-	public String updateBar(Integer id, Model model) {
+	@RequestMapping(path="updateBar.do", method = RequestMethod.GET)
+	public String updateBar(int id, Model model, Bar bar) {
 		
 		Bar bars = barDao.findBarById(id);
 			
@@ -58,10 +58,19 @@ public class BarController {
 				
 		model.addAttribute("bar", bars);
 				
+		return "bar/updated";
+	}
+	
+	@RequestMapping(path="updatedBar.do", method = RequestMethod.GET)
+	public String getUpdateBar(Model model, Integer id) {
+		
+		Bar bar = barDao.findBarById(id);
+		
+		model.addAttribute("bar", bar);
 		return "bar/update";
 	}
 	
-	@RequestMapping(path ="deletebar.do")
+	@RequestMapping(path ="deletebar.do", method = RequestMethod.GET)
 	public ModelAndView deleteBar(int id) {
 		
 		ModelAndView mv = new ModelAndView();

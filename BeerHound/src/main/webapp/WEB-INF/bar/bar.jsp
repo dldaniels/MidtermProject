@@ -13,6 +13,17 @@
 <p> Bar info: ${bar.description}, ${bar.address}</p>
 <p> bar Price: ${bar.beerPrices}, Bar Rating: ${bar.barRating}</p>
 </div>
-
+<div>
+		<form action="updateBar.do"method "GET">
+			<input type="hidden" value="${bar.id}" name="id"> <input
+				type="submit" value="Update SuperBowl">
+		</form>
+	</div>
+	<div>
+		<form action="deletebar.do"method "GET">
+			<input type="hidden" value="${bar.id}" name="id"> <input
+				type="submit" value="Delete Bar">
+		</form>
+	</div>
 </body>
 </html>
