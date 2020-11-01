@@ -51,7 +51,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="createUser.do", method=RequestMethod.POST)
-	public String createUser(Model model, @Valid User user, Errors errors) {
+	public String createUser(Model model, @Valid User user, Errors errors, HttpSession session) {
 		if (errors.hasErrors()) {
 			return "user/register";
 		}
@@ -59,7 +59,9 @@ public class UserController {
 			errors.rejectValue("email", "error.email", user.getEmail() + " is already registered");
 			return "user/register";
 		}
-		model.addAttribute("user", userDao.createUser(user));
+		User registeredUser = userDao.createUser(user);
+		model.addAttribute("user", registeredUser);
+		session.setAttribute("loginUser", registeredUser);
 		return "user/user";
 	}
 	
@@ -74,7 +76,7 @@ public class UserController {
 			return "user/delete";
 		}
 		// if not admin and not same user, also cannot delete
-		if (loggedInUser.getRole() != "admin" && loggedInUser.getId() != userToDelete.getId()) {
+		if (loggedInUser.getRole() != "ADMIN" && loggedInUser.getId() != userToDelete.getId()) {
 			model.addAttribute("deleted", wasDeleted);
 			return "user/delete";
 		}
