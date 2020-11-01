@@ -19,6 +19,8 @@
 <a href="barIndex.do">Bars</a>
 <a href="beerIndex.do">Beers</a>
 <a href="breweryIndex.do">Breweries</a>
+<a href="register.do">Register</a>
+<a href="login">Login</a>
 
 <table class="table">
 		<thead>

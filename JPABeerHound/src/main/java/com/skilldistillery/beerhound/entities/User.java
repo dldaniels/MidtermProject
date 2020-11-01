@@ -13,6 +13,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -22,9 +25,10 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
+	
 	private String username;
-
+	
+	@Size(min=6, max=25)
 	private String password;
 
 	private Boolean enabled;
@@ -36,7 +40,8 @@ public class User {
 
 	@Column(name = "last_name")
 	private String lastName;
-
+	
+	@Email
 	private String email;
 
 	private String biography;

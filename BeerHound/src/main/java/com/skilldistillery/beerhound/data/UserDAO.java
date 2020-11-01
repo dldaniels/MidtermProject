@@ -13,5 +13,7 @@ public interface UserDAO {
 	User createUser(User user);
 	User getUserById(int id);
 	User getUserByEmail(String email);
+	boolean isEmailUnique(String email);
+	User login(User user);
 	
 }

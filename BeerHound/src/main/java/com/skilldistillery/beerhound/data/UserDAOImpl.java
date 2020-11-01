@@ -13,8 +13,7 @@ import com.skilldistillery.beerhound.entities.User;
 @Service
 @Transactional
 public class UserDAOImpl implements UserDAO {
-	
-	
+
 	@PersistenceContext
 	private EntityManager em;
 
@@ -25,7 +24,7 @@ public class UserDAOImpl implements UserDAO {
 			return false;
 		}
 		em.remove(user);
-		return ! em.contains(user);
+		return !em.contains(user);
 	}
 
 	@Override
@@ -34,14 +33,14 @@ public class UserDAOImpl implements UserDAO {
 		if (dbUser == null) {
 			return null;
 		}
-		dbUser.setAddress(user.getAddress());
-		dbUser.setBarRatings(user.getBarRatings());
-		dbUser.setBeerRatings(user.getBeerRatings());
+//		dbUser.setAddress(user.getAddress());
+//		dbUser.setBarRatings(user.getBarRatings());
+//		dbUser.setBeerRatings(user.getBeerRatings());
 		dbUser.setBiography(user.getBiography());
 		dbUser.setEmail(user.getEmail());
 		dbUser.setEnabled(user.getEnabled());
-		dbUser.setFavoriteBarList(user.getFavoriteBarList());
-		dbUser.setFavoriteBeerList(user.getFavoriteBeerList());
+//		dbUser.setFavoriteBarList(user.getFavoriteBarList());
+//		dbUser.setFavoriteBeerList(user.getFavoriteBeerList());
 		dbUser.setFirstName(user.getFirstName());
 		dbUser.setLastName(user.getLastName());
 		dbUser.setPassword(user.getPassword());
@@ -53,7 +52,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public List<User> searchUsernames(String keyword) {
-		keyword = "%"+keyword+"%";
+		keyword = "%" + keyword + "%";
 		String query = "SELECT u FROM User u WHERE u.username LIKE :keyword";
 		return em.createQuery(query, User.class).setParameter("keyword", keyword).getResultList();
 	}
@@ -74,11 +73,37 @@ public class UserDAOImpl implements UserDAO {
 		String query = "SELECT u FROM User u WHERE u.email = :email";
 		User result = null;
 		try {
-			em.createQuery(query, User.class).setParameter("email", email).getSingleResult();
+			result = em.createQuery(query, User.class).setParameter("email", email).getSingleResult();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	@Override
+	public boolean isEmailUnique(String email) {
+		if (getUserByEmail(email) == null) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public User login(User user) {
+		if (user == null) { return null; }
+		User dbUser = null;
+		if (user.getEmail() != null) {
+			dbUser = getUserByEmail(user.getEmail());
+			if (dbUser == null) {
+				return null;
+			}
+		} else if (user.getUsername() != null) {
+			// TODO: dbUser = getUserByUsername(user.getUsername());
+		}
+		if (dbUser.getPassword().equals(user.getPassword())) {
+			return dbUser;
+		}
+		return dbUser;
 	}
 
 }
