@@ -55,7 +55,7 @@ public class BreweryController {
 	
 	
 	@RequestMapping(path = "updateBrewery.do", method = RequestMethod.GET)
-	public String updateBoard(Model model, int id, Brewery brewery) {
+	public String updateBrewery(Model model, int id, Brewery brewery) {
 		
 		Brewery dbBrewery = breweryDAO.findBreweryById(id);
 		
@@ -74,7 +74,7 @@ public class BreweryController {
 	
 	
 	@RequestMapping(path = "addedBrewery.do", method = RequestMethod.GET)
-	public String addBoard(Model model, Brewery brewery) {
+	public String addBrewery(Model model, Brewery brewery) {
 		
 		
 		Brewery dbBrewery = breweryDAO.createBrewery(brewery);
@@ -86,7 +86,7 @@ public class BreweryController {
 	
 	
 	@RequestMapping(path = "deleteBrewery.do", method = RequestMethod.GET)
-	public String deleteBoard(Model model, int id) {
+	public String deleteBrewery(Model model, int id) {
 		
 		Brewery brewery = breweryDAO.findBreweryById(id);
 		
