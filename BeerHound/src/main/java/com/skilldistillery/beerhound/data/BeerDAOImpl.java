@@ -18,6 +18,24 @@ public class BeerDAOImpl implements BeerDAO {
 	private EntityManager em;
 
 	@Override
+	public List<Beer> findAll() {
+		String jpql = "SELECT b FROM Beer b ORDER BY name";
+		return em.createQuery(jpql, Beer.class).getResultList();
+	}
+
+	@Override
+	public Beer findBeer(int id) {
+		return em.find(Beer.class, id);
+	}
+
+	@Override
+	public List<Beer> findByKeyword(String keyword) {
+		keyword = "%" + keyword + "%";
+		String jpql = "SELECT b FROM Beer b WHERE b.name LIKE :keyword";
+		return em.createQuery(jpql, Beer.class).setParameter("keyword", keyword).getResultList();
+	}
+
+	@Override
 	public Beer createBeer(Beer beer) {
 
 		Beer addBeer = new Beer();
@@ -33,18 +51,6 @@ public class BeerDAOImpl implements BeerDAO {
 		em.persist(addBeer);
 
 		return beer;
-	}
-
-	@Override
-	public Beer findBeer(int id) {
-		return em.find(Beer.class, id);
-	}
-
-	@Override
-	public List<Beer> findByKeyword(String keyword) {
-		keyword = "%" + keyword + "%";
-		String jpql = "SELECT b FROM Beer b WHERE b.name LIKE :keyword";
-		return em.createQuery(jpql, Beer.class).setParameter("keyword", keyword).getResultList();
 	}
 
 	@Override
