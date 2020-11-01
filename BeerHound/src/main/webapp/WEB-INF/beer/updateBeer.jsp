@@ -7,6 +7,7 @@
 <title>update beer</title>
 </head>
 <body>
+<h3>Edit Beer</h3>
 
 </body>
 </html>
