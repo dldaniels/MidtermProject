@@ -8,13 +8,13 @@
 </head>
 <body>
 <form action="createBar.do" method="GET">
-Name: <input type="text" value="name"/>
-Phone Number: <input type="text" value="phoneNumber"/>
-Website: <input type="text" value="website"/><br>
-Description: <input type="text" value="description"/><br>
-Address: <input type="text" value="addressId"/>
-TimeLastUpdated: <input type="text" value="timeLastUpdated"/>
-Logo: <input type="text" value="logoUrl"/>
+Name: <input type="text" name="name"/>
+Phone Number: <input type="text" name="phoneNumber"/>
+Website: <input type="text" name="website"/><br>
+Description: <input type="text" name="description"/><br>
+Address: <input type="text" name="addressId"/>
+TimeLastUpdated: <input type="text" name="timeLastUpdated"/>
+Logo: <input type="text" name="logoUrl"/>
 <input type="submit" value="Submit"/>
 </form>
 
