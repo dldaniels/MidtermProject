@@ -11,6 +11,12 @@
 	crossorigin="anonymous">
 </head>
 <body>
+<div class="container">
+<jsp:include page = "../headersFooters/header.jsp"></jsp:include>
+</div>
+<br>
+<br>
+
 
 
 

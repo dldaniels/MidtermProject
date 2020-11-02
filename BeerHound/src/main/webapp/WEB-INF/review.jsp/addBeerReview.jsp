@@ -37,5 +37,19 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	
+	
+	
+	
+	
+	
+	
+	
+	 <label>Leave a review</label>
+          <textarea>
+          
+          </textarea>
+	
+	
 </body>
 </html>
