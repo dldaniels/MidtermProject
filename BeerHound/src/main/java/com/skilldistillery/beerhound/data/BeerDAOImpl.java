@@ -59,13 +59,12 @@ public class BeerDAOImpl implements BeerDAO {
 
 		Beer editBeer = em.find(Beer.class, id);
 
-		
 		editBeer.setName(beer.getName());
-	//	editBeer.setBrewery(beer.getBrewery());
-	//	editBeer.setTypeOfBeer(beer.getTypeOfBeer());
+		// editBeer.setBrewery(beer.getBrewery());
+		// editBeer.setTypeOfBeer(beer.getTypeOfBeer());
 		editBeer.setAlcoholContent(beer.getAlcoholContent());
-	//	editBeer.setBeerPrice(beer.getBeerPrice());
-	//	editBeer.setBeerRating(beer.getBeerRating());
+		// editBeer.setBeerPrice(beer.getBeerPrice());
+		// editBeer.setBeerRating(beer.getBeerRating());
 		editBeer.setImageUrl(beer.getImageUrl());
 		editBeer.setDescription(beer.getDescription());
 
@@ -99,12 +98,8 @@ public class BeerDAOImpl implements BeerDAO {
 	@Override
 	public List<Beer> findByType(int id) {
 		String jpql = "SELECT b FROM Beer b WHERE b.typeOfBeer :id";
-		List<Beer> type = em.createQuery(jpql, Beer.class).setParameter("id" , id).getResultList();	
+		List<Beer> type = em.createQuery(jpql, Beer.class).setParameter("id", id).getResultList();
 		return type;
-	}
-	
-	
-		
 	}
 
 }
