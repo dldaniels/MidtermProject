@@ -58,9 +58,9 @@ public class BeerController {
 	}
 
 	@RequestMapping(path = "updateBeer.do")
-  public String updateBeer(Beer beer, Integer id, Model model) {
+	public String updateBeer(Beer beer, Integer id, Model model) {
 		beer = beerDao.updateBeer(id, beer);
-	//	updatedBeer = beerDao.updateBeer(updatedBeer);
+		//	updatedBeer = beerDao.updateBeer(updatedBeer);
 		model.addAttribute("beer", beer);
 		System.out.println(beer);
 		return "beer/showBeer";
