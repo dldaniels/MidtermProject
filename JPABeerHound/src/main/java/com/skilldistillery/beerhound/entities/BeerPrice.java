@@ -100,6 +100,12 @@ public class BeerPrice {
 	public void setSizePrice(Double sizePrice) {
 		this.sizePrice = sizePrice;
 	}
+
+	public BeerPrice(Beer beer, Bar bar) {
+		super();
+		this.beer = beer;
+		this.bar = bar;
+	}
 	
 
 }
