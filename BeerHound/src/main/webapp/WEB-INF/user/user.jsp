@@ -28,7 +28,7 @@
 	
 	<div class="row">
 		<c:choose>
-		<c:when test="${user.id == loginUser.id }">
+		<c:when test="${user.id == loginUser.id || loginUser.role == 'ADMIN'}">
 		<div class="col">
 			<h4>Actions</h4>
 			<form action="updateUser">
