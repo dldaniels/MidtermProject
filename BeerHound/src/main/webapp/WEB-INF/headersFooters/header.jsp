@@ -29,7 +29,7 @@
           <a class="nav-link" href="#">View Beer by Brewery</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">View Bars</a>
+          <a class="nav-link" href="barIndex.do">View Bars<span class="sr-only">(current)</span></a>
         </li>
       </ul>
       <form class="form-inline">
