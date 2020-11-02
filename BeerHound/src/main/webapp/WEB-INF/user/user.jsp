@@ -15,13 +15,20 @@
 </head>
 <body>
 <div class="container">
+<jsp:include page = "../headersFooters/header.jsp"></jsp:include>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
 <c:choose>
 <c:when test="${not empty user }">
 	<div class="row"><h3>${user.username }</h3></div>
 	
 	<div class="row">
 		<c:choose>
-		<c:when test="${user.id == loginUser.id }">
+		<c:when test="${user.id == loginUser.id || loginUser.role == 'ADMIN'}">
 		<div class="col">
 			<h4>Actions</h4>
 			<form action="updateUser">
