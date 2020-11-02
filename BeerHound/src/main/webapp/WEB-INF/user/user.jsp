@@ -15,6 +15,13 @@
 </head>
 <body>
 <div class="container">
+<jsp:include page = "../headersFooters/header.jsp"></jsp:include>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
 <c:choose>
 <c:when test="${not empty user }">
 	<div class="row"><h3>${user.username }</h3></div>
