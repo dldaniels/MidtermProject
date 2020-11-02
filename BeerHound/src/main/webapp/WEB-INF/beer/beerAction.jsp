@@ -10,11 +10,11 @@
 <body>
 <div class="container-fluid">
 	<c:choose>
-		<c:when test="${! empty beer }">
+		<c:when test="${! empty beer.name }">
 		<p>beer updated -- ${beer.name}</p><br>
 			
 		</c:when>
-		<c:when test="${empty beer }">
+		<c:when test="${empty beer.name }">
 			Beer deleted
 			<br>
 		</c:when>
