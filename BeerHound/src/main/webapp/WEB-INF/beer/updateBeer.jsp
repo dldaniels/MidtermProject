@@ -54,7 +54,7 @@
 	<br> ImageUrl:
 	<input type="text" name="imageUrl" value="${beer.imageUrl}" />
 	<br>
-
+	<input type="text" name="description" value="${beer.description}"/>
 	<button class="btn btn-warning" type="submit" name="id"
 		value="${beer.id}">Update Beer</button>
 

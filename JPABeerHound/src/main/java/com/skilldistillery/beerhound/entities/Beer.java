@@ -29,6 +29,8 @@ public class Beer {
 
 	// TODO: Add relationship with beer price
 	
+	private String description;
+	
 
 	@ManyToMany(mappedBy = "favoriteBeerList")
 	private Set<User> users;
@@ -150,6 +152,14 @@ public class Beer {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 

@@ -27,7 +27,8 @@
 			required="required" /><br>
 			Type of Beer: <input type="text" name="type" placeholder="type" /><br>
 			Alcohol content: <input type="number" name="Alcohol content" step=".1" placeholder="Alcohol Content" /><br>
-			ImageUrl: <input type="text"name="image" placeholder="image" /><br> 
+			Image Url: <input type="text"name="image" placeholder="image" /><br> 
+			Description: <input type="text" name ="description"/>
 		
 		<input class="btn btn-warning" type="submit" value="Add beer" />
 	</form>
