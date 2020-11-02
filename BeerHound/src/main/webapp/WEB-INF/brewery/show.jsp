@@ -19,26 +19,26 @@
 				<h3>List of beers</h3><br>
 	
 	<table>
-		<thead>
-		  <tr>
-			<th>Beer ID</th>
-			<th>Name</th>
-		  </tr>
-		</thead>
 		<tbody>
-			<c:forEach items="${brewery.beers}" var="beers">
+			<c:forEach items="${brewery.beers}" var="beer">
 				<tr>
-					<td>${beers.id}</td>
-					<td>${beers.name}</td>
+					
+					<td><a href="getBeer.do?id=${beer.id}">${beer.name}</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 					
 				<p>${brewery.address}</p>
-				<p>${brewery.breweryLogoUrl}"</p>
-				<p>${brewery.breweryWebsite}</p>
-			</div>
+				
+				
+			<p>	<a href="${brewery.breweryWebsite}">${brewery.breweryWebsite}</a> <p>
+				
+				
+				
+				<img src="${beer.imageUrl}" width = "200" height = "200">
+				
+			</div><br>
 			
 			<form action="getBreweryUpdate.do" method="GET">
 				<input type="hidden" name="id" value="${brewery.id }" /> <input
@@ -61,7 +61,7 @@
 		<c:otherwise>
 			<p>No result</p>
 			<br>
-			<form action="home.do" method="GET">
+			<form action="index.do" method="GET">
 				<input type="hidden" name="" value="" /> <input type="submit"
 					value="Back to home page" />
 			</form>

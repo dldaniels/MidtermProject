@@ -13,27 +13,27 @@
 	 <c:choose>
 		<c:when test="${! empty brewery }">
 
-			brewery you are editing: ${brewery.brand} - ${brewery.name}
-			<br>
+		<h2>	Brewery you are editing: ${brewery.name} </h2>
+			
 			
 			<form action="updateBrewery.do" method="GET"><br>
 			
-				<label for="name">Name:</label> <input type="text" name="name"
+				<label for="name">Change Brewery Name:</label> <input type="text" name="name"
 					value="${brewery.name}" /> <input type="hidden" name="id"
 					value="${brewery.id}" /> 
 			<br>
-				<label for="address">Address:</label> <input type="text" name="address"
+				<%-- <label for="address">Address:</label> <input type="text" name="address"
 					value="${brewery.address}" /> <input type="hidden" name="id"
-					value="${brewery.id}" /> 
+					value="${brewery.id}" />  --%>
 			<br>
-				<label for="breweryWebsite">Length:</label> <input type="text" name="breweryWebsite"
+		<%-- 		<label for="breweryWebsite">Website:</label> <input type="text" name="breweryWebsite"
 					value="${brewery.breweryWebsite}" /> <input type="hidden" name="id"
 					value="${brewery.id}" /> 
 			<br>
 				<label for="breweryLogoUrl">Brewery Logo:</label> <input type="text" name="breweryLogoUrl"
 					value="${brewery.breweryLogoUrl}" /> <input type="hidden" name="id"
 					value="${brewery.id}" /> 
-			<br>
+			<br> --%>
 			
 			<h3>List of beers to edit</h3><br>
 	
@@ -65,6 +65,12 @@
 	</c:choose>
  
 </div>
+			<form action="index.do" method="GET">
+				<input type="hidden" name="" value="" /> <input type="submit"
+					value="Back to home page" />
+			</form>
+
+
 </body>
 </html>
 

@@ -19,6 +19,17 @@ public class BreweryController {
 	private BreweryDAO breweryDAO;
 	
 	
+	
+	
+	@RequestMapping(path = "breweryIndex.do", method = RequestMethod.GET)
+	public String showAllBreweries(Model model) {
+		List<Brewery> breweryList = breweryDAO.listAllBreweries();
+		model.addAttribute("breweries", breweryList);
+		
+		return "brewery/breweryIndex";
+	}
+	
+	
 	@RequestMapping(path = "getBrewery.do", method = RequestMethod.GET)
 	public String showBreweryById(Integer id, Model model) {
 		

@@ -23,11 +23,12 @@ public class ReviewDAOImpl implements ReviewDAO {
 	public BarRating addBarRating(BarRating barRating) {
 	
 		BarRating dbBarRating = new BarRating();
+		
+		dbBarRating.setBar(barRating.getBar());
 		dbBarRating.setStarRating(barRating.getStarRating());
 		dbBarRating.setReview(barRating.getReview());
 		dbBarRating.setRatingDate(barRating.getRatingDate());
 		dbBarRating.setUser(barRating.getUser());
-		dbBarRating.setBar(barRating.getBar());
 		
 		em.persist(barRating);
 		

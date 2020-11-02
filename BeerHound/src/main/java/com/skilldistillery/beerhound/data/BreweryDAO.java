@@ -11,9 +11,7 @@ public interface BreweryDAO {
 	Brewery createBrewery(Brewery brewery);
 	Brewery findBreweryById(int id);
 	List<Brewery> findBrewery(String keyword);
-	
-	
-	
+	List<Brewery> listAllBreweries();
 	
 	
 }
