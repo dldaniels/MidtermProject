@@ -33,20 +33,40 @@ public class UserDAOImpl implements UserDAO {
 		if (dbUser == null) {
 			return null;
 		}
-		dbUser.setAddress(user.getAddress());
-//		dbUser.setBarRatings(user.getBarRatings());
-//		dbUser.setBeerRatings(user.getBeerRatings());
-		dbUser.setBiography(user.getBiography());
-		dbUser.setEmail(user.getEmail());
-		dbUser.setEnabled(user.getEnabled());
-//		dbUser.setFavoriteBarList(user.getFavoriteBarList());
-//		dbUser.setFavoriteBeerList(user.getFavoriteBeerList());
-		dbUser.setFirstName(user.getFirstName());
-		dbUser.setLastName(user.getLastName());
-		dbUser.setPassword(user.getPassword());
-		dbUser.setRole(user.getRole());
-		dbUser.setUsername(user.getUsername());
-		dbUser.setImage(user.getImage());
+		if (user.getAddress() != null) {
+			dbUser.setAddress(user.getAddress());
+		}
+		if (user.getBiography() != null) {
+			dbUser.setBiography(user.getBiography());
+		}
+		if (user.getEmail() != null) {
+			dbUser.setEmail(user.getEmail());
+		}
+		if (user.getEnabled() != null) {
+			dbUser.setEnabled(user.getEnabled());
+		}
+		if (user.getFirstName() != null) {
+			dbUser.setFirstName(user.getFirstName());
+		}
+		if (user.getLastName() != null) {
+			dbUser.setLastName(user.getLastName());
+		}
+		if (user.getPassword() != null) {
+			dbUser.setPassword(user.getPassword());
+		}
+		if (user.getRole() != null) {
+			dbUser.setRole(user.getRole());
+		}
+		if (user.getUsername() != null) {
+			dbUser.setUsername(user.getUsername());
+		}
+		if (user.getImage() != null) {
+			dbUser.setImage(user.getImage());
+		}
+		//		dbUser.setBarRatings(user.getBarRatings());
+		//		dbUser.setBeerRatings(user.getBeerRatings());
+		//		dbUser.setFavoriteBarList(user.getFavoriteBarList());
+		//		dbUser.setFavoriteBeerList(user.getFavoriteBeerList());
 		return dbUser;
 	}
 

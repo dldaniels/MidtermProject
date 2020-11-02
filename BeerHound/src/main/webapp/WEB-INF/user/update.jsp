@@ -135,7 +135,13 @@
 		</div>
 		<div class="col">
 			<h4>Bio</h4>
-				<p>${user.biography }</p>
+				<%-- <p>${user.biography }</p> --%>
+				<form:form action="updateUser.do" method="POST" modelAttribute="user">
+					<form:hidden path="id" value="${user.id }"/>
+					<form:textarea path="biography" value="${user.biography }"/>
+					<form:errors path="biography"/>
+					<input type="submit" value="Update Information"/>
+				</form:form>
 			<h4>Favorites</h4>
 			<table class="table">
 					<tr>
