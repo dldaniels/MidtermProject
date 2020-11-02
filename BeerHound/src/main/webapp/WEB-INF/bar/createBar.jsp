@@ -19,14 +19,14 @@
 <br>
 <br>
 
-<form action="createBar.do" method="GET">
+<form action="createdBar.do" method="GET">
 Name: <input type="text" name="name"/><br>
 Phone Number: <input type="text" name="phoneNumber"/><br>
 Website: <input type="text" name="website"/><br>
 Description: <input type="text" name="description"/><br>
-Address: <input type="text" name="addressId"/><br>
+<!-- Address: <input type="text" name="addressId"/><br> -->
 <!-- TimeLastUpdated: <input type="text" name="timeLastUpdated"/><br> -->
-Logo: <input type="text" name="logoUrl"/><br>
+<!-- Logo: <input type="text" name="logoUrl"/><br> -->
 <input type="submit" value="Submit"/><br>
 <br>
 </form>

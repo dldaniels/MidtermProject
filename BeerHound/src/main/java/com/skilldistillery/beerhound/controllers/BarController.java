@@ -48,7 +48,7 @@ public class BarController {
 		return "bar/listBar";
 	}
 	
-	@RequestMapping(path="createBar.do", method = RequestMethod.GET)
+	@RequestMapping(path="createBar.do")
 	public String createBar(Model model) {
 		return "bar/createBar";
 	}
@@ -61,7 +61,7 @@ public class BarController {
 		
 	}
 	
-	@RequestMapping(path="updatebar.do", method = RequestMethod.GET)
+	@RequestMapping(path="updatebar.do")
 	public String updateBar(Integer id, Model model, Bar bar) {
 		
 //		Bar bars = barDao.findBarById(id);
@@ -71,7 +71,7 @@ public class BarController {
 		return "bar/updateBar";
 	}
 	
-	@RequestMapping(path="updatedbar.do", method = RequestMethod.GET)
+	@RequestMapping(path="updatedbar.do")
 	public String getUpdateBar(Model model, Integer id, Bar bar) {
 		
 		bar = barDao.updateBar(id, bar);
