@@ -15,6 +15,11 @@
 
 
 <body>
+<div class="container">
+<jsp:include page = "../headersFooters/header.jsp"></jsp:include>
+</div>
+<br>
+<br>
 	<div class="container-fluid">
 
 		<h3>Beer List</h3>
@@ -22,6 +27,11 @@
 		<form action="getBeer.do" method="GET">
 			Beer ID: <input type="text" name="id" /> <input type="submit"
 				value="Find Beer" />
+		</form>
+		<br>
+		
+		<form action="addBeerForm.do" method="GET">
+		Add A Beer: <input type= "submit" value = "Add Beer" />
 		</form>
 
 		<table class="table table-striped table-hover">
