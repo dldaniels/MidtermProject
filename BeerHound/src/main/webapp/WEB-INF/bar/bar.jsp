@@ -10,6 +10,7 @@
 	<div class="container">
 		<jsp:include page="../headersFooters/header.jsp"></jsp:include>
 	</div>
+
 	<div>
 		<h5>Bar name: ${bar.name}</h5>
 		<br>

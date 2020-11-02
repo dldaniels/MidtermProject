@@ -27,14 +27,14 @@ public class BarController {
 		return "bar/bar";
 	}
 	
-	@RequestMapping(path="getBarkw.do", method = RequestMethod.GET)
+	@RequestMapping(path="barIndex.do", method = RequestMethod.GET)
 	public String getBarbyKw(Model model, String keyword) {
 		
 		List<Bar> bars = barDao.searchBarByKeyWord(keyword);
 		
 		model.addAttribute("bars", bars);
 		
-		return "bar/keyWord";
+		return "bar/listBar";
 		
 	}
 	
