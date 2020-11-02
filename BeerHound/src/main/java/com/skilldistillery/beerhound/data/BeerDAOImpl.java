@@ -47,6 +47,7 @@ public class BeerDAOImpl implements BeerDAO {
 		addBeer.setBeerPrice(beer.getBeerPrice());
 		addBeer.setBeerRating(beer.getBeerRating());
 		addBeer.setImageUrl(beer.getImageUrl());
+		addBeer.setDescription(beer.getDescription());
 
 		em.persist(addBeer);
 
@@ -66,6 +67,7 @@ public class BeerDAOImpl implements BeerDAO {
 	//	editBeer.setBeerPrice(beer.getBeerPrice());
 	//	editBeer.setBeerRating(beer.getBeerRating());
 		editBeer.setImageUrl(beer.getImageUrl());
+		editBeer.setDescription(beer.getDescription());
 
 		em.persist(editBeer);
 		em.flush();

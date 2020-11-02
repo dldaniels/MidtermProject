@@ -42,12 +42,13 @@
 
 		<h2>${beer.name}</h2>
 		<br>
-		<h2>${beer.typeOfBeer.typeName}Alcohol Content:
-			${beer.alcoholContent}%</h2>
+		<h4>${beer.typeOfBeer.typeName}</h4>
+		Alcohol Content: <h4>${beer.alcoholContent}%</h4>
 
 		<br>
-		<h2>${beer.brewery.name}</h2>
+		<a href="getBrewery.do" name="id" value="${beer.brewery.id}">${beer.brewery.name}</a>
 		<br> <img src="${beer.imageUrl}" width="200" height="200">
+		${beer.description}
 
 	</div>
 
