@@ -27,15 +27,25 @@ public class BarController {
 		return "bar/bar";
 	}
 	
-	@RequestMapping(path="getBarkw.do", method = RequestMethod.GET)
+	@RequestMapping(path="barSearch.do", method = RequestMethod.GET)
 	public String getBarbyKw(Model model, String keyword) {
 		
 		List<Bar> bars = barDao.searchBarByKeyWord(keyword);
 		
 		model.addAttribute("bars", bars);
 		
-		return "bar/keyWord";
+		return "bar/listBar";
 		
+	}
+	
+	@RequestMapping(path="barIndex.do", method = RequestMethod.GET)
+	public String findAll(Model model) {
+		
+		List<Bar> bars = barDao.searchBarByKeyWord("");
+		
+		model.addAttribute("bars", bars);
+		
+		return "bar/listBar";
 	}
 	
 	@RequestMapping(path="createBar.do", method = RequestMethod.GET)
@@ -44,42 +54,43 @@ public class BarController {
 	}
 	@RequestMapping(path="createdBar.do")
 	public String createdBar(Model model, Bar bar) {
+		
 		model.addAttribute("bar", barDao.createBar(bar));
+		
 		return "getBar.do";
 		
 	}
 	
-	@RequestMapping(path="updateBar.do", method = RequestMethod.GET)
-	public String updateBar(int id, Model model, Bar bar) {
+	@RequestMapping(path="updatebar.do", method = RequestMethod.GET)
+	public String updateBar(Integer id, Model model, Bar bar) {
 		
-		Bar bars = barDao.findBarById(id);
-			
-		bars = barDao.updateBar(bars);
+//		Bar bars = barDao.findBarById(id);
+						
+		model.addAttribute("bar", barDao.findBarById(id));
 				
-		model.addAttribute("bar", bars);
-				
-		return "bar/updated";
+		return "bar/updateBar";
 	}
 	
-	@RequestMapping(path="updatedBar.do", method = RequestMethod.GET)
-	public String getUpdateBar(Model model, Integer id) {
+	@RequestMapping(path="updatedbar.do", method = RequestMethod.GET)
+	public String getUpdateBar(Model model, Integer id, Bar bar) {
 		
-		Bar bar = barDao.findBarById(id);
+		bar = barDao.updateBar(id, bar);
 		
 		model.addAttribute("bar", bar);
-		return "bar/update";
+		
+		return "bar/updatedBar";
 	}
 	
 	@RequestMapping(path ="deletebar.do", method = RequestMethod.GET)
-	public ModelAndView deleteBar(int id) {
+	public String deleteBar(Model model, int id) {
 		
-		ModelAndView mv = new ModelAndView();
+		Bar bar = barDao.findBarById(id);
 		
-		mv.addObject("bar", barDao.deleteBar(id));
+		barDao.deleteBar(id);
 		
-		mv.setViewName("bar/deleteBar");
+		model.addAttribute("bar", bar);
 		
-		return mv;
+		return "bar/deleteBar";
 	}
 
 }

@@ -41,8 +41,7 @@ public class BarDAOImpl implements BarDAO {
 	}
 
 	@Override
-	public Bar updateBar(Bar bar) {
-		int id = bar.getId();
+	public Bar updateBar(Integer id, Bar bar) {
 		Bar updateBar = em.find(Bar.class, id);
 		updateBar.setName(bar.getName());
 		updateBar.setPhoneNumber(bar.getPhoneNumber());
@@ -55,6 +54,7 @@ public class BarDAOImpl implements BarDAO {
 		updateBar.setBarRatings(bar.getBarRatings());
 
 		em.persist(updateBar);
+		em.flush();
 		return updateBar;
 	}
 
