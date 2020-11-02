@@ -39,7 +39,7 @@ public class BeerController {
 		return "beer/beerList";
 	}
 
-	@RequestMapping(path = "addBeerForm.do")
+	@RequestMapping(path = "addBeerForm.do" , method = RequestMethod.GET)
 	public String addBeerForm(Beer beer) {
 		return "beer/addBeer";
 	}
@@ -50,18 +50,17 @@ public class BeerController {
 		return "beer/beerAction";
 	}
 
-	@RequestMapping(path = "updateBeerForm.do")
-	public String updateBeerForm(Integer id, Model model) {
-		Beer beer = beerDao.findBeer(id);
-		model.addAttribute("beer", beer);
-
-		return "beer/updateBeer";
+	@RequestMapping(path = "updateBeerForm.do" , method = RequestMethod.GET)
+	public String updateBeerForm(Beer beer, Integer id, Model model) {
+	    model.addAttribute("beer" , beerDao.findBeer(id));
+//		model.addAttribute("beer", beer);
+	    return "beer/updateBeer";
 	}
 
 	@RequestMapping(path = "updateBeer.do")
 	public String updateBeer(Beer beer, Integer id, Model model) {
-		Beer updatedBeer = beerDao.findBeer(id);
-		updatedBeer = beerDao.updateBeer(updatedBeer);
+		beerDao.updateBeer(id, beer);
+	//	updatedBeer = beerDao.updateBeer(updatedBeer);
 		model.addAttribute("beer", beer);
 		return "beer/beerAction";
 	}

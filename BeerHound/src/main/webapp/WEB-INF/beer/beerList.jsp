@@ -15,7 +15,11 @@
 
 
 <body>
-
+<div class="container">
+<jsp:include page = "../headersFooters/header.jsp"></jsp:include>
+</div>
+<br>
+<br>
 	<div class="container-fluid">
 
 		<h3>Beer List</h3>

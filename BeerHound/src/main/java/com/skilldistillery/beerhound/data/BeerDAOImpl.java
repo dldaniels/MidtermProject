@@ -54,9 +54,7 @@ public class BeerDAOImpl implements BeerDAO {
 	}
 
 	@Override
-	public Beer updateBeer(Beer beer) {
-
-		int id = beer.getId();
+	public Beer updateBeer(Integer id, Beer beer) {
 
 		Beer editBeer = em.find(Beer.class, id);
 
@@ -69,6 +67,7 @@ public class BeerDAOImpl implements BeerDAO {
 		editBeer.setImageUrl(beer.getImageUrl());
 
 		em.persist(editBeer);
+		em.flush();
 
 		return beer;
 	}
