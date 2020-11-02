@@ -96,4 +96,15 @@ public class BeerDAOImpl implements BeerDAO {
 
 	}
 
+	@Override
+	public List<Beer> findByType(int id) {
+		String jpql = "SELECT b FROM Beer b WHERE b.typeOfBeer :id";
+		List<Beer> type = em.createQuery(jpql, Beer.class).setParameter("id" , id).getResultList();	
+		return type;
+	}
+	
+	
+		
+	}
+
 }
