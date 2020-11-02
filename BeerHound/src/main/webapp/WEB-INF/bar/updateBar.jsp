@@ -4,13 +4,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Update Bar info</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+	crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
 <jsp:include page = "../headersFooters/header.jsp"></jsp:include>
 </div>
-<form action="updatebar.do" method="POST">
+<br>
+<br>
+<br>
+<br>
+<br>
+<form action="updatedbar.do" method="POST">
 	<input type="hidden" value="${bar.id}" name="id">
 		Update Name: <input type="text" name="name" value="${bar.name}"/><br>
 		Update Description: <input type="text" name="description" value="${bar.description}"/> <br>
@@ -19,7 +28,11 @@
 	<input type="submit" name="Update Bar"/>
 	
 </form>
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		<form action="/" method="GET">
+		<input type="hidden" name="" value="" /> <input type="submit"
+			value="Home" />
+	</form>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
 	<script

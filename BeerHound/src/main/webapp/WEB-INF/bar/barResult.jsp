@@ -1,51 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>List of Bars</title>
+<title>Bar Update</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 </head>
-
 <body>
 	<div class="container">
 		<jsp:include page="../headersFooters/header.jsp"></jsp:include><br>
 	</div>
 	<br>
+	<br>
+	<br>
 	<div class="container-fluid">
+		<c:choose>
+			<c:when test="${! empty bar}">
+				<p>${bar.name} was successfully updated</p>
+				<br>
 
-		<h3>Bar List</h3>
+			</c:when>
 
-		<form action="getBar.do" method="GET">
-			Bar ID: <input type="text" name="id" /> <input type="submit"
-				value="Find Bar" />
+			<c:otherwise>
+			Update to Bar failed
+		</c:otherwise>
+		</c:choose>
+		<br> <br>
+		<form action="index.do" method="GET">
+			<input type="hidden" name="" value="" /> <input type="submit"
+				value="Back to home page" />
 		</form>
-			<form action="createBar.do" method="GET">
-		<input type="hidden" name="" value="" /> <input type="submit"
-			value="Add Bar" />
-	</form>
-		<table class="table table-dark">
-			<thead class="thead thead-dark">
-				<tr>
-					<th>Bar Name</th>
-					<th>Bar ID</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${bars}" var="bar">
-					<tr>
-						<td><a href="getBar.do?id=${bar.id}">${bar.name}</a></td>
-						<td><img src="${bar.logoUrl}" width ="100" height = "100"> 
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
