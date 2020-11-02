@@ -21,7 +21,7 @@
 	<br>
 
 	<div class="container-fluid">
-		<h5>${bar.name}</h5>
+		<h3>${bar.name}</h3>
 		<br>
 				<p>${bar.description}<p>
 				<p>${bar.phoneNumber}</p>
