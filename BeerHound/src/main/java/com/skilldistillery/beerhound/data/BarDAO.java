@@ -8,7 +8,7 @@ public interface BarDAO {
 
 	Bar createBar(Bar bar);
 	List<Bar> searchBarByKeyWord(String keyword);
-	Bar updateBar(Bar bar);
+	Bar updateBar(Integer id, Bar bar);
 	boolean deleteBar(int id);
 	Bar findBarById(int id);
 	

@@ -5,41 +5,52 @@
 <head>
 <meta charset="UTF-8">
 <title>Bar Info</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+	crossorigin="anonymous">
 </head>
 <body>
 	<div class="container">
 		<jsp:include page="../headersFooters/header.jsp"></jsp:include>
 	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
-	<div>
-		<h5>Bar name: ${bar.name}</h5>
+	<div class="container-fluid">
+		<h5>${bar.name}</h5>
 		<br>
-		<table>
-			<tr>
-				<th>${bar.description}</th>
-				<th>${bar.phoneNumber}</th>
-				<th>${bar.website}</th>
-				<th>${bar.address}</th>
-				<th>Bar Price: ${bar.beerPrices}</th>
-				<th>Bar Rating: ${bar.barRating}</th>
-			<tr>
-		</table>
-	</div>
-	<div>
-		<form action="updateBar.do" method="GET">
+				<p>${bar.description}<p>
+				<p>${bar.phoneNumber}</p>
+				<p>${bar.website}</p>
+				<%-- <th>${bar.address}</th> --%>
+
+		<form action="updatedBar.do" method="GET">
 			<input type="hidden" value="${bar.id}" name="id"> <input
 				type="submit" value="Update Bar info">
 		</form>
-	</div>
-	<div>
 		<form action="deletebar.do" method="GET">
 			<input type="hidden" value="${bar.id}" name="id"> <input
 				type="submit" value="Delete Bar">
 		</form>
-	</div>
 	<form action="/" method="GET">
 		<input type="hidden" name="" value="" /> <input type="submit"
 			value="Home" />
 	</form>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+		integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+		crossorigin="anonymous"></script>
 </body>
 </html>
