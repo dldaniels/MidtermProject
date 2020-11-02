@@ -13,6 +13,7 @@ public interface BeerDAO {
 	boolean deleteBeer(int id);
 	Beer findBeerbyName(String name);
 	List <Beer>findAll();
+	List <Beer>findByType(int id);
 	
 
 	
