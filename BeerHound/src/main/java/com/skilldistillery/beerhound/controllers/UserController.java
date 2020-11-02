@@ -12,6 +12,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.skilldistillery.beerhound.DropDownOptions;
 import com.skilldistillery.beerhound.data.UserDAO;
 import com.skilldistillery.beerhound.entities.User;
 
@@ -116,6 +117,7 @@ public class UserController {
 	@RequestMapping(path="updateUser")
 	public String update(Model model, HttpSession session, Integer id) {
 		model.addAttribute("user", userDao.getUserById(id));
+		model.addAttribute("stateAbbrevs", DropDownOptions.getStates());
 		return "user/update";
 	}
 	

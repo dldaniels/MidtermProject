@@ -33,7 +33,7 @@ public class UserDAOImpl implements UserDAO {
 		if (dbUser == null) {
 			return null;
 		}
-//		dbUser.setAddress(user.getAddress());
+		dbUser.setAddress(user.getAddress());
 //		dbUser.setBarRatings(user.getBarRatings());
 //		dbUser.setBeerRatings(user.getBeerRatings());
 		dbUser.setBiography(user.getBiography());
