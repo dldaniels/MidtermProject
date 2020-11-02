@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -12,15 +12,15 @@
 	crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
-<jsp:include page = "../headersFooters/header.jsp"></jsp:include>
-</div>
-<br>
-<br>
+	<div class="container">
+		<jsp:include page="../headersFooters/header.jsp"></jsp:include>
+	</div>
+	<br>
+	<br>
 
-<h3>Edit Beer</h3>
+	<h3>Edit Beer</h3>
 
-<%-- <form:hidden path="id" value="${beer.id}"/>
+	<%-- <form:hidden path="id" value="${beer.id}"/>
 <form:hidden path="name" value="${beer.name}"/>
 <form:hidden path="typeOfBeer" value="${beer.typeOfBeer.typeName}"/>
 <form:hidden path="alcoholContent" value="${beer.alcoholContent}"/>
@@ -40,41 +40,46 @@
 
 <form:label path="imageUrl">Image URL</form:label>
 <form:input path="imageUrl" value="${beer.imageUrl}"/>
-<form:errors path="imageUrl"/> --%> 
- 
+<form:errors path="imageUrl"/> --%>
 
-		<form action="updateBeer.do" method="Post"/>
- Name of Beer: <input type="text" name="name" value="${beer.name}"/>
- <br>
-Type of Beer: <input type="text" name="type" value="${beer.typeOfBeer.typeName}"/>
-<br>
-Alcohol content: <input type="number" name="alcoholContent" step=".1" value="${beer.alcoholContent }"/>
-<br>
-ImageUrl: <input type="text"name="imageUrl" value="${beer.imageUrl}"/>
-<br> 
-	
-		<button class="btn btn-warning" type="submit" name="id" value="${beer.id}">Update Beer</button>
-	
+
+	<form action="updateBeer.do" method="Post" />
+	Name of Beer:
+	<input type="text" name="name" value="${beer.name}" />
+	<br> Type of Beer:
+	<input type="text" name="type" value="${beer.typeOfBeer.typeName}" />
+	<br> Alcohol content:
+	<input type="number" name="alcoholContent" step=".1"
+		value="${beer.alcoholContent }" />
+	<br> ImageUrl:
+	<input type="text" name="imageUrl" value="${beer.imageUrl}" />
+	<br>
+
+	<button class="btn btn-warning" type="submit" name="id"
+		value="${beer.id}">Update Beer</button>
+
 	</form>
-	
+
 	<div class="container-fluid">
-	<c:choose>
-		<c:when test="${! empty beer.name }">
-	<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Thank You!</strong> Your update was successful.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+		<c:choose>
+			<c:when test="${! empty beer.name }">
+				<div class="alert alert-warning alert-dismissible fade show"
+					role="alert">
+					<strong>Thank You!</strong> Your update was successful.
+					<button type="button" class="close" data-dismiss="alert"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
 
-</c:when>
-</c:choose>
-</div>
+			</c:when>
+		</c:choose>
+	</div>
 
-	
-	
-	
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+
+
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
 	<script
