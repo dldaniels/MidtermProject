@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,27 +59,39 @@
 				<tr>
 					<td>Username</td><td>${user.username }</td>
 				</tr>
+				<c:if test="${user.id == loginUser.id || loginUser.role == 'ADMIN'}">
 				<tr>
 					<td>Password</td><td>${user.password }</td>
 				</tr>
+				</c:if>
+				<c:if test="${user.id == loginUser.id || loginUser.role == 'ADMIN'}">
 				<tr>
 					<td>Enabled</td><td>${user.enabled }</td>
 				</tr>
+				</c:if>
+				<c:if test="${user.id == loginUser.id || loginUser.role == 'ADMIN'}">
 				<tr>
 					<td>Role</td><td>${user.role }</td>
 				</tr>
+				</c:if>
+				<c:if test="${user.id == loginUser.id || loginUser.role == 'ADMIN'}">
 				<tr>
 					<td>First Name</td><td>${user.firstName }</td>
 				</tr>
 				<tr>
 					<td>Last Name</td><td>${user.lastName }</td>
 				</tr>
+				</c:if>
+				<c:if test="${user.id == loginUser.id || loginUser.role == 'ADMIN'}">
 				<tr>
 					<td>Email</td><td>${user.email }</td>
 				</tr>
+				</c:if>
 				<tr>
-					<td>User Since</td><td>${user.createDate }</td>
+<%-- 					<td>User Since</td><td><fmt:formatDate type="both" value="${user.createDate }"/></td>
+ --%>					<td>User Since</td><td>${user.createDate }</td>
 				</tr>
+				<c:if test="${user.id == loginUser.id || loginUser.role == 'ADMIN'}">
 				<tr>
 					<td>Street</td><td>${user.address.street }</td>
 				</tr>
@@ -91,6 +104,7 @@
 				<tr>
 					<td>ZIP</td><td>${user.address.zip }</td>
 				</tr>
+				</c:if>
 			</table>
 			
 		</div>
