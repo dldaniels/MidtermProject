@@ -57,7 +57,7 @@ public class BarController {
 		
 		model.addAttribute("bar", barDao.createBar(bar));
 		
-		return "getBar.do";
+		return "bar/barResult";
 		
 	}
 	
@@ -78,7 +78,7 @@ public class BarController {
 		
 		model.addAttribute("bar", bar);
 		
-		return "bar/updatedBar";
+		return "bar/barResult";
 	}
 	
 	@RequestMapping(path ="deletebar.do", method = RequestMethod.GET)

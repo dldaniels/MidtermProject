@@ -25,6 +25,10 @@
 			Bar ID: <input type="text" name="id" /> <input type="submit"
 				value="Find Bar" />
 		</form>
+			<form action="createBar.do" method="GET">
+		<input type="hidden" name="" value="" /> <input type="submit"
+			value="Add Bar" />
+	</form>
 		<table class="table table-dark">
 			<thead class="thead thead-dark">
 				<tr>
