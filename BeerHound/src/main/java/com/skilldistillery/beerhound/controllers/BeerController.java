@@ -17,8 +17,8 @@ public class BeerController {
 
 	@Autowired
 	private BeerDAO beerDao;
-	
-@RequestMapping(path = "getBeer.do", method = RequestMethod.GET)
+
+	@RequestMapping(path = "getBeer.do", method = RequestMethod.GET)
 	public String getBeerById(Integer id, Model model) {
 		Beer beer = beerDao.findBeer(id);
 		model.addAttribute("beer", beer);
@@ -39,7 +39,7 @@ public class BeerController {
 		return "beer/beerList";
 	}
 
-	@RequestMapping(path = "addBeerForm.do" , method = RequestMethod.GET)
+	@RequestMapping(path = "addBeerForm.do", method = RequestMethod.GET)
 	public String addBeerForm(Beer beer) {
 		return "beer/addBeer";
 	}
@@ -52,15 +52,15 @@ public class BeerController {
 
 	@RequestMapping(path = "updateBeerForm.do")
 	public String updateBeerForm(Beer beer, Integer id, Model model) {
-	    model.addAttribute("beer" , beerDao.findBeer(id));
+		model.addAttribute("beer", beerDao.findBeer(id));
 //		model.addAttribute("beer", beer);
-	    return "beer/updateBeer";
+		return "beer/updateBeer";
 	}
 
 	@RequestMapping(path = "updateBeer.do")
 	public String updateBeer(Beer beer, Integer id, Model model) {
 		beer = beerDao.updateBeer(id, beer);
-		//	updatedBeer = beerDao.updateBeer(updatedBeer);
+		// updatedBeer = beerDao.updateBeer(updatedBeer);
 		model.addAttribute("beer", beer);
 		System.out.println(beer);
 		return "beer/showBeer";

@@ -46,7 +46,7 @@
 		Alcohol Content: <h4>${beer.alcoholContent}%</h4>
 
 		<br>
-		<a href="getBrewery.do" name="id" value="${beer.brewery.id}">${beer.brewery.name}</a>
+		<a href="getBrewery.do?id=${beer.brewery.id}">${beer.brewery.name}</a>
 		<br> <img src="${beer.imageUrl}" width="200" height="200">
 		${beer.description}
 
