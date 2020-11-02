@@ -40,13 +40,13 @@ public class Brewery {
 		super();
 	}
 
-	public Brewery(int id, String name, String breweryWebsite, String breweryLogoUrl) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.breweryWebsite = breweryWebsite;
-		this.breweryLogoUrl = breweryLogoUrl;
-	}
+//	public Brewery(int id, String name, String breweryWebsite, String breweryLogoUrl) {
+//		super();
+//		this.id = id;
+//		this.name = name;
+//		this.breweryWebsite = breweryWebsite;
+//		this.breweryLogoUrl = breweryLogoUrl;
+//	}
 
 	public int getId() {
 		return id;
