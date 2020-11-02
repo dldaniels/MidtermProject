@@ -58,18 +58,19 @@ public class BeerDAOImpl implements BeerDAO {
 
 		Beer editBeer = em.find(Beer.class, id);
 
+		
 		editBeer.setName(beer.getName());
-		editBeer.setBrewery(beer.getBrewery());
-		editBeer.setTypeOfBeer(beer.getTypeOfBeer());
+	//	editBeer.setBrewery(beer.getBrewery());
+	//	editBeer.setTypeOfBeer(beer.getTypeOfBeer());
 		editBeer.setAlcoholContent(beer.getAlcoholContent());
-		editBeer.setBeerPrice(beer.getBeerPrice());
-		editBeer.setBeerRating(beer.getBeerRating());
+	//	editBeer.setBeerPrice(beer.getBeerPrice());
+	//	editBeer.setBeerRating(beer.getBeerRating());
 		editBeer.setImageUrl(beer.getImageUrl());
 
 		em.persist(editBeer);
 		em.flush();
 
-		return beer;
+		return editBeer;
 	}
 
 	@Override

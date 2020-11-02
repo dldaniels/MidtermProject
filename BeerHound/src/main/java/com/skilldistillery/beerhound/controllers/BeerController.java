@@ -50,7 +50,7 @@ public class BeerController {
 		return "beer/beerAction";
 	}
 
-	@RequestMapping(path = "updateBeerForm.do" , method = RequestMethod.GET)
+	@RequestMapping(path = "updateBeerForm.do")
 	public String updateBeerForm(Beer beer, Integer id, Model model) {
 	    model.addAttribute("beer" , beerDao.findBeer(id));
 //		model.addAttribute("beer", beer);
@@ -58,11 +58,12 @@ public class BeerController {
 	}
 
 	@RequestMapping(path = "updateBeer.do")
-	public String updateBeer(Beer beer, Integer id, Model model) {
+  public String updateBeer(Beer beer, Integer id, Model model) {
 		beer = beerDao.updateBeer(id, beer);
 	//	updatedBeer = beerDao.updateBeer(updatedBeer);
 		model.addAttribute("beer", beer);
-		return "beer/beerAction";
+		System.out.println(beer);
+		return "beer/showBeer";
 	}
 
 	@RequestMapping(path = "deleteBeer.do")

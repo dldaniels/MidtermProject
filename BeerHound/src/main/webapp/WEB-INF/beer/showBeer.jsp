@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,44 +12,46 @@
 </head>
 <body>
 
-<div class="container">
-<jsp:include page = "../headersFooters/header.jsp"></jsp:include>
-</div>
-<br>
-<br>
-<br>
-<br>
+	<div class="container">
+		<jsp:include page="../headersFooters/header.jsp"></jsp:include>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
 
-<div class="container-fluid">
-<form action="updateBeerForm.do" method="GET">
-				<button class= "btn btn-outline-primary" type ="submit"	name="id" value="${beer.id }">Edit Beer</button>
-					
-			</form>
-			<br>
+	<div class="container-fluid">
+		<form action="updateBeerForm.do" method="GET">
+			<button class="btn btn-outline-primary" type="submit" name="id"
+				value="${beer.id }">Edit Beer</button>
 
-			<form action="deleteBeer.do" method="GET">
-				<input type="hidden" name="id" value="${beer.id}" /> <input
-					type="submit" value="Delete Beer" />
-			</form>
-			<br>
+		</form>
+		<br>
 
-			<form action="/" method="GET">
-				<input type="hidden" name="" value="" /> <input type="submit"
-					value="Home" />
-			</form>
-		
+		<form action="deleteBeer.do" method="GET">
+			<input type="hidden" name="id" value="${beer.id}" /> <input
+				type="submit" value="Delete Beer" />
+		</form>
+		<br>
 
-<h2>${beer.name}</h2>
-<br>
-<h2>${beer.typeOfBeer.typeName}</h2>
-<br>
-<h2>${beer.brewery.name}</h2>
-<br>
-<img src="${beer.imageUrl}" width = "200" height = "200">
+		<form action="/" method="GET">
+			<input type="hidden" name="" value="" /> <input type="submit"
+				value="Home" />
+		</form>
 
-</div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		<h2>${beer.name}</h2>
+		<br>
+		<h2>${beer.typeOfBeer.typeName}Alcohol Content:
+			${beer.alcoholContent}%</h2>
+
+		<br>
+		<h2>${beer.brewery.name}</h2>
+		<br> <img src="${beer.imageUrl}" width="200" height="200">
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
 	<script
