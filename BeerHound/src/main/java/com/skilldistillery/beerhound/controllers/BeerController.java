@@ -59,12 +59,17 @@ public class BeerController {
 
 	@RequestMapping(path = "updateBeer.do")
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public String updateBeer(Integer id, Model model, Beer beer) {
 		beer = beerDao.updateBeer(id , beer);
 =======
 	public String updateBeer(Beer beer, Integer id, Model model) {
 		beer = beerDao.updateBeer(id, beer);
 >>>>>>> 17ec88c40bc4932b58d6d9c79941162f1aad149d
+=======
+  public String updateBeer(Beer beer, Integer id, Model model) {
+		beer = beerDao.updateBeer(id, beer);
+>>>>>>> f6cb98c8d4c697c5de6cb9aad5d2a85787124533
 	//	updatedBeer = beerDao.updateBeer(updatedBeer);
 		model.addAttribute("beer", beer);
 		System.out.println(beer);
