@@ -79,6 +79,17 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return result;
 	}
+	@Override
+	public User getUserByUsername(String username) {
+		String query = "SELECT u FROM User u WHERE u.username = :username";
+		User result = null;
+		try {
+			result = em.createQuery(query, User.class).setParameter("username", username).getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 	@Override
 	public boolean isEmailUnique(String email) {
@@ -92,13 +103,14 @@ public class UserDAOImpl implements UserDAO {
 	public User login(User user) {
 		if (user == null) { return null; }
 		User dbUser = null;
-		if (user.getEmail() != null) {
+		System.out.println(user);
+		if (user.getEmail() != null && !user.getEmail().equals("")) {
 			dbUser = getUserByEmail(user.getEmail());
 			if (dbUser == null) {
 				return null;
 			}
 		} else if (user.getUsername() != null) {
-			// TODO: dbUser = getUserByUsername(user.getUsername());
+			dbUser = getUserByUsername(user.getUsername());
 		}
 		if (dbUser.getPassword().equals(user.getPassword())) {
 			return dbUser;
