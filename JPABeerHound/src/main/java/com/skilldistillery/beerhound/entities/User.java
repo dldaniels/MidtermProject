@@ -28,7 +28,7 @@ public class User {
 	
 	private String username;
 	
-	@Size(min=6, max=25)
+	@Size(min=5, max=25)
 	private String password;
 
 	private Boolean enabled;
