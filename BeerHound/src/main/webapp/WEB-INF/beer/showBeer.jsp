@@ -22,8 +22,8 @@
 
 <div class="container-fluid">
 <form action="updateBeerForm.do" method="GET">
-				<input type="hidden" name="id" value="${beer.id }" /> <input
-					type="submit" value="Edit Beer" />
+				<button class= "btn btn-outline-primary" type ="submit"	name="id" value="${beer.id }">Edit Beer</button>
+					
 			</form>
 			<br>
 

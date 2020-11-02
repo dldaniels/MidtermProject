@@ -11,7 +11,13 @@
 <div class="container-fluid">
 	<c:choose>
 		<c:when test="${! empty beer.name }">
-		<p>beer updated -- ${beer.name}</p><br>
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Thank You!</strong> Your update was successful.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+		<%-- <p>${beer.name} has been updated</p><br> --%>
 			
 		</c:when>
 		<c:when test="${empty beer.name }">
