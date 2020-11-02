@@ -28,7 +28,7 @@
 				<p>${bar.website}</p>
 				<%-- <th>${bar.address}</th> --%>
 
-		<form action="updatedBar.do" method="GET">
+		<form action="updatebar.do" method="GET">
 			<input type="hidden" value="${bar.id}" name="id"> <input
 				type="submit" value="Update Bar info">
 		</form>
