@@ -24,6 +24,14 @@ public class BreweryDAOImpl implements BreweryDAO {
 	
 	
 	@Override
+	public List<Brewery> listAllBreweries() {
+		String jpql = "SELECT breweries FROM Brewery breweries";
+		return em.createQuery(jpql, Brewery.class).getResultList();
+	}
+	
+	
+	
+	@Override
 	public Brewery updateBrewery(Brewery brewery) {
 		
 		int id = brewery.getId();
@@ -55,10 +63,10 @@ public class BreweryDAOImpl implements BreweryDAO {
 		Brewery dbBrewery = new Brewery();
 
 		dbBrewery.setName(brewery.getName());
-		dbBrewery.setBreweryLogoUrl(brewery.getBreweryLogoUrl());
+//		dbBrewery.setBreweryLogoUrl(brewery.getBreweryLogoUrl());
 		dbBrewery.setAddress(brewery.getAddress());
 		dbBrewery.setBreweryWebsite(brewery.getBreweryWebsite());
-		dbBrewery.setBeers(brewery.getBeers());
+//		dbBrewery.setBeers(brewery.getBeers());
 		
 		em.persist(dbBrewery);
 		
