@@ -10,7 +10,7 @@
 <div class="container">
 <jsp:include page = "../headersFooters/header.jsp"></jsp:include>
 </div>
-<form action="updateBar.do" method="POST">
+<form action="updatebar.do" method="POST">
 	<input type="hidden" value="${bar.id}" name="id">
 		Update Name: <input type="text" name="name" value="${bar.name}"/><br>
 		Update Description: <input type="text" name="description" value="${bar.description}"/> <br>

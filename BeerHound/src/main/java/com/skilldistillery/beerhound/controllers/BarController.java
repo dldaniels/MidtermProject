@@ -61,7 +61,7 @@ public class BarController {
 		
 	}
 	
-	@RequestMapping(path="updateBar.do", method = RequestMethod.GET)
+	@RequestMapping(path="updatebar.do", method = RequestMethod.GET)
 	public String updateBar(Integer id, Model model, Bar bar) {
 		
 //		Bar bars = barDao.findBarById(id);
@@ -71,7 +71,7 @@ public class BarController {
 		return "bar/updateBar";
 	}
 	
-	@RequestMapping(path="updatedBar.do", method = RequestMethod.GET)
+	@RequestMapping(path="updatedbar.do", method = RequestMethod.GET)
 	public String getUpdateBar(Model model, Integer id, Bar bar) {
 		
 		bar = barDao.updateBar(id, bar);
