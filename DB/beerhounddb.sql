@@ -315,6 +315,7 @@ INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (15, '1925
 INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (16, '5515 Vance St', 'Arvada', 'CO', '80002');
 INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (17, '6995 W 38th. Ave.', 'Wheat Ridge', 'CO', '80033');
 INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (18, '7514 Grandview Ave.', 'Arvada', 'CO', '80002');
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`) VALUES (19, '4910 Nautilus Ct', 'Boulder', 'CO', '80301');
 
 COMMIT;
 

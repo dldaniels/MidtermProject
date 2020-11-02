@@ -41,7 +41,8 @@
 
 <h2>${beer.name}</h2>
 <br>
-<h2>${beer.typeOfBeer.typeName}</h2>
+<h2>${beer.typeOfBeer.typeName} Alcohol Content: ${beer.alcoholContent}% </h2>
+
 <br>
 <h2>${beer.brewery.name}</h2>
 <br>
