@@ -11,7 +11,7 @@
 <div class="container-fluid">
 	<c:choose>
 		<c:when test="${! empty brewery }">
-		<p>brewery updated -- ${brwery.name}</p><br>
+		<p>${brewery.name} Updated</p><br>
 			
 		
 		
@@ -27,7 +27,7 @@
 	</c:choose><br>
 	
 			<br>
-			<form action="home.do" method="GET">
+			<form action="index.do" method="GET">
 				<input type="hidden" name="" value="" /> <input type="submit"
 					value="Back to home page" />
 			</form>

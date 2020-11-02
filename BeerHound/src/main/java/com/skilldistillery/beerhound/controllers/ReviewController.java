@@ -19,9 +19,20 @@ public class ReviewController {
 	private ReviewDAO reviewDAO;
 	
 	
+//	@RequestMapping(path = "addBarRating.do", method = RequestMethod.GET)
+//	public String directToAdd() {
+//		return "review/addBeerReview";
+//	}
+	
+	
 	@RequestMapping(path = "addBarRating.do", method = RequestMethod.GET)
-	public String directToAdd() {
-		return "review/add";
+	public String getBreweryToUpdate(Integer id, Model model) {
+		
+		BarRating barRating = reviewDAO.findBarRating(id);
+		
+		model.addAttribute("rating", barRating);
+		
+		return "review/update";
 	}
 	
 	
@@ -52,10 +63,11 @@ public class ReviewController {
 	
 	
 	
-	@RequestMapping(path = "addBeerRating.do", method = RequestMethod.GET)
-	public String directToAddBeerRating() {
-		return "review/add";
-	}
+//	@RequestMapping(path = "addBeerRating.do", method = RequestMethod.GET)
+//	public String directToAddBeerRating(BeerRating beerRating) {
+//		
+//		return "review/add";
+//	}
 	
 	
 	@RequestMapping(path = "addedBeerRating.do", method = RequestMethod.GET)
