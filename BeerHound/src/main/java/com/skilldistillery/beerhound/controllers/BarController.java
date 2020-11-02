@@ -44,7 +44,9 @@ public class BarController {
 	}
 	@RequestMapping(path="createdBar.do")
 	public String createdBar(Model model, Bar bar) {
+		
 		model.addAttribute("bar", barDao.createBar(bar));
+		
 		return "getBar.do";
 		
 	}
@@ -67,6 +69,7 @@ public class BarController {
 		Bar bar = barDao.findBarById(id);
 		
 		model.addAttribute("bar", bar);
+		
 		return "bar/update";
 	}
 	

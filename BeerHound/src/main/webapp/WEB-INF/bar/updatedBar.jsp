@@ -8,6 +8,9 @@
 <title>Bar updated</title>
 </head>
 <body>
+<div class="container">
+<jsp:include page = "../headersFooters/header.jsp"></jsp:include>
+</div>
 	<c:choose>
 		<c:when test="${! empty bar}">
 			<p>Bar has been successfully updated ${bar.name}</p>

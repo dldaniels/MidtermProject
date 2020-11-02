@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="container">
+<jsp:include page = "../headersFooters/header.jsp"></jsp:include>
+</div>
 <form action="updateBar.do" method="GET">
 	<input type="hidden" value="${bar.id}" name="id">
 		Update Name: <input type="text" name="name"/><br>
