@@ -2,6 +2,8 @@ package com.skilldistillery.beerhound.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +24,7 @@ public class BreweryController {
 	
 	
 	@RequestMapping(path = "breweryIndex.do", method = RequestMethod.GET)
-	public String showAllBreweries(Model model) {
+	public String showAllBreweries(Model model, HttpSession session) {
 		List<Brewery> breweryList = breweryDAO.listAllBreweries();
 		model.addAttribute("breweries", breweryList);
 		
@@ -31,7 +33,7 @@ public class BreweryController {
 	
 	
 	@RequestMapping(path = "getBrewery.do", method = RequestMethod.GET)
-	public String showBreweryById(Integer id, Model model) {
+	public String showBreweryById(Integer id, Model model, HttpSession session) {
 		
 		Brewery brewery = breweryDAO.findBreweryById(id);
 		
@@ -43,7 +45,7 @@ public class BreweryController {
 	
 	
 	@RequestMapping(path = "getBreweryKeyword.do", method = RequestMethod.GET) 
-	public String showBreweryByKeyword(String keyword, Model model) {
+	public String showBreweryByKeyword(String keyword, Model model, HttpSession session) {
 		
 		List<Brewery> brewery = breweryDAO.findBrewery(keyword);
 		
@@ -55,7 +57,7 @@ public class BreweryController {
 	
 	
 	@RequestMapping(path = "getBreweryUpdate.do", method = RequestMethod.GET)
-	public String getBreweryToUpdate(Integer id, Model model) {
+	public String getBreweryToUpdate(Integer id, Model model, HttpSession session) {
 		
 		Brewery brewery = breweryDAO.findBreweryById(id);
 		
@@ -66,7 +68,7 @@ public class BreweryController {
 	
 	
 	@RequestMapping(path = "updateBrewery.do", method = RequestMethod.GET)
-	public String updateBrewery(Model model, int id, Brewery brewery) {
+	public String updateBrewery(Model model, int id, Brewery brewery, HttpSession session) {
 		
 		Brewery dbBrewery = breweryDAO.findBreweryById(id);
 		
@@ -85,7 +87,7 @@ public class BreweryController {
 	
 	
 	@RequestMapping(path = "addedBrewery.do", method = RequestMethod.GET)
-	public String addBrewery(Model model, Brewery brewery) {
+	public String addBrewery(Model model, Brewery brewery, HttpSession session) {
 		
 		
 		Brewery dbBrewery = breweryDAO.createBrewery(brewery);
@@ -97,7 +99,7 @@ public class BreweryController {
 	
 	
 	@RequestMapping(path = "deleteBrewery.do", method = RequestMethod.GET)
-	public String deleteBrewery(Model model, int id) {
+	public String deleteBrewery(Model model, int id, HttpSession session) {
 		
 		
 		boolean deleted = breweryDAO.deleteBrewery(id) ;

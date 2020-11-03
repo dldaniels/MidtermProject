@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +42,8 @@
 	
 		<br> 
 
-		<form action="addedBeerReview.do" method="GET">
+		<form:form action="addedBeerReview.do" method="GET">
+		<form: path="rating" value="${beerRating.beer }">
 			<fieldset class="rating">
 				<input type="radio" id="star5" name="rating" value="5" /><label
 					class="full" for="star5" title="Awesome - 5 stars"></label> <input
