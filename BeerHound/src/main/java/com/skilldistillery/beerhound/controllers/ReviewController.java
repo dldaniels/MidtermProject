@@ -1,5 +1,7 @@
 package com.skilldistillery.beerhound.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +39,7 @@ public class ReviewController {
 	
 	
 	@RequestMapping(path = "addedBarRating.do", method = RequestMethod.GET)
-	public String addBarRating(Model model, BarRating barRating) {
+	public String addBarRating(Model model, BarRating barRating, HttpSession session) {
 		
 		
 		BarRating dbBarRating = reviewDAO.addBarRating(barRating);
@@ -50,7 +52,7 @@ public class ReviewController {
 	
 	
 	@RequestMapping(path = "deleteBarRating.do", method = RequestMethod.GET)
-	public String deleteBarRating(Model model, int id) {
+	public String deleteBarRating(Model model, int id, HttpSession session) {
 		
 		BarRating barRating = reviewDAO.findBarRating(id);
 		
@@ -71,7 +73,7 @@ public class ReviewController {
 	
 	
 	@RequestMapping(path = "addedBeerRating.do", method = RequestMethod.GET)
-	public String addBeerRating(Model model, BeerRating beerRating) {
+	public String addBeerRating(Model model, BeerRating beerRating, HttpSession session) {
 		
 		
 		BeerRating dbBeerRating = reviewDAO.addBeerRating(beerRating);
@@ -84,7 +86,7 @@ public class ReviewController {
 	
 	
 	@RequestMapping(path = "deleteBeerRating.do", method = RequestMethod.GET)
-	public String deleteBeerRating(Model model, int id) {
+	public String deleteBeerRating(Model model, int id, HttpSession session) {
 		
 		BeerRating beerRating = reviewDAO.findBeerRating(id);
 		

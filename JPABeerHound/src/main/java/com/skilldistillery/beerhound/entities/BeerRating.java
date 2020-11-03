@@ -28,6 +28,8 @@ public class BeerRating {
 	@JoinColumn(name="beer_id")
 	private Beer beer;
 	
+	private String review;
+	
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
@@ -122,6 +124,16 @@ public class BeerRating {
 		if (Id != other.Id)
 			return false;
 		return true;
+	}
+
+
+	public String getReview() {
+		return review;
+	}
+
+
+	public void setReview(String review) {
+		this.review = review;
 	}
 	
 	
