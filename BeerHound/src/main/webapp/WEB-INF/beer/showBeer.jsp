@@ -31,7 +31,11 @@
 		Alcohol Content:
 		<h4>${beer.alcoholContent}%</h4>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> b8195b22690c4a219c2aa34d320cb87c6b254e2b
 		
 		<table class="table table-dark">
 		<thead>
@@ -51,7 +55,11 @@
 	<%-- 	<form action="updateBeerForm.do" method="GET">
 			<button class="btn btn secondary" type="submit" name="id"
 				value="${beer.id }">Edit Beer</button>
+<<<<<<< HEAD
 >>>>>>> 7444161d03aeab449248b80ecd74e75ab24cb597
+=======
+
+>>>>>>> b8195b22690c4a219c2aa34d320cb87c6b254e2b
 
 		
 		
