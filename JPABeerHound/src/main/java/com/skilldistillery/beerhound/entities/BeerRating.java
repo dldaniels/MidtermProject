@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
 @Table(name="beer_rating")
 @Entity
 public class BeerRating {
@@ -22,6 +24,7 @@ public class BeerRating {
 	private int starRating;
 	
 	@Column(name="rating_date")
+	@CreationTimestamp
 	private LocalDate ratingDate;
 
 	@ManyToOne

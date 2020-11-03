@@ -1,6 +1,7 @@
 package com.skilldistillery.beerhound.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -53,6 +54,21 @@ public class Bar {
 	
 	@OneToMany(mappedBy = "bar")
 	private List<BarRating> barRatings;
+	
+	public void addUser(User user) {
+		if (users == null) {
+			users = new ArrayList<>();
+		}
+		users.add(user);
+		user.addBarToFavorites(this);
+	}
+	
+	public void removeUser(User user) {
+		if (users != null) {
+			users.remove(user);
+		}
+		user.removeBarFromFavorites(this);
+	}
 	
 	
 	public Bar() {
