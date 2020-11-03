@@ -31,6 +31,7 @@
 		<h4>${beer.typeOfBeer.typeName}</h4>
 		Alcohol Content:
 		<h4>${beer.alcoholContent}%</h4>
+
 		
 		<table class="table table-dark">
 		<thead>
@@ -50,7 +51,6 @@
 	<%-- 	<form action="updateBeerForm.do" method="GET">
 			<button class="btn btn secondary" type="submit" name="id"
 				value="${beer.id }">Edit Beer</button>
-
 		</form> --%>
 		<div>
 
@@ -75,6 +75,7 @@
 		</fieldset>
 		<br>
 		<br>
+
 		
 		<textarea name ="review" value="" placeholder="leave review here" rows="5" cols="60">
           
@@ -104,50 +105,7 @@
 
 	<div class="container-fluid">
 	
-	
-	
- <!--  <button type="button" class="btn btn-secondary">Delete Beer</button> -->
 
-	<!--  	<ul class="list-group list-group-horizontal">
-			<li class="list-group-item">
-
-				<form action="/" method="GET">
-				<button type="button" class="btn btn outline-secondary" type="submit" name=""
-				value="">Home</button>
-				 -->
-				
-				
-					<!-- <input type="hidden" name="" value="" /> <input type="submit"
-						value="Home" /> -->
-			<!-- 	</form>
-	 		</li> -->
-		
-			<%-- 	<form action="updateBeerForm.do" method="GET">
-					<input type="hidden" name="id" value="=${beer.id}" /> <input
-						type="submit" value="Edit Beer" /> --%>
-
-
-					<%-- name="id"
-				value="${beer.id }">Edit Beer</button> --%>
-	
-		
-				
-
-<!-- 
-		 	</li>
-			<li class="list-group-item">
- --><%-- 
-				<form action="deleteBeer.do" method="GET">
-					<button type= "button" class="btn btn secondary" type="submit" name="id" 
-					value="${beer.id}">Delete Beer</button> --%>
-<!-- 
-					type="submit" value="Delete Beer" /> -->
-			
-
-
-		<!-- 	</li>
-		</ul>
- -->
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
