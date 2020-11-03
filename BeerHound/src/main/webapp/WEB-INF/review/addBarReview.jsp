@@ -48,7 +48,7 @@
 
 
 <form:form action="addedBarReview.do" method="GET"
-		modelAttribute="beerRating">
+		modelAttribute="barRating">
 		<input path="bar" name="barId" value="${ bar.id }" type="hidden">
 
 		<fieldset class="rating">

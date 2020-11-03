@@ -53,12 +53,31 @@
 				value="${beer.id }">Edit Beer</button>
 
 		</form> --%>
-		<div>
+	
 
 
-	<br>
+	
+	
+	
+	
+		
+		<form action="updateBeerForm.do" method="GET">
+				<button class="btn btn-outline-secondary" type="submit" name="id"
+					value="${beer.id}">Edit Beer</button>
+			</form>
+		
+		
 
-	<form:form action="addedBeerReview.do" method="GET"
+		<br> <a href="getBrewery.do?id=${beer.brewery.id}">${beer.brewery.name}</a>
+		<br> <img src="${beer.imageUrl}" width="200" height="200">
+		
+		${beer.description}
+
+	</div>
+	<div class="container-fluid">
+<br>
+
+	<form:form action="addedBeerRating.do" method="GET"
 		modelAttribute="beerRating">
 		<input path="beer" name="beerId" value="${ beer.id }" type="hidden">
 
@@ -83,9 +102,11 @@
           
          		</textarea>
 		<br>
+		<br>
 
 		<button type=“submit”>Submit</button>
 	</form:form>
+<<<<<<< HEAD
 	
 	
 	</div>
@@ -108,6 +129,11 @@
 	<div class="container-fluid">
 	
 
+=======
+	<br>
+	<br>
+	<br>
+>>>>>>> 7c1a679cb116b7106a9ec87060a95fbb8a0cbda5
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
