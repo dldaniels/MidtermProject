@@ -1,5 +1,5 @@
 package com.skilldistillery.beerhound.controllers;
-
+ 
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -13,7 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.beerhound.DropDownOptions;
+import com.skilldistillery.beerhound.data.BarDAO;
+import com.skilldistillery.beerhound.data.BeerDAO;
+import com.skilldistillery.beerhound.data.IndexDAO;
 import com.skilldistillery.beerhound.data.UserDAO;
+import com.skilldistillery.beerhound.entities.Bar;
+import com.skilldistillery.beerhound.entities.Beer;
 import com.skilldistillery.beerhound.entities.User;
 
 @Controller
@@ -21,6 +26,12 @@ public class UserController {
 	
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
+	private BeerDAO beerDao;
+	@Autowired
+	private BarDAO barDao;
+	@Autowired
+	private IndexDAO indexDao;
 	
 	@RequestMapping(path="allUsers.do")
 	public String getUserById(Model model, HttpSession session) {
@@ -131,6 +142,29 @@ public class UserController {
 		session.setAttribute("loginUser", user);
 		model.addAttribute("user", user);
 		return "user/user";
+	}
+	
+	@RequestMapping(path="favoriteBeer.do")
+	public String favoriteBeer(Model model, HttpSession session, int beerId) {
+		Beer beer = beerDao.findBeer(beerId);
+		User user = (User) session.getAttribute("loginUser");
+		userDao.updateUserBeerFavorites(user, beer);
+		model.addAttribute("beer", beer);
+		
+		return "beer/showBeer";
+	}
+	
+	@RequestMapping(path="favoriteBar.do")
+	public String favoriteBar(Model model, HttpSession session, int barId) {
+		Bar bar = barDao.findBarById(barId);
+		User user = (User) session.getAttribute("loginUser");
+		userDao.updateUserBarFavorites(user, bar);
+		model.addAttribute("bar", bar);
+		List<Beer> beerList = indexDao.getBeers();
+
+		model.addAttribute("beerList", beerList);
+		
+		return "bar/bar";
 	}
 
 }
