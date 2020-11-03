@@ -28,11 +28,15 @@
 		<c:when test="${! empty brewery }">
 			<div>
 			
-				<h2>${brewery.name}</h2><br>
+				<h2><a href="${brewery.breweryWebsite}">
+				${brewery.name}
+				</a> </h2>
 				
-				<p>	<a href="${brewery.breweryWebsite}">${brewery.breweryWebsite}</a> <p> 
+				
+			<%-- 	<p>	<a href="${brewery.breweryWebsite}">${brewery.breweryWebsite}</a> <p>  --%>
 				
 				<img src="${brewery.breweryLogoUrl}" width = "200" height = "200"><br>
+				${brewery.address}<br>
 				
 				
 			<!-- 	<h3>List of beers</h3><br> -->
@@ -65,7 +69,6 @@
 				
 				
 				
-				<p>${brewery.address}</p>
 			</div><br>
 			
 			<form action="getBreweryUpdate.do" method="GET">
