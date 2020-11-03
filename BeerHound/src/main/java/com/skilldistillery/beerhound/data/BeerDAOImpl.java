@@ -30,8 +30,10 @@ public class BeerDAOImpl implements BeerDAO {
 
 	@Override
 	public List<Beer> findByKeyword(String keyword) {
-		keyword = "%" + keyword + "%";
-		String jpql = "SELECT b FROM Beer b WHERE b.name LIKE :keyword";
+		//keyword = "%" + keyword + "%";
+		String jpql = "SELECT DISTINCT b FROM Beer b WHERE b.name LIKE %:keyword%";
+		
+		System.out.println( em.createQuery(jpql, Beer.class).setParameter("keyword", keyword).getResultList());
 		return em.createQuery(jpql, Beer.class).setParameter("keyword", keyword).getResultList();
 	}
 
