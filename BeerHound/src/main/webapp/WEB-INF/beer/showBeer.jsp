@@ -51,6 +51,7 @@
 	<%-- 	<form action="updateBeerForm.do" method="GET">
 			<button class="btn btn secondary" type="submit" name="id"
 				value="${beer.id }">Edit Beer</button>
+
 		</form> --%>
 		<div>
 
