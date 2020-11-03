@@ -11,7 +11,7 @@
 
   <nav class="navbar navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="index.do">
-    <img src="images/beerhoundimage.jpg" width="50" height="50" class="d-inline-block align-top" alt=""></a>
+    <img src="images/beerhoundimage.jpg"  height ="50" width ="50" alt="" class ="img-thumbnail"></a>
      <a class="navbar-brand" href="index.do"> Beer Hound</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
