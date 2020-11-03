@@ -83,4 +83,13 @@ public class BeerController {
 		return "beer/beerList";
 
 	}
+	
+	@RequestMapping(path = "findBeerbySearch.do")
+	public String findByKeyword(String keyword, Model model, HttpSession session) {
+		List<Beer> searchList = beerDao.findByKeyword(keyword);
+		model.addAttribute("beers", searchList);
+		return "beer/beerlist";
+		
+		
+	}
 }
