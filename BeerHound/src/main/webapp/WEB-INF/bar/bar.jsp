@@ -111,6 +111,17 @@
 		</form>
 	</div>
 	<br>
+	<!-- add to favorites -->
+	<c:if test="${not empty loginUser }">
+	<div>
+		<form action="favoriteBar.do" method="GET">
+			<button class="btn btn-outline-secondary" type="submit" name="barId"
+					value="${bar.id}">Add to Favorites
+			</button>
+		</form>
+	</div>
+	</c:if>
+	<br>
 	<form action="updatebar.do" method="GET">
 		<input type="hidden" value="${bar.id}" name="id"> <input
 			type="submit" value="Update Bar info">
