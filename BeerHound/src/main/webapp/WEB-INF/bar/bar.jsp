@@ -31,6 +31,7 @@
 		<p>
 		<p>${bar.phoneNumber}</p>
 		<p>${bar.website}</p>
+		<p>${bar.address}</p>
 		<table class="table table-dark">
 		<thead>
 		  <tr>
