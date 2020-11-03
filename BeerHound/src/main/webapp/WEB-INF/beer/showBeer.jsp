@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +31,7 @@
 		<h4>${beer.typeOfBeer.typeName}</h4>
 		Alcohol Content:
 		<h4>${beer.alcoholContent}%</h4>
+
 		
 		<table class="table table-dark">
 		<thead>
@@ -51,7 +53,42 @@
 				value="${beer.id }">Edit Beer</button>
 
 		</form> --%>
+		<div>
+
+
+	<br>
+
+	<form:form action="addedBeerReview.do" method="GET"
+		modelAttribute="beerRating">
+		<input path="beer" name="beerId" value="${ beer.id }" type="hidden">
+
+		<fieldset class="rating">
+			<input type="radio" id="star5" name="starRating" value=5 /><label
+				class="full" for="star5" title="Awesome - 5 stars"></label> <input
+				type="radio" id="star4" name="starRating" value=4 /><label
+				class="full" for="star4" title="Pretty good - 4 stars"></label> <input
+				type="radio" id="star3" name="starRating" value=3 /><label
+				class="full" for="star3" title="Meh - 3 stars"></label> <input
+				type="radio" id="star2" name="starRating" value=2 /><label
+				class="full" for="star2" title="Kinda bad - 2 stars"></label> <input
+				type="radio" id="star1" name="starRating" value=1 /><label
+				class="full" for="star1" title="Sucks big time - 1 star"></label>
+		</fieldset>
+		<br>
+		<br>
+
+
 		
+		<textarea name ="review" value="" placeholder="leave review here" rows="5" cols="60">
+          
+         		</textarea>
+		<br>
+
+		<button type=“submit”>Submit</button>
+	</form:form>
+	
+	
+	</div>
 		
 		<form action="updateBeerForm.do" method="GET">
 				<button class="btn btn-outline-secondary" type="submit" name="id"
@@ -62,38 +99,7 @@
 
 		<br> <a href="getBrewery.do?id=${beer.brewery.id}">${beer.brewery.name}</a>
 		<br> <img src="${beer.imageUrl}" width="200" height="200">
-		<div>
-		Like this beer? Give it a review!
-		<form action="addedBeerReview.do" method="GET">
-			<fieldset class="rating">
-				<input type="radio" id="star5" name="rating" value="5" /><label
-					class="full" for="star5" title="Awesome - 5 stars"></label> <input
-					type="radio" id="star4half" name="rating" value="4 and a half" /><label
-					class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-				<input type="radio" id="star4" name="rating" value="4" /><label
-					class="full" for="star4" title="Pretty good - 4 stars"></label> <input
-					type="radio" id="star3half" name="rating" value="3 and a half" /><label
-					class="half" for="star3half" title="Meh - 3.5 stars"></label> <input
-					type="radio" id="star3" name="rating" value="3" /><label
-					class="full" for="star3" title="Meh - 3 stars"></label> <input
-					type="radio" id="star2half" name="rating" value="2 and a half" /><label
-					class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-				<input type="radio" id="star2" name="rating" value="2" /><label
-					class="full" for="star2" title="Kinda bad - 2 stars"></label> <input
-					type="radio" id="star1half" name="rating" value="1 and a half" /><label
-					class="half" for="star1half" title="Meh - 1.5 stars"></label> <input
-					type="radio" id="star1" name="rating" value="1" /><label
-					class="full" for="star1" title="Sucks big time - 1 star"></label> <input
-					type="radio" id="starhalf" name="rating" value="half" /><label
-					class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-			</fieldset>
-			<br> <br>
-			<textarea>
-          </textarea>
-			<br>
-			<button type="submit">Submit</button>
-		</form>
-	</div>
+		
 		${beer.description}
 
 	</div>
@@ -101,50 +107,7 @@
 
 	<div class="container-fluid">
 	
-	
-	
- <!--  <button type="button" class="btn btn-secondary">Delete Beer</button> -->
 
-	<!--  	<ul class="list-group list-group-horizontal">
-			<li class="list-group-item">
-
-				<form action="/" method="GET">
-				<button type="button" class="btn btn outline-secondary" type="submit" name=""
-				value="">Home</button>
-				 -->
-				
-				
-					<!-- <input type="hidden" name="" value="" /> <input type="submit"
-						value="Home" /> -->
-			<!-- 	</form>
-	 		</li> -->
-		
-			<%-- 	<form action="updateBeerForm.do" method="GET">
-					<input type="hidden" name="id" value="=${beer.id}" /> <input
-						type="submit" value="Edit Beer" /> --%>
-
-
-					<%-- name="id"
-				value="${beer.id }">Edit Beer</button> --%>
-	
-		
-				
-
-<!-- 
-		 	</li>
-			<li class="list-group-item">
- --><%-- 
-				<form action="deleteBeer.do" method="GET">
-					<button type= "button" class="btn btn secondary" type="submit" name="id" 
-					value="${beer.id}">Delete Beer</button> --%>
-<!-- 
-					type="submit" value="Delete Beer" /> -->
-			
-
-
-		<!-- 	</li>
-		</ul>
- -->
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

@@ -8,8 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.beerhound.entities.Bar;
 import com.skilldistillery.beerhound.entities.BarRating;
+import com.skilldistillery.beerhound.entities.Beer;
 import com.skilldistillery.beerhound.entities.BeerRating;
-import com.skilldistillery.beerhound.entities.Brewery;
+import com.skilldistillery.beerhound.entities.User;
 
 
 @Transactional
@@ -20,15 +21,15 @@ public class ReviewDAOImpl implements ReviewDAO {
 	
 	
 	@Override
-	public BarRating addBarRating(BarRating barRating) {
+	public BarRating addBarRating(BarRating barRating, Bar bar, User loggedInUser) {
 	
 		BarRating dbBarRating = new BarRating();
 		
-		dbBarRating.setBar(barRating.getBar());
+		dbBarRating.setBar(bar);
 		dbBarRating.setStarRating(barRating.getStarRating());
 		dbBarRating.setReview(barRating.getReview());
 		dbBarRating.setRatingDate(barRating.getRatingDate());
-		dbBarRating.setUser(barRating.getUser());
+		dbBarRating.setUser(loggedInUser);
 		
 		em.persist(barRating);
 		
@@ -69,14 +70,16 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 
 	@Override
-	public BeerRating addBeerRating(BeerRating beerRating) {
+	public BeerRating addBeerRating(BeerRating beerRating, Beer beer, User loggedInUser) {
+		
 		
 		BeerRating dbBeerRating = new BeerRating();
 		
 		dbBeerRating.setStarRating(beerRating.getStarRating());
 		dbBeerRating.setRatingDate(beerRating.getRatingDate());
-		dbBeerRating.setBeer(beerRating.getBeer());
-		dbBeerRating.setUser(beerRating.getUser());
+		dbBeerRating.setReview(beerRating.getReview());
+		dbBeerRating.setBeer(beer);
+		dbBeerRating.setUser(loggedInUser);
 		
 		em.persist(beerRating);
 		
@@ -113,5 +116,9 @@ public class ReviewDAOImpl implements ReviewDAO {
 	public BeerRating findBeerRating(int id) {
 		return em.find(BeerRating.class, id);
 	}
+
+	
+
+	
 
 }
