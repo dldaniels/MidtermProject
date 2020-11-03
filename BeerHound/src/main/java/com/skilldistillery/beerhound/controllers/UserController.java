@@ -23,7 +23,7 @@ public class UserController {
 	private UserDAO userDao;
 	
 	@RequestMapping(path="allUsers.do")
-	public String getUserById(Model model) {
+	public String getUserById(Model model, HttpSession session) {
 		List<User> users = userDao.searchUsernames("");
 		model.addAttribute("user", users);
 		return "user/userlist";
@@ -45,7 +45,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="register.do")
-	public String registrationPage(Model model) {
+	public String registrationPage(Model model, HttpSession session) {
 		User user = new User();
 		model.addAttribute("user", user);
 		return "user/register";
@@ -93,7 +93,7 @@ public class UserController {
 	
 	
 	@RequestMapping(path="login", method=RequestMethod.GET)
-	public String login(Model model) {
+	public String login(Model model, HttpSession session) {
 		model.addAttribute("user", new User());
 		return "user/login";
 	}

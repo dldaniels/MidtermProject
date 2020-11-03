@@ -40,7 +40,12 @@
 				<c:forEach items="${bars}" var="bar">
 					<tr>
 						<td><a href="getBar.do?id=${bar.id}">${bar.name}</a></td>
-						<td><img src="${bar.logoUrl}" width ="100" height = "100"> 
+						<c:if test="${empty bar.logoUrl}">
+						<td>No Logo</td>
+						</c:if>
+						<c:if test="${! empty bar.logoUrl}">
+						<td><img src="${bar.logoUrl}" width ="100" height = "100"> </td>
+						</c:if>
 					</tr>
 				</c:forEach>
 			</tbody>

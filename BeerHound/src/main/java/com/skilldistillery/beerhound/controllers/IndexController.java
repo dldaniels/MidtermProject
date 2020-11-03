@@ -2,6 +2,8 @@ package com.skilldistillery.beerhound.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +20,7 @@ public class IndexController {
 	private IndexDAO indexDao;
 	
 	@RequestMapping(path={"/", "index.do"})
-	public String getIndex(Model model) {
+	public String getIndex(Model model, HttpSession session) {
 		model.addAttribute("userList", indexDao.getUsers());
 		model.addAttribute("barList", indexDao.getBars());
 		model.addAttribute("beerList", indexDao.getBeers());
@@ -27,7 +29,7 @@ public class IndexController {
 	}
 	
 	@RequestMapping(path="userIndex.do")
-	public String getUserById(Model model) {
+	public String getUserById(Model model, HttpSession session) {
 		List<User> users = indexDao.getUsers();
 		model.addAttribute("userList", users);
 		return "user/userlist";
