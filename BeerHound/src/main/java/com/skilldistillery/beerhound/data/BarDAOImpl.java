@@ -9,6 +9,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.beerhound.entities.Bar;
+import com.skilldistillery.beerhound.entities.Beer;
+import com.skilldistillery.beerhound.entities.BeerPrice;
 
 @Transactional
 @Service
@@ -28,14 +30,14 @@ public class BarDAOImpl implements BarDAO {
 		createBar.setLogoUrl(bar.getLogoUrl());
 		createBar.setBeerPrices(bar.getBeerPrices());
 		createBar.setBarRatings(bar.getBarRatings());
-		
+
 		em.persist(bar);
 		return bar;
 	}
 
 	@Override
 	public List<Bar> searchBarByKeyWord(String keyword) {
-		keyword = "%"+keyword+"%";
+		keyword = "%" + keyword + "%";
 		String jpql = "SELECT b FROM Bar b WHERE b.name LIKE :keyword";
 		return em.createQuery(jpql, Bar.class).setParameter("keyword", keyword).getResultList();
 	}
@@ -62,8 +64,8 @@ public class BarDAOImpl implements BarDAO {
 	public boolean deleteBar(int id) {
 		Bar deleteBar = em.find(Bar.class, id);
 		em.remove(deleteBar);
-		
-		boolean deleted =! em.contains(deleteBar);
+
+		boolean deleted = !em.contains(deleteBar);
 		return deleted;
 	}
 
