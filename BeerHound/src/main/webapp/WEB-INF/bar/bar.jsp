@@ -27,6 +27,7 @@
 	<div class="container-fluid">
 		<h3>${bar.name}</h3>
 		<br>
+		<img src="${bar.logoUrl}" width="200" height="200"/>
 		<p>${bar.description}
 		<p>
 		<p>${bar.phoneNumber}</p>

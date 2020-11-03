@@ -33,7 +33,6 @@
 			<thead class="thead thead-dark">
 				<tr>
 					<th>Bar Name</th>
-					<th>Bar ID</th>
 				</tr>
 			</thead>
 			<tbody>

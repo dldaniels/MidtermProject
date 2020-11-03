@@ -25,6 +25,7 @@
 		Update Description: <input type="text" name="description" value="${bar.description}"/> <br>
 		Update Phone Number: <input type="text" name="phoneNumber" value="${bar.phoneNumber}"/><br>
 		Update Website:<input type="text" name="website" value="${bar.website}"/><br>
+		Update Logo<input type="text" name="logoUrl" value="${bar.logoUrl}"/>
 	<input type="submit" name="Update Bar"/>
 	
 </form>
