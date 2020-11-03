@@ -36,7 +36,7 @@
           <a class="nav-link" href="barIndex.do">View Bars<span class="sr-only">(current)</span></a>
         </li>
       </ul>
-      <form class="form-inline" action="findBeerbySearch" method = "GET">
+      <form class="form-inline" action="findBeerbySearch.do" method = "GET">
         <input class="form-control mr-sm-2"  type="text" name = "keyword" placeholder="Search" aria-label="Search" />
         <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
       </form>

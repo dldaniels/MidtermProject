@@ -106,9 +106,7 @@
 
 		<button type=“submit”>Submit</button>
 	</form:form>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
 	
 	<!-- add to favorites -->
 	<c:if test="${not empty loginUser }">
@@ -120,7 +118,7 @@
 		</form>
 	</div>
 	</c:if>
->>>>>>> f1e3ac861fd0563fee24e4af26b71b9e0ebb118f
+
 	
 	
 	</div>
@@ -140,18 +138,15 @@
 	<div class="container-fluid">
 	
 
-<<<<<<< HEAD
-=======
+
 	<br>
 	<br>
 	<br>
->>>>>>> 7c1a679cb116b7106a9ec87060a95fbb8a0cbda5
-=======
-	<br>
-	<br>
-	<br>
->>>>>>> f1e3ac861fd0563fee24e4af26b71b9e0ebb118f
+
 	</div>
+		<div class="container">
+<jsp:include page = "../headersFooters/footer.jsp"></jsp:include>
+</div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
