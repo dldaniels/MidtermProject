@@ -1,5 +1,6 @@
 package com.skilldistillery.beerhound.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,15 +10,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.beerhound.data.BarDAO;
+import com.skilldistillery.beerhound.data.BeerDAO;
+import com.skilldistillery.beerhound.data.BeerPriceDAO;
+import com.skilldistillery.beerhound.data.IndexDAO;
 import com.skilldistillery.beerhound.entities.Bar;
+import com.skilldistillery.beerhound.entities.Beer;
+import com.skilldistillery.beerhound.entities.BeerPrice;
 
 @Controller
 public class BarController {
 	@Autowired
 	private BarDAO barDao;
+	@Autowired
+	private BeerDAO beerDao;
+	@Autowired
+	private BeerPriceDAO beerPriceDao;
+	@Autowired
+	private IndexDAO indexDao;
 	
 	@RequestMapping(path="getBar.do", method = RequestMethod.GET)
 	public String getBarById(Integer id, Model model, HttpSession session) {
@@ -25,6 +36,10 @@ public class BarController {
 		Bar bar = barDao.findBarById(id);
 		
 		model.addAttribute("bar", bar);
+		
+		List<Beer> beerList = indexDao.getBeers();
+
+		model.addAttribute("beerList", beerList);
 		
 		return "bar/bar";
 	}
@@ -93,6 +108,21 @@ public class BarController {
 		model.addAttribute("bar", bar);
 		
 		return "bar/deleteBar";
+	}
+	
+	@RequestMapping(path="updateMenu.do", method = RequestMethod.POST)
+	public String updatedMenu(Model model, int barId, HttpSession session, BeerPrice beerPrice, int beerId) {
+		Bar bar = barDao.findBarById(barId);
+		beerPrice.setBar(bar);
+		Beer beer = beerDao.findBeer(beerId);
+		beerPrice.setBeer(beer);
+		beerPrice = beerPriceDao.create(beerPrice);
+
+		bar = barDao.findBarById(barId);
+		model.addAttribute("bar", bar);
+		List<Beer> beerList = indexDao.getBeers();
+		model.addAttribute("beerList", beerList);
+		return "bar/bar";
 	}
 
 }
