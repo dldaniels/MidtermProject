@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/review.css">
 </head>
 <body>
 	<div class="container">
@@ -23,19 +25,66 @@
 	<div class="container-fluid">
 		<h3>${bar.name}</h3>
 		<br>
-				<p>${bar.description}<p>
-				<p>${bar.phoneNumber}</p>
-				<p>${bar.website}</p>
-				<%-- <th>${bar.address}</th> --%>
-
-		<form action="updatebar.do" method="GET">
-			<input type="hidden" value="${bar.id}" name="id"> <input
-				type="submit" value="Update Bar info">
+		<p>${bar.description}
+		<p>
+		<p>${bar.phoneNumber}</p>
+		<p>${bar.website}</p>
+		<table class="table table-dark">
+		<thead>
+		  <tr>
+		  <th>List of Beers</th>
+		  </tr>
+		</thead>
+				<br>
+		<tbody>
+			<c:forEach items="${bar.beerPrices}" var="beerPrice">
+				<tr>
+					<td><a href="getBeer.do?id=${beerPrice.beer.id}">${beerPrice.beer.name}</a></td>
+					<td><img src="${beerPrice.beer.imageUrl}" width ="100" height = "100">
+				</tr>
+		</c:forEach>
+		</tbody>
+	</table>
+		<%-- <th>${bar.address}</th> --%>
+		<form action="addedBeerReview.do" method="GET">
+			<fieldset class="rating">
+				<input type="radio" id="star5" name="rating" value="5" /><label
+					class="full" for="star5" title="Awesome - 5 stars"></label> <input
+					type="radio" id="star4half" name="rating" value="4 and a half" /><label
+					class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+				<input type="radio" id="star4" name="rating" value="4" /><label
+					class="full" for="star4" title="Pretty good - 4 stars"></label> <input
+					type="radio" id="star3half" name="rating" value="3 and a half" /><label
+					class="half" for="star3half" title="Meh - 3.5 stars"></label> <input
+					type="radio" id="star3" name="rating" value="3" /><label
+					class="full" for="star3" title="Meh - 3 stars"></label> <input
+					type="radio" id="star2half" name="rating" value="2 and a half" /><label
+					class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+				<input type="radio" id="star2" name="rating" value="2" /><label
+					class="full" for="star2" title="Kinda bad - 2 stars"></label> <input
+					type="radio" id="star1half" name="rating" value="1 and a half" /><label
+					class="half" for="star1half" title="Meh - 1.5 stars"></label> <input
+					type="radio" id="star1" name="rating" value="1" /><label
+					class="full" for="star1" title="Sucks big time - 1 star"></label> <input
+					type="radio" id="starhalf" name="rating" value="half" /><label
+					class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+			</fieldset>
+			<br> <br>
+			<textarea>
+          </textarea>
+			<br>
+			<button type="submit">Submit</button>
 		</form>
-		<form action="deletebar.do" method="GET">
-			<input type="hidden" value="${bar.id}" name="id"> <input
-				type="submit" value="Delete Bar">
-		</form>
+	</div>
+	<br>
+	<form action="updatebar.do" method="GET">
+		<input type="hidden" value="${bar.id}" name="id"> <input
+			type="submit" value="Update Bar info">
+	</form>
+	<form action="deletebar.do" method="GET">
+		<input type="hidden" value="${bar.id}" name="id"> <input
+			type="submit" value="Delete Bar">
+	</form>
 	<form action="/" method="GET">
 		<input type="hidden" name="" value="" /> <input type="submit"
 			value="Home" />
