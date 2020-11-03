@@ -106,6 +106,36 @@
 
 		<button type=“submit”>Submit</button>
 	</form:form>
+	
+	<!-- add to favorites -->
+	<c:if test="${not empty loginUser }">
+	<div>
+		<form action="favoriteBeer.do" method="GET">
+			<button class="btn btn-outline-secondary" type="submit" name="beerId"
+					value="${beer.id}">Add to Favorites
+			</button>
+		</form>
+	</div>
+	</c:if>
+	
+	
+	</div>
+		
+		<form action="updateBeerForm.do" method="GET">
+				<button class="btn btn-outline-secondary" type="submit" name="id"
+					value="${beer.id}">Edit Beer</button>
+			</form>
+		
+		
+
+
+
+	</div>
+
+
+	<div class="container-fluid">
+	
+
 	<br>
 	<br>
 	<br>
