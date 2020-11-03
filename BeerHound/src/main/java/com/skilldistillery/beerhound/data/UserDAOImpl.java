@@ -8,6 +8,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.beerhound.entities.Bar;
+import com.skilldistillery.beerhound.entities.Beer;
 import com.skilldistillery.beerhound.entities.User;
 
 @Service
@@ -34,6 +36,7 @@ public class UserDAOImpl implements UserDAO {
 			return null;
 		}
 		if (user.getAddress() != null) {
+			
 			dbUser.setAddress(user.getAddress());
 		}
 		if (user.getBiography() != null) {
@@ -63,10 +66,42 @@ public class UserDAOImpl implements UserDAO {
 		if (user.getImage() != null) {
 			dbUser.setImage(user.getImage());
 		}
-		//		dbUser.setBarRatings(user.getBarRatings());
-		//		dbUser.setBeerRatings(user.getBeerRatings());
-		//		dbUser.setFavoriteBarList(user.getFavoriteBarList());
-		//		dbUser.setFavoriteBeerList(user.getFavoriteBeerList());
+		if (user.getBarRatings() != null) {
+			dbUser.setBarRatings(user.getBarRatings());
+		}
+		if (user.getBeerRatings() != null) {
+			dbUser.setBeerRatings(user.getBeerRatings());
+		}
+		if (user.getFavoriteBarList() != null) {
+			dbUser.setFavoriteBarList(user.getFavoriteBarList());
+		}
+		if (user.getFavoriteBeerList() != null) {
+			dbUser.setFavoriteBeerList(user.getFavoriteBeerList());			
+		}
+		return dbUser;
+	}
+	
+	@Override
+	public User updateUserBeerFavorites(User user, Beer beer) {
+		User dbUser = em.find(User.class, user.getId());
+		if (dbUser == null) {
+			return null;
+		}
+		if (user.getFavoriteBeerList() != null) {
+			dbUser.addBeerToFavorites(beer);			
+		}
+		return dbUser;
+	}
+	
+	@Override
+	public User updateUserBarFavorites(User user, Bar bar) {
+		User dbUser = em.find(User.class, user.getId());
+		if (dbUser == null) {
+			return null;
+		}
+		if (user.getFavoriteBarList() != null) {
+			dbUser.addBarToFavorites(bar);			
+		}
 		return dbUser;
 	}
 

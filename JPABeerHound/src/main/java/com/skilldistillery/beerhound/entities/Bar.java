@@ -60,7 +60,10 @@ public class Bar {
 			users = new ArrayList<>();
 		}
 		users.add(user);
-		user.addBarToFavorites(this);
+		if (!user.getFavoriteBarList().contains(this)) {
+			user.addBarToFavorites(this);
+			
+		}
 	}
 	
 	public void removeUser(User user) {
