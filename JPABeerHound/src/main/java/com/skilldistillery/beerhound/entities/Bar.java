@@ -1,6 +1,7 @@
 package com.skilldistillery.beerhound.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -54,6 +55,21 @@ public class Bar {
 	@OneToMany(mappedBy = "bar")
 	private List<BarRating> barRatings;
 	
+	public void addUser(User user) {
+		if (users == null) {
+			users = new ArrayList<>();
+		}
+		users.add(user);
+		user.addBarToFavorites(this);
+	}
+	
+	public void removeUser(User user) {
+		if (users != null) {
+			users.remove(user);
+		}
+		user.removeBarFromFavorites(this);
+	}
+	
 	
 	public Bar() {
 		super();
@@ -64,19 +80,19 @@ public class Bar {
 	
 	
 
-	public Bar(int id, String name, String phoneNumber, String website, String description, int addressId,
-			LocalDate timeLastUpdated, int ownerId, String logoUrl) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-		this.website = website;
-		this.description = description;
-//		this.addressId = addressId;
-		this.timeLastUpdated = timeLastUpdated;
-//		this.ownerId = ownerId;
-		this.logoUrl = logoUrl;
-	}
+//	public Bar(int id, String name, String phoneNumber, String website, String description, ,
+//			LocalDate timeLastUpdated, int ownerId, String logoUrl) {
+//		super();
+//		this.id = id;
+//		this.name = name;
+//		this.phoneNumber = phoneNumber;
+//		this.website = website;
+//		this.description = description;
+////		this.addressId = addressId;
+//		this.timeLastUpdated = timeLastUpdated;
+////		this.ownerId = ownerId;
+//		this.logoUrl = logoUrl;
+//	}
 	
 
 	public int getId() {
@@ -87,6 +103,22 @@ public class Bar {
 
 
 
+
+	public Bar(int id, String name, String phoneNumber, String website, String description, LocalDate timeLastUpdated,
+		String logoUrl, Address address, List<User> users, List<BeerPrice> beerPrices, List<BarRating> barRatings) {
+	super();
+	this.id = id;
+	this.name = name;
+	this.phoneNumber = phoneNumber;
+	this.website = website;
+	this.description = description;
+	this.timeLastUpdated = timeLastUpdated;
+	this.logoUrl = logoUrl;
+	this.address = address;
+	this.users = users;
+	this.beerPrices = beerPrices;
+	this.barRatings = barRatings;
+}
 
 	public void setId(int id) {
 		this.id = id;
@@ -277,11 +309,19 @@ public class Bar {
 
 
 
+//	@Override
+//	public String toString() {
+//		return "Bar [id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", website=" + website
+//				+ ", description=" + description + ", timeLastUpdated=" + timeLastUpdated + ", logoUrl=" + logoUrl
+//				+ "]";
+//	}
+
 	@Override
 	public String toString() {
 		return "Bar [id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", website=" + website
 				+ ", description=" + description + ", timeLastUpdated=" + timeLastUpdated + ", logoUrl=" + logoUrl
-				+ "]";
+				+ ", address=" + address + ", users=" + users + ", beerPrices=" + beerPrices + ", barRatings="
+				+ barRatings + "]";
 	}
 
 	@Override

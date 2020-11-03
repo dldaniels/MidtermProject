@@ -1,5 +1,7 @@
 package com.skilldistillery.beerhound.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -27,16 +29,14 @@ public class Beer {
 	@Column(name = "image_url")
 	private String imageUrl;
 
-	// TODO: Add relationship with beer price
-	
 	private String description;
 	
 
 	@ManyToMany(mappedBy = "favoriteBeerList")
-	private Set<User> users;
+	private List<User> users;
 	
 	@OneToMany(mappedBy="beer")
-	private Set<BeerRating> beerRating;
+	private List<BeerRating> beerRating;
 	
 	@ManyToOne
 	@JoinColumn(name = "type_of_beer_id")
@@ -48,6 +48,21 @@ public class Beer {
 
 	@OneToMany(mappedBy="beer")
 	private Set<BeerPrice> beerPrice;
+	
+	public void addUser(User user) {
+		if (users == null) {
+			users = new ArrayList<>();
+		}
+		users.add(user);
+		user.addBeerToFavorites(this);
+	}
+	
+	public void removeUser(User user) {
+		if (users != null) {
+			users.remove(user);
+		}
+		user.removeBeerFromFavorites(this);
+	}
 	
 	@Override
 	public String toString() {
@@ -90,19 +105,19 @@ public class Beer {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-	public Set<User> getUsers() {
+	public List<User> getUsers() {
 		return users;
 	}
 	
-	public void setUsers(Set<User> users) {
+	public void setUsers(List<User> users) {
 		this.users = users;
 	}
 	
-	public Set<BeerRating> getBeerRating() {
+	public List<BeerRating> getBeerRating() {
 		return beerRating;
 	}
 	
-	public void setBeerRating(Set<BeerRating> beerRating) {
+	public void setBeerRating(List<BeerRating> beerRating) {
 		this.beerRating = beerRating;
 	}
 	

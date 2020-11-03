@@ -1,6 +1,7 @@
 package com.skilldistillery.beerhound.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -56,11 +57,11 @@ public class User {
 	@JoinColumn(name = "address_id")
 	private Address address;
 
-	@ManyToMany
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name = "user_has_bar", joinColumns = @JoinColumn(name = "bar_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<Bar> favoriteBarList;
-
-	@ManyToMany
+	
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name = "user_has_beer", joinColumns = @JoinColumn(name = "beer_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<Beer> favoriteBeerList;
 
@@ -72,6 +73,33 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<BeerRating> beerRatings;
 	
+	public void addBeerToFavorites(Beer beer) {
+		if (favoriteBeerList == null) {
+			favoriteBeerList = new ArrayList<>();
+		}
+		favoriteBeerList.add(beer);
+		beer.addUser(this);
+	}
+	public void removeBeerFromFavorites(Beer beer) {
+		if (favoriteBeerList != null) {
+			favoriteBeerList.remove(beer);
+		}
+		beer.removeUser(this);
+	}
+	
+	public void addBarToFavorites(Bar bar) {
+		if (favoriteBarList == null) {
+			favoriteBarList = new ArrayList<>();
+		}
+		favoriteBarList.add(bar);
+		bar.addUser(this);
+	}
+	public void removeBarFromFavorites(Bar bar) {
+		if (favoriteBarList != null) {
+			favoriteBarList.remove(bar);
+		}
+		bar.removeUser(this);
+	}
 	
 	public User() {
 		super();

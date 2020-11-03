@@ -29,20 +29,6 @@ public class ReviewController {
 	@Autowired
 	private BarDAO barDAO;
 
-//	@RequestMapping(path = "addBarRating.do", method = RequestMethod.GET)
-//	public String directToAdd() {
-//		return "review/addBarReview";
-//	}
-
-//	@RequestMapping(path = "addBarRating.do", method = RequestMethod.GET)
-//	public String getBreweryToUpdate(Integer id, Model model) {
-//		
-//		BarRating barRating = reviewDAO.findBarRating(id);
-//		
-//		model.addAttribute("rating", barRating);
-//		
-//		return "review/addBarReview";
-//	}
 
 	@RequestMapping(path = "addedBarRating.do", method = RequestMethod.GET)
 	public String addBeerRating(Model model, BarRating barRating, int barId, HttpSession session) {
@@ -55,7 +41,7 @@ public class ReviewController {
 
 		model.addAttribute("rating", dbBarRating);
 
-		return "review/updated";
+		return "review/barReviewUpdated";
 	}
 
 	@RequestMapping(path = "deleteBarRating.do", method = RequestMethod.GET)
@@ -66,19 +52,15 @@ public class ReviewController {
 		
 		model.addAttribute("deleted", deleted);
 		
-		return "review/updated";
+		return "review/barReviewUpdated";
 	}
 
-//	@RequestMapping(path = "addBeerRating.do", method = RequestMethod.GET)
-//	public String directToAddBeerRating() {
-//		
-//		return "review/addBeerReview";
-//	}
 
 	@RequestMapping(path = "addedBeerRating.do", method = RequestMethod.GET)
 	public String addBeerRating(Model model, BeerRating beerRating, int beerId, HttpSession session) {
 
 		Beer beer = beerDAO.findBeer(beerId);
+		System.out.println(beer);
 		
 		User user = (User) session.getAttribute("loginUser");
 		
@@ -86,7 +68,7 @@ public class ReviewController {
 
 		model.addAttribute("rating", dbBeerRating);
 
-		return "review/updated";
+		return "review/beerReviewUpdated";
 	}
 	
 	
@@ -98,7 +80,7 @@ public class ReviewController {
 		
 		model.addAttribute("deleted", deleted);
 		
-		return "review/updated";
+		return "review/beerReviewUpdated";
 	}
 
 }
