@@ -88,7 +88,8 @@ public class BeerController {
 	public String findByKeyword(String keyword, Model model, HttpSession session) {
 		List<Beer> searchList = beerDao.findByKeyword(keyword);
 		model.addAttribute("beers", searchList);
-		return "beer/beerlist";
+		System.out.println(searchList);
+		return "beer/searchResults";
 		
 		
 	}

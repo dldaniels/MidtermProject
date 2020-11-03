@@ -92,7 +92,7 @@
 		
 		<form action="updateBeerForm.do" method="GET">
 				<button class="btn btn-outline-secondary" type="submit" name="id"
-					value="${dinosaur.id}">Edit Beer</button>
+					value="${beer.id}">Edit Beer</button>
 			</form>
 		
 		
