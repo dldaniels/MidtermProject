@@ -43,6 +43,8 @@
 
 
 <form action="addedBarRating.do" method="GET"><br>
+
+
 <h2>Add review</h2>
 
 
@@ -59,6 +61,19 @@
 
 <button type=“submit” name=“id” value=“${bar.id}“>Submit</button>
 </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>

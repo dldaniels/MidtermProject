@@ -90,7 +90,7 @@ public class BreweryController {
 		
 		Brewery dbBrewery = breweryDAO.createBrewery(brewery);
 		
-		model.addAttribute("brewery", brewery);
+		model.addAttribute("brewery", dbBrewery);
 		
 		return "brewery/updated";
 	}
@@ -99,11 +99,10 @@ public class BreweryController {
 	@RequestMapping(path = "deleteBrewery.do", method = RequestMethod.GET)
 	public String deleteBrewery(Model model, int id) {
 		
-		Brewery brewery = breweryDAO.findBreweryById(id);
 		
-		breweryDAO.deleteBrewery(id);
+		boolean deleted = breweryDAO.deleteBrewery(id) ;
 		
-		model.addAttribute("brewery", brewery);
+		model.addAttribute("deleted", deleted);
 		
 		return "brewery/updated";
 	}

@@ -23,24 +23,24 @@
 	<br>
 	<br>
 
-	<div class="container">
+
 		<c:choose>
-			<c:when test="${! empty brewery }">
-			${brewery.name} Updated
-		</c:when>
 		
-			<c:when test="${empty brewery }">
+			<c:when test="${! empty brewery }">
+			${brewery.name} Updated successfully
+			${brewery.id}
+			<a href="getBrewery.do?id=${brewery.id}">${brewery.name}</a>
+			</c:when>
+		
+			<c:when test="${deleted}">
 			Brewery deleted
-		</c:when>
+			</c:when>
 
 			<c:otherwise>
 			Unable to update brewery
-		</c:otherwise>
+			</c:otherwise>
 		
 		</c:choose>
-
-
-	</div>
 
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

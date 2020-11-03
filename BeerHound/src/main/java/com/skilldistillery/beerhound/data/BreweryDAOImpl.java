@@ -60,15 +60,9 @@ public class BreweryDAOImpl implements BreweryDAO {
 	@Override
 	public Brewery createBrewery(Brewery brewery) {
 		
-		Brewery dbBrewery = new Brewery();
 
-		dbBrewery.setName(brewery.getName());
-//		dbBrewery.setBreweryLogoUrl(brewery.getBreweryLogoUrl());
-		dbBrewery.setAddress(brewery.getAddress());
-		dbBrewery.setBreweryWebsite(brewery.getBreweryWebsite());
-//		dbBrewery.setBeers(brewery.getBeers());
 		
-		em.persist(dbBrewery);
+		em.persist(brewery);
 		
 		return brewery;
 		
