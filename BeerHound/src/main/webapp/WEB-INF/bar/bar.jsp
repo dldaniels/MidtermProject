@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +37,6 @@
 		  <th>List of Beers</th>
 		  </tr>
 		</thead>
-				<br>
 		<tbody>
 			<c:forEach items="${bar.beerPrices}" var="beerPrice">
 				<tr>
@@ -45,6 +46,38 @@
 		</c:forEach>
 		</tbody>
 	</table>
+		<!-- update menu -->
+		<form action="updateMenu.do" method="post">
+		<table>
+		<tr>
+			<td>
+				<input type="hidden" name="barId" value="${bar.id }">
+			</td>
+			<td>
+				<label for="price">Price:</label>
+				<input type="number" name="price" value=4>
+			</td>
+			<td>
+				<select name="beerId">
+					<c:forEach items="${beerList}" var="beer">
+    					<option value="${beer.id}">${beer.name}</option>
+					</c:forEach>
+				</select>
+			</td>
+			
+			<%-- <td>
+				<form:label path="beerName">Beer</form:label>
+					<form:select path="beerName">
+						<form:option value="select a beer"></form:option>
+						<form:options items="${beerList }"/>
+					</form:select>
+			</td> --%>
+			<td>
+				<button type="submit">Submit</button>
+			</td>
+		</tr>
+		</table>
+		</form>
 		<%-- <th>${bar.address}</th> --%>
 		<form action="addedBeerReview.do" method="GET">
 			<fieldset class="rating">
