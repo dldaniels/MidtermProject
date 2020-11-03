@@ -44,6 +44,17 @@
 				<tr>
 					<td><a href="getBeer.do?id=${beerPrice.beer.id}">${beerPrice.beer.name}</a></td>
 					<td><img src="${beerPrice.beer.imageUrl}" width ="100" height = "100">
+					<td>
+					
+					<form action="removeBeer.do" method="POST">
+				<input type="hidden" name="beerPriceId" value="${beerPrice.id}" />
+				<input type="hidden" name="barId" value="${bar.id}" />
+				
+				 <input
+					type="submit" value="Delete beer from menu" />
+			</form>
+			
+					</td>
 				</tr>
 		</c:forEach>
 		</tbody>
