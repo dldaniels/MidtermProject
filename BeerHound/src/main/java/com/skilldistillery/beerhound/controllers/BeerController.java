@@ -74,4 +74,11 @@ public class BeerController {
 		return "beer/beerAction";
 	}
 
+	@RequestMapping(path = "findBeerByType.do")
+	public String findByType(Integer id, Model model) {
+		List<Beer> beerList = beerDao.findByType(id);
+		model.addAttribute("beers", beerList);
+		return "beer/beerList";
+
+	}
 }

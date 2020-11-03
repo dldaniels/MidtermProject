@@ -22,8 +22,12 @@
         <li class="nav-item active">
           <a class="nav-link" href="beerIndex.do">All Beer <span class="sr-only">(current)</span></a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="findBeerbyType.do">View Beer by Type <span class="sr-only">(current)</span></a>
+        </li>
+        
         <li class="nav-item">
-          <a class="nav-link" href="View Beer by Type">View Beer by Type</a>
+          <a class="nav-link" href="findBeerByType.do">View Beer by Type</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">View Beer by Brewery</a>
