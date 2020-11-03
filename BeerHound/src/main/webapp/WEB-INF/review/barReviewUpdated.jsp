@@ -24,22 +24,24 @@
 	<br>
 
 
-		<c:choose>
-		
-			<c:when test="${! empty rating }">
-			${rating.beer.name} review successfully added
-			<a href="getBeer.do?id=${rating.beer.id}">${rating.beer.name}</a>
-			</c:when>
-		
-			<c:when test="${deleted}">
+
+	<c:choose>
+
+		<c:when test="${! empty rating}">
+			${rating.bar.name} review successfully added
+			<br>
+			<a href="getBar.do?id=${rating.bar.id}">${rating.bar.name}</a>
+		</c:when>
+
+		<c:when test="${deleted}">
 			rating deleted
 			</c:when>
 
-			<c:otherwise>
+		<c:otherwise>
 			no result
 			</c:otherwise>
-		
-		</c:choose>
+
+	</c:choose>
 
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
