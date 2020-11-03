@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +30,28 @@
 		<h4>${beer.typeOfBeer.typeName}</h4>
 		Alcohol Content:
 		<h4>${beer.alcoholContent}%</h4>
+<<<<<<< HEAD
+=======
+		
+		<table class="table table-dark">
+		<thead>
+		  <tr>
+		  <th>List of Bars</th>
+		  </tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${beer.beerPrice}" var="beerPrice">
+				<tr>
+					<td><a href="getBar.do?id=${beerPrice.bar.id}">${beerPrice.bar.name}</a></td>
+					<td><img src="${beerPrice.bar.logoUrl}" width ="100" height = "100">
+				</tr>
+		</c:forEach>
+		</tbody>
+	</table>
+	<%-- 	<form action="updateBeerForm.do" method="GET">
+			<button class="btn btn secondary" type="submit" name="id"
+				value="${beer.id }">Edit Beer</button>
+>>>>>>> 7444161d03aeab449248b80ecd74e75ab24cb597
 
 		
 		
