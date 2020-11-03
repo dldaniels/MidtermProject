@@ -24,6 +24,7 @@ Name: <input type="text" name="name"/><br>
 Phone Number: <input type="text" name="phoneNumber"/><br>
 Website: <input type="text" name="website"/><br>
 Description: <input type="text" name="description"/><br>
+Logo <input type="text" name="logoUrl"/>
 <!-- Address: <input type="text" name="addressId"/><br> -->
 <!-- TimeLastUpdated: <input type="text" name="timeLastUpdated"/><br> -->
 <!-- Logo: <input type="text" name="logoUrl"/><br> -->
