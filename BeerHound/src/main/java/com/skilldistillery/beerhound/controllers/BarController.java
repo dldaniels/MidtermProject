@@ -2,6 +2,8 @@ package com.skilldistillery.beerhound.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +20,7 @@ public class BarController {
 	private BarDAO barDao;
 	
 	@RequestMapping(path="getBar.do", method = RequestMethod.GET)
-	public String getBarById(Integer id, Model model) {
+	public String getBarById(Integer id, Model model, HttpSession session) {
 		
 		Bar bar = barDao.findBarById(id);
 		
@@ -28,7 +30,7 @@ public class BarController {
 	}
 	
 	@RequestMapping(path="barSearch.do", method = RequestMethod.GET)
-	public String getBarbyKw(Model model, String keyword) {
+	public String getBarbyKw(Model model, String keyword, HttpSession session) {
 		
 		List<Bar> bars = barDao.searchBarByKeyWord(keyword);
 		
@@ -39,7 +41,7 @@ public class BarController {
 	}
 	
 	@RequestMapping(path="barIndex.do", method = RequestMethod.GET)
-	public String findAll(Model model) {
+	public String findAll(Model model, HttpSession session) {
 		
 		List<Bar> bars = barDao.searchBarByKeyWord("");
 		
@@ -49,7 +51,7 @@ public class BarController {
 	}
 	
 	@RequestMapping(path="createBar.do")
-	public String createBar(Model model) {
+	public String createBar(Model model, HttpSession session) {
 		return "bar/createBar";
 	}
 	@RequestMapping(path="createdBar.do")
@@ -62,7 +64,7 @@ public class BarController {
 	}
 	
 	@RequestMapping(path="updatebar.do")
-	public String updateBar(Integer id, Model model, Bar bar) {
+	public String updateBar(Integer id, Model model, Bar bar, HttpSession session) {
 		
 //		Bar bars = barDao.findBarById(id);
 						
@@ -72,7 +74,7 @@ public class BarController {
 	}
 	
 	@RequestMapping(path="updatedbar.do")
-	public String getUpdateBar(Model model, Integer id, Bar bar) {
+	public String getUpdateBar(Model model, Integer id, Bar bar, HttpSession session) {
 		
 		bar = barDao.updateBar(id, bar);
 		
@@ -82,7 +84,7 @@ public class BarController {
 	}
 	
 	@RequestMapping(path ="deletebar.do", method = RequestMethod.GET)
-	public String deleteBar(Model model, int id) {
+	public String deleteBar(Model model, int id, HttpSession session) {
 		
 		Bar bar = barDao.findBarById(id);
 		
