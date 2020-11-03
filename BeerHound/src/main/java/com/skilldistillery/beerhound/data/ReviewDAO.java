@@ -1,11 +1,14 @@
 package com.skilldistillery.beerhound.data;
 
+import com.skilldistillery.beerhound.entities.Bar;
 import com.skilldistillery.beerhound.entities.BarRating;
+import com.skilldistillery.beerhound.entities.Beer;
 import com.skilldistillery.beerhound.entities.BeerRating;
+import com.skilldistillery.beerhound.entities.User;
 
 public interface ReviewDAO {
 
-	BarRating addBarRating(BarRating barRating);
+	public BarRating addBarRating(BarRating barRating, Bar bar, User loggedInUser);
 	
 	boolean deleteBarRating(int id);
 	
@@ -13,13 +16,14 @@ public interface ReviewDAO {
 	
 	BarRating findBarRating(int id);
 	
-	BeerRating addBeerRating(BeerRating beerRating);
 	
 	boolean deleteBeerRating(int id);
 	
 	BeerRating updateBeerRating(BeerRating beerRating);
 	
 	BeerRating findBeerRating(int id);
+
+	BeerRating addBeerRating(BeerRating beerRating, Beer beer, User loggedInUser);
 	
 	
 	
