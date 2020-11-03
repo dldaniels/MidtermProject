@@ -31,9 +31,9 @@ public class ReviewDAOImpl implements ReviewDAO {
 		dbBarRating.setRatingDate(barRating.getRatingDate());
 		dbBarRating.setUser(loggedInUser);
 		
-		em.persist(barRating);
+		em.persist(dbBarRating);
 		
-		return barRating;
+		return dbBarRating;
 	}
 
 	@Override
@@ -81,9 +81,12 @@ public class ReviewDAOImpl implements ReviewDAO {
 		dbBeerRating.setBeer(beer);
 		dbBeerRating.setUser(loggedInUser);
 		
-		em.persist(beerRating);
 		
-		return beerRating;
+		em.persist(dbBeerRating);
+		
+		
+		
+		return dbBeerRating;
 	}
 
 	@Override
