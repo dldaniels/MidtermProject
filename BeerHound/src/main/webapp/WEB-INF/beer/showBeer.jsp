@@ -128,10 +128,7 @@
 		
 		
 
-		<br> <a href="getBrewery.do?id=${beer.brewery.id}">${beer.brewery.name}</a>
-		<br> <img src="${beer.imageUrl}" width="200" height="200">
-		
-		${beer.description}
+
 
 	</div>
 
