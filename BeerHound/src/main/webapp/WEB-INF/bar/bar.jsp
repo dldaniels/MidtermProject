@@ -31,7 +31,7 @@
 		<p>
 		<p>${bar.phoneNumber}</p>
 		<p>${bar.website}</p>
-		<p>${bar.address.street} ${bar.address.city} ${bar.address.zip}</p>
+		<p>${bar.address.street}${bar.address.city}${bar.address.zip}</p>
 		<table class="table table-dark">
 			<thead>
 				<tr>
@@ -103,38 +103,96 @@
 			</table>
 		</form>
 
+
+
+
 		<br>
 		<div class="container-fluid">
 
-			<form:form action="addedBarRating.do" method="GET"
-				modelAttribute="barRating">
-				<input path="bar" name="barId" value="${ bar.id }" type="hidden">
 
-				<fieldset class="rating">
-					<input type="radio" id="star5" name="starRating" value=5 /><label
-						class="full" for="star5" title="Awesome - 5 stars"></label> <input
-						type="radio" id="star4" name="starRating" value=4 /><label
-						class="full" for="star4" title="Pretty good - 4 stars"></label> <input
-						type="radio" id="star3" name="starRating" value=3 /><label
-						class="full" for="star3" title="Meh - 3 stars"></label> <input
-						type="radio" id="star2" name="starRating" value=2 /><label
-						class="full" for="star2" title="Kinda bad - 2 stars"></label> <input
-						type="radio" id="star1" name="starRating" value=1 /><label
-						class="full" for="star1" title="Sucks big time - 1 star"></label>
-				</fieldset>
-				<br>
-				<br>
+			<h2>Reviews</h2>
+			<c:set var="sum" value="${0}" />
+			<c:forEach items="${bar.barRatings}" var="ratings">
+				<c:set var="counter" value="${counter + 1}" />
+				<c:set var="sum" value="${sum + ratings.starRating}" />
+			</c:forEach>
+			<p>Average rating ${sum / counter} stars</p>
+			<table class="table table-dark">
+				<thead>
+					<tr>
+						<th>Rating</th>
+						<th>Date</th>
+						<th>Username</th>
+						<th>Review</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${bar.barRatings}" var="ratings">
 
-				<textarea name="review" value="" placeholder="leave review here"
-					rows="5" cols="60">
+						<tr>
+							<td>${ratings.starRating}stars</td>
+							<td>${ratings.ratingDate}</td>
+							<td>${ratings.user.username}</td>
+							<td>${ratings.review}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+
+
+
+			<c:if test="${! empty loginUser }">
+
+
+				<form:form action="addedBarRating.do" method="GET"
+					modelAttribute="barRating">
+					<input path="bar" name="barId" value="${ bar.id }" type="hidden">
+
+					<fieldset class="rating">
+						<input type="radio" id="star5" name="starRating" value=5 /><label
+							class="full" for="star5" title="Awesome - 5 stars"></label> <input
+							type="radio" id="star4" name="starRating" value=4 /><label
+							class="full" for="star4" title="Pretty good - 4 stars"></label> <input
+							type="radio" id="star3" name="starRating" value=3 /><label
+							class="full" for="star3" title="Meh - 3 stars"></label> <input
+							type="radio" id="star2" name="starRating" value=2 /><label
+							class="full" for="star2" title="Kinda bad - 2 stars"></label> <input
+							type="radio" id="star1" name="starRating" value=1 /><label
+							class="full" for="star1" title="Sucks big time - 1 star"></label>
+					</fieldset>
+					<br>
+					<br>
+
+					<textarea name="review" value="" placeholder="leave review here"
+						rows="5" cols="60">
           
          </textarea>
-				<br>
+					<br>
 
-				<button type=“submit”>Submit</button>
-			</form:form>
+
+
+					<button type=“submit”>Submit</button>
+
+
+
+
+				</form:form>
+			</c:if>
+
+			<br>
+
+			<c:if test="${empty loginUser }">
+
+				<form action="login" method="GET">
+					<input type="hidden" name="" value="" /> <input type="submit"
+						value="Login to add a review" />
+				</form>
+
+
+			</c:if>
 		</div>
-		<br>
+
+
 		<!-- add to favorites -->
 		<c:if test="${not empty loginUser }">
 			<div>
@@ -160,8 +218,8 @@
 						type="submit" value="Update Bar info">
 				</form>
 			</c:when>
-			</c:choose>
-			<c:choose>
+		</c:choose>
+		<c:choose>
 			<c:when test="${empty loginUser }">
 				<form action="login" method="GET">
 					<input type="hidden" name="" value="" /> <input type="submit"
