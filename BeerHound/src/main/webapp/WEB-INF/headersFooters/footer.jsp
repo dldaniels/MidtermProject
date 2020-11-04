@@ -8,21 +8,21 @@
 </head>
 <body>
 
- <nav class="navbar navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
+ <nav class="navbar navbar fixed-bottom navbar-expand-lg navbar-light bg-dark">
     <div class="footer-nav-left">
 <p class="footer-copyright">© 2020 Beer Hound, Inc.</p>
 </div>
 <div class="footer-nav-center">
-<ul class="footer-nav-menu">
-<li class="footer-nav-menu-item">
-<a href="">Events</a>
+<ul class="nav justify-content-center">
+<li class="nav-item">
+<a href="">  Events  </a>
 </li>
 
-<li class="footer-nav-menu-item">
-<a title="Work at Beer Hound" href="">Careers</a>
+<li class="nav-item">
+<a title="Work at Beer Hound" href="">  Careers  </a>
 </li>
-<li class="footer-nav-menu-item">
-<a href="">Privacy Policy</a>
+<li class="nav-item">
+<a href="">  Privacy Policy  </a>
 </li>
 </ul>
 </div>
