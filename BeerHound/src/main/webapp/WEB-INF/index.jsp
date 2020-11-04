@@ -22,57 +22,20 @@
 <br>
 <br>
 <div class="container">
-<table class="table">
-		<thead>
-			<tr>
-				<th>Users</th>
-			</tr>
-		</thead>
-			<c:forEach items="${userList }" var="u">
-				<tr>
-					<td><a href="getUser.do?id=${u.id }">${u.id }</a>
-				</tr>
-			</c:forEach>
-	</table>
-
-<table class="table">
-		<thead>
-			<tr>
-				<th>Bars</th>
-			</tr>
-		</thead>
-			<c:forEach items="${barList  }" var="b">
-				<tr>
-					<td><a href="getBar.do?id=${b.id }">${b.id }</a>
-				</tr>
-			</c:forEach>
-	</table>
-
-<table class="table">
-		<thead>
-			<tr>
-				<th>Beers</th>
-			</tr>
-		</thead>
-			<c:forEach items="${beerList }" var="b">
-				<tr>
-					<td><a href="getBeer.do?id=${b.id }">${b.id }</a>
-				</tr>
-			</c:forEach>
-	</table>
-
-<table class="table">
-		<thead>
-			<tr>
-				<th>Breweries</th>
-			</tr>
-		</thead>
-			<c:forEach items="${breweryList }" var="b">
-				<tr>
-					<td><a href="getBrewery.do?id=${b.id }">${b.id }</a>
-				</tr>
-			</c:forEach>
-	</table>
+<div class="row">
+	<h2>Beer Hound</h2>
+	<p>
+	Tired of walking into a bar only to find that their tap lists consist 
+of lame beer? So are we. 
+<br>
+Life is to short to drink crappy beer, find and update any bar
+taplist near you to avoid walking into a place that only serves Coors.
+	
+	</p>
+</div>
+<div class="row">
+	<img src="images/beer.jpg"  width ="100%" alt="beer" class ="img">
+</div>
 </div>
 
 	<!-- bootstrap -->

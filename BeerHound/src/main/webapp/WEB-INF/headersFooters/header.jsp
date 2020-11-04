@@ -21,13 +21,13 @@
     <div class="collapse navbar-collapse container-fluid" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="breweryIndex.do">Breweries</a>
-        </li>
-        <li class="nav-item active">
           <a class="nav-link" href="beerIndex.do">Beers</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="barIndex.do">Bars<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="breweryIndex.do">Breweries</a>
         </li>
         <c:choose>
         <c:when test="${not empty loginUser }">
