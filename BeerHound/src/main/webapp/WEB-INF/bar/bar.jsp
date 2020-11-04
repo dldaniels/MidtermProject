@@ -130,7 +130,7 @@
 					<c:forEach items="${bar.barRatings}" var="ratings">
 
 						<tr>
-							<td>${ratings.starRating}stars</td>
+							<td>${ratings.starRating} stars</td>
 							<td>${ratings.ratingDate}</td>
 							<td>${ratings.user.username}</td>
 							<td>${ratings.review}</td>
