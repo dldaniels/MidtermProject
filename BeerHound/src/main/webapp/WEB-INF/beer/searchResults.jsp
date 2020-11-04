@@ -52,7 +52,7 @@
 		</table>
 
 	</div>
-	<div class="footer">
+<div class="footer">
 <jsp:include page = "../headersFooters/footer.jsp"></jsp:include>
 </div>
 
