@@ -1,6 +1,6 @@
 package com.skilldistillery.beerhound.entities;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,9 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Bar {
@@ -36,7 +37,8 @@ public class Bar {
 //	private int addressId;
 
 	@Column(name = "time_last_updated")
-	private LocalDate timeLastUpdated;
+	@UpdateTimestamp
+	private LocalDateTime timeLastUpdated;
 
 //	@Column(name="owner_id")
 //	private int ownerId;
@@ -109,7 +111,7 @@ public class Bar {
 
 
 
-	public Bar(int id, String name, String phoneNumber, String website, String description, LocalDate timeLastUpdated,
+	public Bar(int id, String name, String phoneNumber, String website, String description, LocalDateTime timeLastUpdated,
 		String logoUrl, Address address, List<User> users, List<BeerPrice> beerPrices, List<BarRating> barRatings) {
 	super();
 	this.id = id;
@@ -206,7 +208,7 @@ public class Bar {
 
 
 
-	public LocalDate getTimeLastUpdated() {
+	public LocalDateTime getTimeLastUpdated() {
 		return timeLastUpdated;
 	}
 
@@ -215,7 +217,7 @@ public class Bar {
 
 
 
-	public void setTimeLastUpdated(LocalDate timeLastUpdated) {
+	public void setTimeLastUpdated(LocalDateTime timeLastUpdated) {
 		this.timeLastUpdated = timeLastUpdated;
 	}
 

@@ -24,7 +24,7 @@
 <br>
 <div class="container">
 <c:choose>
-<c:when test="${not empty user }">
+<c:when test="${not empty user && (user.enabled || loginUser.role == 'ADMIN')}">
 	<div class="row"><h3>${user.username }</h3></div>
 	
 	<div class="row">
@@ -45,7 +45,7 @@
 		</c:when>
 		</c:choose>
 		<div class="col">
-			<img alt="User Profile Image" src="${user.image }">
+			<img alt="User Profile Image" src="${user.image }" height="100">
 		</div>
 	</div>
 	

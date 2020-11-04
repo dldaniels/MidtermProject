@@ -56,10 +56,14 @@
 				<form:hidden path="id" value="${user.id }"/>
 				<form:hidden path="enabled" value="${user.enabled }"/>
 				<form:hidden path="role" value="${user.role }"/>
-				<form:hidden path="image" value="${user.image }"/>
 				<form:hidden path="biography" value="${user.biography }"/>
 				<tr>
 					<td>ID</td><td>${user.id }</td>
+				</tr>
+				<tr>
+					<td><form:label path="email">Email</form:label></td>
+					<td><form:input path="email" value="${user.email }"/></td>
+					<td><form:errors path="email"/></td>
 				</tr>
 				<tr>
 					<td><form:label path="username">Username</form:label></td>
@@ -88,9 +92,8 @@
 					<td><form:errors path="lastName"/></td>
 				</tr>
 				<tr>
-					<td><form:label path="email">Email</form:label></td>
-					<td><form:input path="email" value="${user.email }"/></td>
-					<td><form:errors path="email"/></td>
+					<td><form:label path="image">Profile Picture URL</form:label></td>
+					<td><form:input path="image" value="${user.image }"/></td>
 				</tr>
 				<tr>
 					<td>User Since</td><td>
