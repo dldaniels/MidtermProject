@@ -72,9 +72,11 @@ public class Bar {
 	
 	public void removeUser(User user) {
 		if (users != null) {
-			users.remove(user);
+			if(users.remove(user)) {
+				user.removeBarFromFavorites(this);
+				
+			}
 		}
-		user.removeBarFromFavorites(this);
 	}
 	
 	
