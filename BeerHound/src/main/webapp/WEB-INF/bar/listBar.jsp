@@ -18,7 +18,9 @@
 	</div>
 	<br>
 	<div class="container-fluid">
-
+<br>
+<br>
+<br>
 		<h3>Bar List</h3>
 
 		<form action="getBar.do" method="GET">
