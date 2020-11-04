@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.beerhound.data.BreweryDAO;
+import com.skilldistillery.beerhound.entities.Bar;
 import com.skilldistillery.beerhound.entities.Brewery;
 
 @Controller
@@ -108,6 +109,8 @@ public class BreweryController {
 		
 		return "brewery/updated";
 	}
+	
+	
 	
 	
 	
