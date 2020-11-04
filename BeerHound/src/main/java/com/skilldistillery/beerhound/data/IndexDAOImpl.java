@@ -35,7 +35,9 @@ public class IndexDAOImpl implements IndexDAO {
 	@Override
 	public List<Beer> getBeers() {
 		String query = "SELECT b FROM Beer b";
-		return em.createQuery(query, Beer.class).getResultList();
+		List<Beer> beers = em.createQuery(query, Beer.class).getResultList();
+		beers.sort((Beer b1, Beer b2) -> b1.getName().compareTo(b2.getName()));
+		return beers;
 	}
 
 	@Override
