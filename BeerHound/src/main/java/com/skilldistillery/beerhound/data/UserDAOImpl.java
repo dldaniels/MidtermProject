@@ -88,7 +88,11 @@ public class UserDAOImpl implements UserDAO {
 			return null;
 		}
 		if (user.getFavoriteBeerList() != null) {
-			dbUser.addBeerToFavorites(beer);			
+			if(user.getFavoriteBeerList().contains(beer)) {
+				dbUser.removeBeerFromFavorites(beer);
+			} else {
+				dbUser.addBeerToFavorites(beer);
+			}
 		}
 		return dbUser;
 	}
@@ -100,7 +104,11 @@ public class UserDAOImpl implements UserDAO {
 			return null;
 		}
 		if (user.getFavoriteBarList() != null) {
-			dbUser.addBarToFavorites(bar);			
+			if(user.getFavoriteBarList().contains(bar)) {
+				dbUser.removeBarFromFavorites(bar);
+			} else {
+				dbUser.addBarToFavorites(bar);			
+			}
 		}
 		return dbUser;
 	}

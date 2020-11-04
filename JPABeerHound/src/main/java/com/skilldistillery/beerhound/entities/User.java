@@ -82,9 +82,10 @@ public class User {
 	}
 	public void removeBeerFromFavorites(Beer beer) {
 		if (favoriteBeerList != null) {
-			favoriteBeerList.remove(beer);
+			if(favoriteBeerList.remove(beer)) {
+				beer.removeUser(this);
+			}
 		}
-		beer.removeUser(this);
 	}
 	
 	public void addBarToFavorites(Bar bar) {
@@ -96,9 +97,10 @@ public class User {
 	}
 	public void removeBarFromFavorites(Bar bar) {
 		if (favoriteBarList != null) {
-			favoriteBarList.remove(bar);
+			if(favoriteBarList.remove(bar)) {
+				bar.removeUser(this);
+			}
 		}
-		bar.removeUser(this);
 	}
 	
 	public User() {
