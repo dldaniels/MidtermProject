@@ -31,7 +31,7 @@
 		<p>
 		<p>${bar.phoneNumber}</p>
 		<p>${bar.website}</p>
-		<p>${bar.address.street}${bar.address.city}${bar.address.zip}</p>
+		<p>${bar.address.street} ${bar.address.city} ${bar.address.state} ${bar.address.zip}</p>
 		<table class="table table-dark">
 			<thead>
 				<tr>
