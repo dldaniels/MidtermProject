@@ -45,7 +45,7 @@
 		</c:when>
 		</c:choose>
 		<div class="col">
-			<img alt="User Profile Image" src="${user.image }">
+			<img alt="User Profile Image" src="${user.image }" height="100">
 		</div>
 	</div>
 	
