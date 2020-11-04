@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,7 +33,7 @@ public class Beer {
 	private String description;
 	
 
-	@ManyToMany(mappedBy = "favoriteBeerList")
+	@ManyToMany(mappedBy = "favoriteBeerList", cascade=CascadeType.ALL)
 	private List<User> users;
 	
 	@OneToMany(mappedBy="beer")
@@ -54,7 +55,10 @@ public class Beer {
 			users = new ArrayList<>();
 		}
 		users.add(user);
-		user.addBeerToFavorites(this);
+		if (!user.getFavoriteBeerList().contains(this)) {
+			
+			user.addBeerToFavorites(this);
+		}
 	}
 	
 	public void removeUser(User user) {

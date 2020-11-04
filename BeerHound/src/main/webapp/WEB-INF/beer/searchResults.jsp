@@ -16,6 +16,7 @@
 <div class="container">
 <jsp:include page = "../headersFooters/header.jsp"></jsp:include>
 </div>
+
 <br>
 <br>
 	<div class="container-fluid">
@@ -46,10 +47,14 @@
 						<td><img src="${beer.imageUrl}" width ="100" height = "100"> 
 					</tr>
 				</c:forEach>
+				
 			</tbody>
 		</table>
 
 	</div>
+<div class="footer">
+<jsp:include page = "../headersFooters/footer.jsp"></jsp:include>
+</div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

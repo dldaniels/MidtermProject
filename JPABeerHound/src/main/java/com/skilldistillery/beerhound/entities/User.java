@@ -57,12 +57,12 @@ public class User {
 	@JoinColumn(name = "address_id")
 	private Address address;
 
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinTable(name = "user_has_bar", joinColumns = @JoinColumn(name = "bar_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "user_has_bar", inverseJoinColumns = @JoinColumn(name = "bar_id"), joinColumns = @JoinColumn(name = "user_id"))
 	private List<Bar> favoriteBarList;
 	
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinTable(name = "user_has_beer", joinColumns = @JoinColumn(name = "beer_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "user_has_beer", inverseJoinColumns = @JoinColumn(name = "beer_id"), joinColumns = @JoinColumn(name = "user_id"))
 	private List<Beer> favoriteBeerList;
 
 	

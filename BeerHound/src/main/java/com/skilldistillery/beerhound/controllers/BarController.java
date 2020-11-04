@@ -29,88 +29,89 @@ public class BarController {
 	private BeerPriceDAO beerPriceDao;
 	@Autowired
 	private IndexDAO indexDao;
-	
-	@RequestMapping(path="getBar.do", method = RequestMethod.GET)
+
+	@RequestMapping(path = "getBar.do", method = RequestMethod.GET)
 	public String getBarById(Integer id, Model model, HttpSession session) {
-		
+
 		Bar bar = barDao.findBarById(id);
-		
+
 		model.addAttribute("bar", bar);
-		
+
 		List<Beer> beerList = indexDao.getBeers();
 
 		model.addAttribute("beerList", beerList);
-		
+
 		return "bar/bar";
 	}
-	
-	@RequestMapping(path="barSearch.do", method = RequestMethod.GET)
+
+	@RequestMapping(path = "barSearch.do", method = RequestMethod.GET)
 	public String getBarbyKw(Model model, String keyword, HttpSession session) {
-		
+
 		List<Bar> bars = barDao.searchBarByKeyWord(keyword);
-		
+
 		model.addAttribute("bars", bars);
-		
+
 		return "bar/listBar";
-		
+
 	}
-	
-	@RequestMapping(path="barIndex.do", method = RequestMethod.GET)
+
+	@RequestMapping(path = "barIndex.do", method = RequestMethod.GET)
 	public String findAll(Model model, HttpSession session) {
-		
+
 		List<Bar> bars = barDao.searchBarByKeyWord("");
-		
+
 		model.addAttribute("bars", bars);
-		
+
 		return "bar/listBar";
 	}
-	
-	@RequestMapping(path="createBar.do")
+
+	@RequestMapping(path = "createBar.do")
 	public String createBar(Model model, HttpSession session) {
 		return "bar/createBar";
 	}
-	@RequestMapping(path="createdBar.do")
+
+	@RequestMapping(path = "createdBar.do")
 	public String createdBar(Model model, Bar bar) {
-		
+
 		model.addAttribute("bar", barDao.createBar(bar));
-		
+
 		return "bar/barResult";
-		
+
 	}
-	
-	@RequestMapping(path="updatebar.do")
+
+	@RequestMapping(path = "updatebar.do")
 	public String updateBar(Integer id, Model model, Bar bar, HttpSession session) {
-		
+
 //		Bar bars = barDao.findBarById(id);
-						
+
 		model.addAttribute("bar", barDao.findBarById(id));
-				
+
 		return "bar/updateBar";
 	}
-	
-	@RequestMapping(path="updatedbar.do")
+
+	@RequestMapping(path = "updatedbar.do")
 	public String getUpdateBar(Model model, Integer id, Bar bar, HttpSession session) {
-		
+
 		bar = barDao.updateBar(id, bar);
-		
+
 		model.addAttribute("bar", bar);
-		
+
 		return "bar/barResult";
 	}
-	
-	@RequestMapping(path ="deletebar.do", method = RequestMethod.GET)
+
+	@RequestMapping(path = "deletebar.do", method = RequestMethod.GET)
 	public String deleteBar(Model model, int id, HttpSession session) {
-		
+
 		Bar bar = barDao.findBarById(id);
-		
+
 		barDao.deleteBar(id);
-		
+
 		model.addAttribute("bar", bar);
-		
+
 		return "bar/deleteBar";
 	}
-	
-	@RequestMapping(path="updateMenu.do", method = RequestMethod.POST)
+
+	@RequestMapping(path = "updateMenu.do", method = RequestMethod.POST)
 	public String updatedMenu(Model model, int barId, HttpSession session, BeerPrice beerPrice, int beerId) {
 		Bar bar = barDao.findBarById(barId);
 		beerPrice.setBar(bar);
@@ -122,6 +123,18 @@ public class BarController {
 		model.addAttribute("bar", bar);
 		List<Beer> beerList = indexDao.getBeers();
 		model.addAttribute("beerList", beerList);
+		return "bar/bar";
+	}
+
+	@RequestMapping(path = "removeBeer.do", method = RequestMethod.POST)
+	public String removeBeerFromMenu(Model model, int barId, int beerPriceId, HttpSession session) {
+
+		Bar bar = barDao.findBarById(barId);
+
+		beerPriceDao.delete(beerPriceId);
+
+		model.addAttribute("bar", bar);
+
 		return "bar/bar";
 	}
 
