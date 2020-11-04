@@ -15,6 +15,7 @@ import com.skilldistillery.beerhound.data.BarDAO;
 import com.skilldistillery.beerhound.data.BeerDAO;
 import com.skilldistillery.beerhound.data.BeerPriceDAO;
 import com.skilldistillery.beerhound.data.IndexDAO;
+import com.skilldistillery.beerhound.entities.Address;
 import com.skilldistillery.beerhound.entities.Bar;
 import com.skilldistillery.beerhound.entities.Beer;
 import com.skilldistillery.beerhound.entities.BeerPrice;
@@ -71,10 +72,10 @@ public class BarController {
 	}
 
 	@RequestMapping(path = "createdBar.do")
-	public String createdBar(Model model, Bar bar) {
-
+	public String createdBar(Model model, Bar bar, Address address) {
+		bar.setAddress(address);
 		model.addAttribute("bar", barDao.createBar(bar));
-
+		
 		return "bar/barResult";
 
 	}
@@ -90,8 +91,10 @@ public class BarController {
 	}
 
 	@RequestMapping(path = "updatedbar.do")
-	public String getUpdateBar(Model model, Integer id, Bar bar, HttpSession session) {
+//	public String getUpdateBar(Model model, Integer id, Bar bar, Address address, HttpSession session) {
+		public String getUpdateBar(Model model, Integer id, Bar bar, HttpSession session) {
 
+//		bar.setAddress(address);
 		bar = barDao.updateBar(id, bar);
 
 		model.addAttribute("bar", bar);
@@ -102,11 +105,7 @@ public class BarController {
 	@RequestMapping(path = "deletebar.do", method = RequestMethod.GET)
 	public String deleteBar(Model model, int id, HttpSession session) {
 
-		Bar bar = barDao.findBarById(id);
-
 		barDao.deleteBar(id);
-
-		model.addAttribute("bar", bar);
 
 		return "bar/deleteBar";
 	}

@@ -24,8 +24,12 @@ Name: <input type="text" name="name"/><br>
 Phone Number: <input type="text" name="phoneNumber"/><br>
 Website: <input type="text" name="website"/><br>
 Description: <input type="text" name="description"/><br>
-Logo <input type="text" name="logoUrl"/>
-<!-- Address: <input type="text" name="addressId"/><br> -->
+Logo: <input type="text" name="logoUrl"/><br>
+Street Address: <input type="text" name="street" value="${bar.address.street}"/><br>
+City: <input type="text" name="city" value="${bar.address.city}"/><br>
+ZipCode  <input type="text" name="zip" value="${bar.address.zip}"/><br>
+
+
 <!-- TimeLastUpdated: <input type="text" name="timeLastUpdated"/><br> -->
 <!-- Logo: <input type="text" name="logoUrl"/><br> -->
 <input type="submit" value="Submit"/><br>
