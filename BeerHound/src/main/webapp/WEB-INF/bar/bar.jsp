@@ -46,19 +46,37 @@
 					<td><img src="${beerPrice.beer.imageUrl}" width ="100" height = "100">
 					<td>
 					
-					<form action="removeBeer.do" method="POST">
-				<input type="hidden" name="beerPriceId" value="${beerPrice.id}" />
-				<input type="hidden" name="barId" value="${bar.id}" />
-				
-				 <input
-					type="submit" value="Delete beer from menu" />
-			</form>
+		<c:choose>
+		
+			<c:when test="${empty loginUser }">
+					<form action="login" method="GET">
+					<input type="hidden" name="" value="" /> 
+					<input type="submit" value="Login to edit bar menu" />
+					</form>
+			</c:when>
+		
+		
+		
+			<c:when test="${! empty loginUser}">
 			
-					</td>
+					<form action="removeBeer.do" method="POST">
+					<input type="hidden" name="beerPriceId" value="${beerPrice.id}" />
+					<input type="hidden" name="barId" value="${bar.id}" />
+					<input type="submit" value="Delete beer from menu" />
+					</form>
+			
+			</c:when>
+			
+			
+		</c:choose>
+				</td>
 				</tr>
-		</c:forEach>
+			</c:forEach>
 		</tbody>
 	</table>
+	
+	
+	
 		<!-- update menu -->
 		<form action="updateMenu.do" method="post">
 		<table>
