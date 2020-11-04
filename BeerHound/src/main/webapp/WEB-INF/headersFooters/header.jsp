@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,24 +18,32 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarColor01">
+    <div class="collapse navbar-collapse container-fluid" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="beerIndex.do">All Beer <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="beerIndex.do">Beers</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="findBeerbyType.do">View Beer by Type <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="barIndex.do">Bars<span class="sr-only">(current)</span></a>
         </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="findBeerByType.do">View Beer by Type</a>
+        <li class="nav-item active">
+          <a class="nav-link" href="breweryIndex.do">Breweries</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">View Beer by Brewery</a>
+        <c:choose>
+        <c:when test="${not empty loginUser }">
+        <li class="nav-item active">
+          <a class="nav-link" href="getUser.do?id=${loginUser.id }">Profile<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="barIndex.do">View Bars<span class="sr-only">(current)</span></a>
+        </c:when>
+        <c:otherwise>
+        <li class="nav-item active">
+          <a class="nav-link" href="login">Login<span class="sr-only">(current)</span></a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="register.do">Register<span class="sr-only">(current)</span></a>
+        </li>
+        </c:otherwise>
+        </c:choose>
       </ul>
       <form class="form-inline" action="findBeerbySearch.do" method = "GET">
         <input class="form-control mr-sm-2"  type="text" name = "keyword" placeholder="Search" aria-label="Search" />

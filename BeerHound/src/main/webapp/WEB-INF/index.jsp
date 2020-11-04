@@ -7,84 +7,35 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>INDEX</title>
+<title>Beer Hound</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.do">
-    <img src="images/beerhoundimage.jpg"  height ="50" width ="50" alt="" class ="img-thumbnail"></a>
-     <a class="navbar-brand" href="index.do"> Beer Hound</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-<div class="container-fluid">
-<a href="userIndex.do">Users</a>
-<a href="barIndex.do">Bars</a>
-<a href="beerIndex.do">Beers</a>
-<a href="breweryIndex.do">Breweries</a>
-<a href="register.do">Register</a>
-<a href="login">Login</a>
+<div class="container">
+<jsp:include page = "headersFooters/header.jsp"></jsp:include>
 </div>
-</nav>
-<div>
 <br>
 <br>
 <br>
-<table class="table">
-		<thead>
-			<tr>
-				<th>Users</th>
-			</tr>
-		</thead>
-			<c:forEach items="${userList }" var="u">
-				<tr>
-					<td><a href="getUser.do?id=${u.id }">${u.id }</a>
-				</tr>
-			</c:forEach>
-	</table>
-
-<table class="table">
-		<thead>
-			<tr>
-				<th>Bars</th>
-			</tr>
-		</thead>
-			<c:forEach items="${barList  }" var="b">
-				<tr>
-					<td><a href="getBar.do?id=${b.id }">${b.id }</a>
-				</tr>
-			</c:forEach>
-	</table>
-
-<table class="table">
-		<thead>
-			<tr>
-				<th>Beers</th>
-			</tr>
-		</thead>
-			<c:forEach items="${beerList }" var="b">
-				<tr>
-					<td><a href="getBeer.do?id=${b.id }">${b.id }</a>
-				</tr>
-			</c:forEach>
-	</table>
-
-<table class="table">
-		<thead>
-			<tr>
-				<th>Breweries</th>
-			</tr>
-		</thead>
-			<c:forEach items="${breweryList }" var="b">
-				<tr>
-					<td><a href="getBrewery.do?id=${b.id }">${b.id }</a>
-				</tr>
-			</c:forEach>
-	</table>
+<br>
+<div class="container">
+<div class="row">
+	<h2>Beer Hound</h2>
+	<p>
+	Tired of walking into a bar only to find that their tap lists consist 
+of lame beer? So are we. 
+<br>
+Life is to short to drink crappy beer, find and update any bar
+taplist near you to avoid walking into a place that only serves Coors.
+	
+	</p>
+</div>
+<div class="row">
+	<img src="images/beer.jpg"  width ="100%" alt="beer" class ="img">
+</div>
 </div>
 
 	<!-- bootstrap -->
