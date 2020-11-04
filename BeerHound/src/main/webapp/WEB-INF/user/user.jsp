@@ -54,22 +54,22 @@
 			<h4>Info</h4>
 			<table class="table">
 				<tr>
-					<td>ID</td><td>${user.id }</td>
+					<td>User ID</td><td>${user.id }</td>
 				</tr>
 				<tr>
 					<td>Username</td><td>${user.username }</td>
 				</tr>
-				<c:if test="${user.id == loginUser.id || loginUser.role == 'ADMIN'}">
+				<c:if test="${user.id == loginUser.id }">
 				<tr>
 					<td>Password</td><td>${user.password }</td>
 				</tr>
 				</c:if>
-				<c:if test="${user.id == loginUser.id || loginUser.role == 'ADMIN'}">
+				<c:if test="${loginUser.role == 'ADMIN'}">
 				<tr>
 					<td>Enabled</td><td>${user.enabled }</td>
 				</tr>
 				</c:if>
-				<c:if test="${user.id == loginUser.id || loginUser.role == 'ADMIN'}">
+				<c:if test="${(user.id == loginUser.id && not empty user.role) || loginUser.role == 'ADMIN'}">
 				<tr>
 					<td>Role</td><td>${user.role }</td>
 				</tr>
@@ -88,8 +88,10 @@
 				</tr>
 				</c:if>
 				<tr>
-<%-- 					<td>User Since</td><td><fmt:formatDate type="both" value="${user.createDate }"/></td>
- --%>					<td>User Since</td><td>${user.createDate }</td>
+ 					<td>User Since</td><td>
+ 					<fmt:parseDate  value="${user.createDate}"  type="date" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
+ 					<fmt:formatDate type="date" value="${parsedDate }"/>
+ 					</td>
 				</tr>
 				<c:if test="${user.id == loginUser.id || loginUser.role == 'ADMIN'}">
 				<tr>

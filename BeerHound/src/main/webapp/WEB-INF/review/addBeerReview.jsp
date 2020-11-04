@@ -20,26 +20,28 @@
 
 <!-- STRETCH GOAL -->
 
-<%-- 	<h2>Reviews</h2>
+<h2>Reviews</h2>
 
 	<table>
 		<thead>
 			<tr>
-				<th>Date</th>
 				<th>Rating</th>
+				<th>Date</th>
 				<th>Username</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${beer.beerRating}" var="ratings">
+			<c:set var="sum" value="${0}"/>
+			<c:set var="sum" value="${sum + ratings.starRating }"/>
 				<tr>
+					<td>${sum} Star rating</td>
 					<td>${ratings.ratingDate}</td>
-					<td>${ratings.starRating}</td>
-					<td>${ratings.user}</td>
+					<td>${ratings.user.username}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
-	</table> --%>
+	</table> 
 
 
 

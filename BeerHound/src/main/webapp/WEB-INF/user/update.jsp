@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -56,11 +57,7 @@
 				<form:hidden path="enabled" value="${user.enabled }"/>
 				<form:hidden path="role" value="${user.role }"/>
 				<form:hidden path="image" value="${user.image }"/>
-<%-- 				<form:hidden path="favoriteBarList" value="${user.favoriteBarList }"/>
-				<form:hidden path="favoriteBeerList" value="${user.favoriteBeerList }"/>
-				<form:hidden path="barRatings" value="${user.barRatings }"/>
-				<form:hidden path="beerRatings" value="${user.beerRatings }"/>
- --%>				<form:hidden path="biography" value="${user.biography }"/>
+				<form:hidden path="biography" value="${user.biography }"/>
 				<tr>
 					<td>ID</td><td>${user.id }</td>
 				</tr>
@@ -96,22 +93,22 @@
 					<td><form:errors path="email"/></td>
 				</tr>
 				<tr>
-					<td>User Since</td><td>${user.createDate }</td>
+					<td>User Since</td><td>
+ 					<fmt:parseDate  value="${user.createDate}"  type="date" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
+ 					<fmt:formatDate type="date" value="${parsedDate }"/>
+ 					</td>
 				</tr>
 				<tr>
-					<%-- <td>Street</td><td>${user.address.street }</td> --%>
 					<td><form:label path="address.street">Street</form:label></td>
 					<td><form:input path="address.street" value="${user.address.street }"/></td>
 					<td><form:errors path="address.street"/></td>
 				</tr>
 				<tr>
-					<%-- <td>City</td><td>${user.address.city }</td> --%>
 					<td><form:label path="address.city">City</form:label></td>
 					<td><form:input path="address.city" value="${user.address.city }"/></td>
 					<td><form:errors path="address.city"/></td>
 				</tr>
 				<tr>
-					<%-- <td>State</td><td>${user.address.state }</td> --%>
 					<td><form:label path="address.state">State</form:label></td>
 					<td><form:select path="address.state">
 						<form:option value="${user.address.state }"></form:option>
@@ -121,7 +118,6 @@
 					<td><form:errors path="address.state"/></td>
 				</tr>
 				<tr>
-					<%-- <td>ZIP</td><td>${user.address.zip }</td> --%>
 					<td><form:label path="address.zip">ZIP</form:label></td>
 					<td><form:input path="address.zip" value="${user.address.zip }"/></td>
 					<td><form:errors path="address.zip"/></td>
