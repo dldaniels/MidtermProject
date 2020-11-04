@@ -9,6 +9,20 @@
 </head>
 <body>
 
+<div class="container">
+<table class="table">
+		<thead>
+			<tr>
+				<th>Users</th>
+			</tr>
+		</thead>
+			<c:forEach items="${userList }" var="u">
+				<tr>
+					<td><a href="getUser.do?id=${u.id }">${u.id }</a>
+				</tr>
+			</c:forEach>
+</table>
+</div>
 
 </body>
 </html>
