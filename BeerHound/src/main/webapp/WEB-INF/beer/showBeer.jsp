@@ -77,6 +77,45 @@
 	<div class="container-fluid">
 <br>
 
+
+
+<h2>Reviews</h2>
+			<c:set var="sum" value="${0}"/>
+<c:forEach items="${beer.beerRating}" var="ratings">
+			<c:set var="counter" value="${counter + 1}"/>
+			<c:set var="sum" value="${sum + ratings.starRating}"/>
+			</c:forEach>
+			<p>Average rating ${sum / counter} stars</p>
+	<table class="table table-dark">
+		<thead>
+			<tr>
+				<th>Rating</th>
+				<th>Date</th>
+				<th>Username</th>
+				<th>Review</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${beer.beerRating}" var="ratings">
+			
+				<tr>
+					<td>${ratings.starRating} stars</td>
+					<td>${ratings.ratingDate}</td>
+					<td>${ratings.user.username}</td>
+					<td>${ratings.review}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table> 
+
+
+<br>
+<br>
+<br>
+
+
+<c:if test="${! empty loginUser }">
+
 	<form:form action="addedBeerRating.do" method="GET"
 		modelAttribute="beerRating">
 		<input path="beer" name="beerId" value="${ beer.id }" type="hidden">
@@ -106,6 +145,18 @@
 
 		<button type=“submit”>Submit</button>
 	</form:form>
+</c:if>
+
+<c:if test="${empty loginUser }">
+
+				<form action="login" method="GET">
+					<input type="hidden" name="" value="" /> <input type="submit"
+						value="Login to add a review" />
+				</form>
+
+
+			</c:if>
+
 
 	
 	<!-- add to favorites -->
@@ -145,7 +196,7 @@
 
 	</div>
 		<div class="container">
-<jsp:include page = "../headersFooters/footer.jsp"></jsp:include>
+<%-- <jsp:include page = "../headersFooters/footer.jsp"></jsp:include> --%>
 </div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
