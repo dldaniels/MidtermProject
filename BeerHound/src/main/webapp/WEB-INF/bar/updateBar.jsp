@@ -21,11 +21,15 @@
 <br>
 <form action="updatedbar.do" method="POST">
 	<input type="hidden" value="${bar.id}" name="id">
+	<input type="hidden" value="${bar.address.id}" name="address.id">
 		Update Name: <input type="text" name="name" value="${bar.name}"/><br>
 		Update Description: <input type="text" name="description" value="${bar.description}"/> <br>
 		Update Phone Number: <input type="text" name="phoneNumber" value="${bar.phoneNumber}"/><br>
 		Update Website:<input type="text" name="website" value="${bar.website}"/><br>
-		Update Logo<input type="text" name="logoUrl" value="${bar.logoUrl}"/>
+		Update Logo<input type="text" name="logoUrl" value="${bar.logoUrl}"/><br>
+		Update Address<input type="text" name="address.street" value="${bar.address.street}"/>
+					  <input type="text" name="address.city" value="${bar.address.city}"/>
+					  <input type="text" name="address.zip" value="${bar.address.zip}"/><br>
 	<input type="submit" name="Update Bar"/>
 	
 </form>
