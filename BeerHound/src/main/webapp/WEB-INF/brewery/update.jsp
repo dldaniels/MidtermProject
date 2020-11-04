@@ -25,7 +25,7 @@
 
 <div class="container">
 	 <c:choose>
-		<c:when test="${! empty brewery } && ${! empty loginUser}">
+		<c:when test= "${! empty loginUser}">
 
 		<h2>	Brewery you are editing: ${brewery.name} </h2>
 			
