@@ -113,6 +113,54 @@
 <br>
 <div class="container-fluid">
 
+
+
+<h2>Reviews</h2>
+			<c:set var="sum" value="${0}"/>
+<c:forEach items="${bar.barRating}" var="ratings">
+			<c:set var="counter" value="${counter + 1}"/>
+			<c:set var="sum" value="${sum + ratings.starRating}"/>
+			</c:forEach>
+			<p>Average rating ${sum / counter} stars</p>
+	<table class="table table-dark">
+		<thead>
+			<tr>
+				<th>Rating</th>
+				<th>Date</th>
+				<th>Username</th>
+				<th>Review</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${bar.beerRating}" var="ratings">
+			
+				<tr>
+					<td>${ratings.starRating} stars</td>
+					<td>${ratings.ratingDate}</td>
+					<td>${ratings.user.username}</td>
+					<td>${ratings.review}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<form:form action="addedBarRating.do" method="GET"
 		modelAttribute="barRating">
 		<input path="bar" name="barId" value="${ bar.id }" type="hidden">

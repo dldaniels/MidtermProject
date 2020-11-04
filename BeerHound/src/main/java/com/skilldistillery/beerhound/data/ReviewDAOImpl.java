@@ -1,5 +1,7 @@
 package com.skilldistillery.beerhound.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -120,8 +122,6 @@ public class ReviewDAOImpl implements ReviewDAO {
 		return em.find(BeerRating.class, id);
 	}
 
-	
 
-	
 
 }
