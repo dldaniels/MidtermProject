@@ -14,26 +14,14 @@
 	crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.do">
-    <img src="images/beerhoundimage.jpg"  height ="50" width ="50" alt="" class ="img-thumbnail"></a>
-     <a class="navbar-brand" href="index.do"> Beer Hound</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-<div class="container-fluid">
-<a href="userIndex.do">Users</a>
-<a href="barIndex.do">Bars</a>
-<a href="beerIndex.do">Beers</a>
-<a href="breweryIndex.do">Breweries</a>
-<a href="register.do">Register</a>
-<a href="login">Login</a>
+<div class="container">
+<jsp:include page = "headersFooters/header.jsp"></jsp:include>
 </div>
-</nav>
-<div>
 <br>
 <br>
 <br>
+<br>
+<div class="container">
 <table class="table">
 		<thead>
 			<tr>
