@@ -101,7 +101,7 @@
 				<tr>
 					<td>${ratings.starRating} stars</td>
 					<td>${ratings.ratingDate}</td>
-					<td>${ratings.user.username}</td>
+					<td><a href="getUser.do?id=${ratings.user.id}">${ratings.user.username}</a></td>
 					<td>${ratings.review}</td>
 				</tr>
 			</c:forEach>
