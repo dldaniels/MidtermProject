@@ -114,7 +114,7 @@
 <br>
 
 
-
+<c:if test="${! empty loginUser }">
 
 	<form:form action="addedBeerRating.do" method="GET"
 		modelAttribute="beerRating">
@@ -145,6 +145,18 @@
 
 		<button type=“submit”>Submit</button>
 	</form:form>
+</c:if>
+
+<c:if test="${empty loginUser }">
+
+				<form action="login" method="GET">
+					<input type="hidden" name="" value="" /> <input type="submit"
+						value="Login to add a review" />
+				</form>
+
+
+			</c:if>
+
 
 	
 	<!-- add to favorites -->
@@ -184,7 +196,7 @@
 
 	</div>
 		<div class="container">
-<jsp:include page = "../headersFooters/footer.jsp"></jsp:include>
+<%-- <jsp:include page = "../headersFooters/footer.jsp"></jsp:include> --%>
 </div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
