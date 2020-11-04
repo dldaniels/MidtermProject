@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.beerhound.entities.Address;
 import com.skilldistillery.beerhound.entities.Bar;
 import com.skilldistillery.beerhound.entities.Beer;
 import com.skilldistillery.beerhound.entities.BeerPrice;
@@ -45,15 +46,20 @@ public class BarDAOImpl implements BarDAO {
 	@Override
 	public Bar updateBar(Integer id, Bar bar) {
 		Bar updateBar = em.find(Bar.class, id);
+		
 		updateBar.setName(bar.getName());
 		updateBar.setPhoneNumber(bar.getPhoneNumber());
 		updateBar.setWebsite(bar.getWebsite());
 		updateBar.setDescription(bar.getDescription());
-		updateBar.setAddress(bar.getAddress());
 		updateBar.setTimeLastUpdated(bar.getTimeLastUpdated());
 		updateBar.setLogoUrl(bar.getLogoUrl());
 		updateBar.setBeerPrices(bar.getBeerPrices());
 		updateBar.setBarRatings(bar.getBarRatings());
+		updateBar.getAddress().setStreet(bar.getAddress().getStreet());
+		updateBar.getAddress().setCity(bar.getAddress().getCity());
+		updateBar.getAddress().setState(bar.getAddress().getState());
+		updateBar.getAddress().setZip(bar.getAddress().getZip());
+
 
 		em.persist(updateBar);
 		em.flush();
@@ -63,6 +69,7 @@ public class BarDAOImpl implements BarDAO {
 	@Override
 	public boolean deleteBar(int id) {
 		Bar deleteBar = em.find(Bar.class, id);
+		em.remove(deleteBar.getAddress());
 		em.remove(deleteBar);
 
 		boolean deleted = !em.contains(deleteBar);

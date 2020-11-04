@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,13 +22,25 @@
 		<h3>Bar List</h3>
 
 		<form action="getBar.do" method="GET">
-			Bar ID: <input type="text" name="id" /> <input type="submit"
+			<input type="text" name="id" /> <input type="submit"
 				value="Find Bar" />
 		</form>
-			<form action="createBar.do" method="GET">
-		<input type="hidden" name="" value="" /> <input type="submit"
-			value="Add Bar" />
-	</form>
+		<c:choose>
+
+			<c:when test="${empty loginUser }">
+				<form action="login" method="GET">
+					<input type="hidden" name="" value="" /> <input type="submit"
+						value="Login to add a bar" />
+				</form>
+			</c:when>
+			<c:when test="${! empty loginUser}">
+
+				<form action="createBar.do" method="GET">
+					<input type="hidden" name="" value="" /> <input type="submit"
+						value="Add Bar" />
+				</form>
+			</c:when>
+		</c:choose>
 		<table class="table table-dark">
 			<thead class="thead thead-dark">
 				<tr>
@@ -40,16 +52,16 @@
 					<tr>
 						<td><a href="getBar.do?id=${bar.id}">${bar.name}</a></td>
 						<c:if test="${empty bar.logoUrl}">
-						<td>No Logo</td>
+							<td>No Logo</td>
 						</c:if>
 						<c:if test="${! empty bar.logoUrl}">
-						<td><img src="${bar.logoUrl}" width ="100" height = "100"> </td>
+							<td><img src="${bar.logoUrl}" width="100" height="100">
+							</td>
 						</c:if>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
