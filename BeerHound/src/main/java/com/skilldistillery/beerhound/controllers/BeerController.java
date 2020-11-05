@@ -7,12 +7,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.beerhound.data.BeerDAO;
-import com.skilldistillery.beerhound.data.BreweryDAO;
 import com.skilldistillery.beerhound.entities.Beer;
+import com.skilldistillery.beerhound.entities.TypeOfBeer;
 
 @Controller
 public class BeerController {
@@ -48,6 +49,7 @@ public class BeerController {
 
 	@RequestMapping(path = "addBeer.do")
 	public String addBeer(Beer beer, Model model, HttpSession session) {
+		beer.setTypeOfBeer(beerDao.getBeerType(beer.getTypeOfBeer().getId()));
 		model.addAttribute("beer", beerDao.createBeer(beer));
 		return "beer/beerAction";
 	}
@@ -93,4 +95,6 @@ public class BeerController {
 		
 		
 	}
+	
+	
 }
