@@ -182,9 +182,7 @@
 					<br>
 
 					<textarea name="review" value="" placeholder="leave review here"
-						rows="5" cols="60">
-          
-         </textarea>
+						rows="5" cols="60"></textarea>
 					<br>
 
 
