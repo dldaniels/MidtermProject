@@ -43,7 +43,7 @@
 			<tbody>
 				<c:forEach items="${beers}" var="beer">
 					<tr>
-						<td><a href="findBeerBySearch.do?id=${beer.id}">${beer.name}</a></td>
+						<td><a href="getBeer.do?id=${beer.id}">${beer.name}</a></td>
 						<td><img src="${beer.imageUrl}" width ="100" height = "100"> 
 					</tr>
 				</c:forEach>
