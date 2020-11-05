@@ -70,15 +70,15 @@
 		<c:choose>
 			<c:when test="${empty loginUser }">
 				<form action="login" method="GET">
-					<input type="hidden" name="" value="" /> <input type="submit"
-						value="Login to add a bar" />
+					<input type="hidden" name="" value="" /> <button type="submit"
+						value="Login to add a bar">Login to add a bar</button>
 				</form>
 			</c:when>
 			<c:when test="${! empty loginUser}">
 
 				<form action="createBar.do" method="GET">
-					<input type="hidden" name="" value="" /> <input type="submit"
-						value="Add Bar" />
+					<input type="hidden" name="" value="" /> <button type="submit"
+						value="Add Bar">Add Bar</button>
 				</form>
 			</c:when>
 		</c:choose>

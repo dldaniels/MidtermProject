@@ -29,6 +29,24 @@ public class ReviewController {
 	@Autowired
 	private BarDAO barDAO;
 
+	
+	@RequestMapping(path = "barReviews.do")
+	public String viewBarReviews(Model model, int id, HttpSession session) {
+		Bar bar = barDAO.findBarById(id);
+		
+		model.addAttribute("bar", bar);
+		return "review/barReviews";
+		
+	}
+	@RequestMapping(path = "beerReviews.do")
+	public String viewBeerReviews(Model model, int id, HttpSession session) {
+		Beer beer = beerDAO.findBeer(id);
+		
+		model.addAttribute("beer", beer);
+		return "review/beerReviews";
+		
+	}
+	
 
 	@RequestMapping(path = "addedBarRating.do", method = RequestMethod.GET)
 	public String addBeerRating(Model model, BarRating barRating, int barId, HttpSession session) {

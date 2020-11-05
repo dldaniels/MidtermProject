@@ -83,12 +83,12 @@
 					<option value="WY">WY</option>
 					</select> <br>
 					  <input type="text" name="address.zip" value="${bar.address.zip}"/><br>
-	<input type="submit" name="Update Bar"/>
+	<button type="submit" name="Update Bar">Update Bar</button>
 	
 </form>
 		<form action="/" method="GET">
-		<input type="hidden" name="" value="" /> <input type="submit"
-			value="Home" />
+		<input type="hidden" name="" value="" /> <button type="submit"
+			value="Home">Home</button>
 	</form>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
