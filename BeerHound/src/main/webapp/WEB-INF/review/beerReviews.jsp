@@ -10,40 +10,38 @@
 </head>
 <body>
 
-	<h2>${beer.name}</h2>
-	<br>
-	<h2>${beer.typeOfBeer}</h2>
-	<br>
-	<h2>${beer.brewery}</h2>
-	<br>
-	<img src="${beer.imageUrl}" width="200" height="200">
-
-<!-- STRETCH GOAL -->
 
 <h2>Reviews</h2>
 
-	<table>
-		<thead>
-			<tr>
-				<th>Rating</th>
-				<th>Date</th>
-				<th>Username</th>
-			</tr>
-		</thead>
-		<tbody>
+			<c:set var="sum" value="${0}" />
 			<c:forEach items="${beer.beerRating}" var="ratings">
-			<c:set var="sum" value="${0}"/>
-			<c:set var="sum" value="${sum + ratings.starRating }"/>
-				<tr>
-					<td>${sum} Star rating</td>
-					<td>${ratings.ratingDate}</td>
-					<td>${ratings.user.username}</td>
-				</tr>
+				<c:set var="counter" value="${counter + 1}" />
+				<c:set var="sum" value="${sum + ratings.starRating}" />
 			</c:forEach>
-		</tbody>
-	</table> 
+			<p>Average rating ${sum / counter} stars</p>
+			<a href="beerReviews.do?id=${beer.id}">Average rating ${sum / counter} stars</a>
+			
+			<table class="table table-striped table-hover">
+			<thead class="thead thead-dark">
+					<tr>
+						<th>Rating</th>
+						<th>Date</th>
+						<th>Username</th>
+						<th>Review</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${beer.beerRating}" var="ratings">
 
-
+						<tr>
+							<td>${ratings.starRating} stars</td>
+							<td>${ratings.ratingDate}</td>
+							<td><a href="getUser.do?id=${ratings.user.id}">${ratings.user.username}</a></td>
+							<td>${ratings.review}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
 
 <div>
 
@@ -77,6 +75,11 @@
 		<button type=“submit”>Submit</button>
 	</form:form>
 	
+	
+	<form action="getBeer.do" method="GET">
+				<input type="hidden" name="id" value="${beer.id}" /> <input
+					type="submit" value="Return to bar" />
+			</form>
 	
 	</div>
 

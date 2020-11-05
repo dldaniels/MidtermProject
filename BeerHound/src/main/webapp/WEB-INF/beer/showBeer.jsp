@@ -28,6 +28,16 @@
 
 	<div class="container-fluid">
 		<h2>${beer.name}</h2>
+		
+		<c:set var="sum" value="${0}" />
+			<c:forEach items="${beer.beerRating}" var="ratings">
+				<c:set var="counter" value="${counter + 1}" />
+				<c:set var="sum" value="${sum + ratings.starRating}" />
+			</c:forEach>
+			<a href="beerReviews.do?id=${beer.id}">Average rating ${sum / counter} stars</a>
+		
+		<br>
+		<br>
 		<br>
 		<h4>${beer.typeOfBeer.typeName}</h4>
 		Alcohol Content:
@@ -87,7 +97,7 @@
 
 
 
-<h2>Reviews</h2>
+<%-- <h2>Reviews</h2>
 			<c:set var="sum" value="${0}"/>
 <c:forEach items="${beer.beerRating}" var="ratings">
 			<c:set var="counter" value="${counter + 1}"/>
@@ -115,7 +125,7 @@
 			</c:forEach>
 		</tbody>
 	</table> 
-
+ --%>
 
 <br>
 <br>

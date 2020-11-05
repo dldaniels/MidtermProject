@@ -29,6 +29,16 @@
 	<div class="container-fluid">
 	<div class="row"></div>
 		<h3>${bar.name}</h3>
+		
+		<c:set var="sum" value="${0}" />
+			<c:forEach items="${bar.barRatings}" var="ratings">
+				<c:set var="counter" value="${counter + 1}" />
+				<c:set var="sum" value="${sum + ratings.starRating}" />
+			</c:forEach>
+			<a href="barReviews.do?id=${bar.id}">Average rating ${sum / counter} stars</a>
+		
+		
+	
 	<div class="row">
 		<div class="col">
 		
@@ -139,7 +149,7 @@
 		<br>
 		<div class="container-fluid">
 
-
+<%-- 
 			<h2>Reviews</h2>
 			<c:set var="sum" value="${0}" />
 			<c:forEach items="${bar.barRatings}" var="ratings">
@@ -167,7 +177,7 @@
 						</tr>
 					</c:forEach>
 				</tbody>
-			</table>
+			</table> --%>
 
 
 
