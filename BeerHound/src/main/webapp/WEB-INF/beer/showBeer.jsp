@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+	<%@ taglib uri="/WEB-INF/custom-functions.tld" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,7 +102,7 @@
 				<tr>
 					<td>${ratings.starRating} stars</td>
 					<td>${ratings.ratingDate}</td>
-					<td>${ratings.user.username}</td>
+					<td><a href="getUser.do?id=${ratings.user.id}">${ratings.user.username}</a></td>
 					<td>${ratings.review}</td>
 				</tr>
 			</c:forEach>
@@ -161,6 +162,8 @@
 	
 	<!-- add to favorites -->
 	<c:if test="${not empty loginUser }">
+	<c:choose>
+	<c:when test="${ ! fn:contains( loginUser.favoriteBeerList, beer ) }">
 	<div>
 		<form action="favoriteBeer.do" method="GET">
 			<button class="btn btn-outline-secondary" type="submit" name="beerId"
@@ -168,6 +171,15 @@
 			</button>
 		</form>
 	</div>
+	</c:when>
+	<c:otherwise>
+		<form action="favoriteBeer.do" method="GET">
+			<button class="btn btn-outline-secondary" type="submit" name="beerId"
+					value="${beer.id}">Remove from Favorites
+			</button>
+		</form>
+	</c:otherwise>
+	</c:choose>
 	</c:if>
 
 	

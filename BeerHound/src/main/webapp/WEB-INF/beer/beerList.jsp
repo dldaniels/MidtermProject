@@ -30,9 +30,6 @@
 		</form>
 		<br>
 		
-		<form action="addBeerForm.do" method="GET">
-		Add A Beer: <input type= "submit" value = "Add Beer" />
-		</form>
 
 		<table class="table table-striped table-hover">
 			<thead class="thead thead-dark">
@@ -50,6 +47,29 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		<c:if test="${! empty loginUser }">
+		<form action="addBeerForm.do" method="GET">
+		Add A Beer: <input type= "submit" value = "Add Beer" />
+		</form>
+		
+		</c:if>
+		
+		<c:if test="${empty loginUser }">
+		<form action="login" method="GET">
+					<input type="hidden" name="" value="" /> <input type="submit"
+						value="Login to add a beer" />
+				</form>
+		</c:if>
+
+		<br>
+		<br>
+		<br>
+		<br>
 
 	</div>
 		<div class="container">

@@ -57,6 +57,8 @@
 					
 					<td><a href="getBeer.do?id=${beer.id}">${beer.name}</a></td>
 					<td><img src="${beer.imageUrl}" width ="100" height = "100">
+					
+					
 				</tr>
 			</c:forEach>
 		</tbody>
