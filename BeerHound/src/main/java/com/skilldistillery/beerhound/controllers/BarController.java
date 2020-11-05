@@ -1,6 +1,5 @@
 package com.skilldistillery.beerhound.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -11,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.skilldistillery.beerhound.DropDownOptions;
 import com.skilldistillery.beerhound.data.BarDAO;
 import com.skilldistillery.beerhound.data.BeerDAO;
 import com.skilldistillery.beerhound.data.BeerPriceDAO;
