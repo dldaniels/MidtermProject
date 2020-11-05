@@ -9,8 +9,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 <title>Brewery edit</title>
 </head>
@@ -23,21 +23,24 @@
 <br>
 <br>
 
-<div class="container">
+<div class="container-fluid">
 <h3>List of Breweries</h3><br>
 	
-	<table class="table table-dark">
+	<table class="table table-striped table-hover">
 		<thead class="thead thead-dark">
 		  <tr>
-			<th>Brewery ID</th>
 			<th>Brewery Name</th>
+			<th></th>
+			<th></th>
 		  </tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${breweries}" var="breweries">
 				<tr>
-					<td>${breweries.id}</td>
 					<td><a href="getBrewery.do?id=${breweries.id}">${breweries.name}</a></td>
+					<td>${breweries.address.city } ${breweries.address.state}</td>
+					<td><img src="${breweries.breweryLogoUrl}" width = "150" height = "150"></td>
+					
 				</tr>
 			</c:forEach>
 		</tbody>
