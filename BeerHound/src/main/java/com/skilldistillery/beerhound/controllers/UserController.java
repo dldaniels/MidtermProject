@@ -126,6 +126,12 @@ public class UserController {
 		return "index";
 	}
 	
+	@RequestMapping(path="logout.do")
+	public String logout(Model model, HttpSession session) {
+		session.setAttribute("loginUser", null);
+		return "index";
+	}
+	
 	@RequestMapping(path="updateUser")
 	public String update(Model model, HttpSession session, Integer id) {
 		model.addAttribute("user", userDao.getUserById(id));
