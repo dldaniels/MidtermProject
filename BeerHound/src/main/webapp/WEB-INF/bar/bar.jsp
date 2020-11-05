@@ -61,7 +61,8 @@
 					<tr>
 						<td><a href="getBeer.do?id=${beerPrice.beer.id}">${beerPrice.beer.name}</a></td>
 						<td><img src="${beerPrice.beer.imageUrl}" width="100"
-							height="100">
+							height="100"/></td>
+							<td>Beer Price: ${beerPrice.beerPrice}</td>
 						<td><c:choose>
 
 								<c:when test="${empty loginUser }">
@@ -99,8 +100,8 @@
 				<tr>
 					<td><input type="hidden" name="barId" value="${bar.id }">
 					</td>
-					<td><label for="price">Price:</label> <input type="number"
-						step=".01" title="Currency" name="price" placeholder="0.00" min="0"></td>
+					<td><label for="beerPrice">Price:</label> <input type="number"
+						step=".01" title="Currency" name="beerPrice" placeholder="0.00" min="0"></td>
 					<td><select name="beerId">
 							<c:forEach items="${beerList}" var="beer">
 								<option value="${beer.id}">${beer.brewery.name } - ${beer.name}</option>
@@ -182,9 +183,7 @@
 					<br>
 
 					<textarea name="review" value="" placeholder="leave review here"
-						rows="5" cols="60">
-          
-         </textarea>
+						rows="5" cols="60"></textarea>
 					<br>
 
 
