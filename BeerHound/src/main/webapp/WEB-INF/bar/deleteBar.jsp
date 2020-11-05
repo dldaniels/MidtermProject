@@ -23,8 +23,8 @@
 	<br>
 	<br>
 	<form action="/" method="GET">
-		<input type="hidden" name="" value="" /> <input type="submit"
-			value="Home" />
+		<input type="hidden" name="" value="" /> <button type="submit"
+			value="Home">Home</button>
 	</form>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

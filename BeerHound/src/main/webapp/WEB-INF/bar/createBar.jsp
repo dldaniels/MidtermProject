@@ -88,12 +88,12 @@ ZipCode: <input type="text" name="zip" value="${bar.address.zip}"/><br>
 
 <!-- TimeLastUpdated: <input type="text" name="timeLastUpdated"/><br> -->
 <!-- Logo: <input type="text" name="logoUrl"/><br> -->
-<input type="submit" value="Submit"/><br>
+<button type="submit" value="Submit">Submit</button><br>
 <br>
 </form>
 		<form action="/" method="GET">
-		<input type="hidden" name="" value="" /> <input type="submit"
-			value="Home" />
+		<input type="hidden" name="" value="" /> <button type="submit"
+			value="Home">Home</button>
 	</form>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
