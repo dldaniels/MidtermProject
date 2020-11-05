@@ -34,6 +34,9 @@
         <li class="nav-item active">
           <a class="nav-link" href="getUser.do?id=${loginUser.id }">Profile<span class="sr-only">(current)</span></a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="logout.do">Logout<span class="sr-only">(current)</span></a>
+        </li>
         <c:if test="${loginUser.role == 'ADMIN' }">
         <li class="nav-item active">
           <a class="nav-link" href="userIndex.do">Users<span class="sr-only">(current)</span></a>
