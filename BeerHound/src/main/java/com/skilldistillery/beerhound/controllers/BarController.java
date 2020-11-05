@@ -40,6 +40,7 @@ public class BarController {
 		model.addAttribute("bar", bar);
 
 		List<Beer> beerList = indexDao.getBeers();
+		beerList.sort((Beer b1, Beer b2) -> b1.getBrewery().getName().compareTo(b2.getBrewery().getName()));
 
 		model.addAttribute("beerList", beerList);
 
