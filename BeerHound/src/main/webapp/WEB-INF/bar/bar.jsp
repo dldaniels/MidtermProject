@@ -84,10 +84,10 @@
 					<td><input type="hidden" name="barId" value="${bar.id }">
 					</td>
 					<td><label for="price">Price:</label> <input type="number"
-						name="price" value=4></td>
+						step=".01" title="Currency" name="price" placeholder="0.00" min="0"></td>
 					<td><select name="beerId">
 							<c:forEach items="${beerList}" var="beer">
-								<option value="${beer.id}">${beer.name}</option>
+								<option value="${beer.id}">${beer.brewery.name } - ${beer.name}</option>
 							</c:forEach>
 					</select></td>
 
