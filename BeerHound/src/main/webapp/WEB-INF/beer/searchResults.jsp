@@ -19,24 +19,21 @@
 
 <br>
 <br>
+<br>
+<br>
 	<div class="container-fluid">
 
-		<h3>Search Results</h3>
+		<h3>The following results may match your search</h3>
 
-		<form action="getBeer.do" method="GET">
-			Beer ID: <input type="text" name="id" /> <input type="submit"
-				value="Find Beer" />
-		</form>
+	
 		<br>
 		
-		<form action="addBeerForm.do" method="GET">
-		Add A Beer: <input type= "submit" value = "Add Beer" />
-		</form>
+	
 
 		<table class="table table-striped table-hover">
 			<thead class="thead thead-dark">
 				<tr>
-					<th>Beer Name</th>
+					<th></th>
 					<th></th>
 				</tr>
 			</thead>
