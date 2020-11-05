@@ -17,17 +17,16 @@
 		<jsp:include page="../headersFooters/header.jsp"></jsp:include><br>
 	</div>
 	<br>
+	<br>
+	<br>
 	<div class="container-fluid">
-<br>
-<br>
-<br>
 		<h3>Bar List</h3>
-
-		<form action="getBar.do" method="GET">
+	<br>
+		<!-- <form action="getBar.do" method="GET">
 			<input type="text" name="id" /> <input type="submit"
 				value="Find Bar" />
-		</form>
-		<c:choose>
+		</form> -->
+		<%-- <c:choose>
 
 			<c:when test="${empty loginUser }">
 				<form action="login" method="GET">
@@ -42,11 +41,12 @@
 						value="Add Bar" />
 				</form>
 			</c:when>
-		</c:choose>
-		<table class="table table-dark">
+		</c:choose> --%>
+		<table class="table table-striped table-hover">
 			<thead class="thead thead-dark">
 				<tr>
 					<th>Bar Name</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -64,6 +64,26 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<br>
+		<br>
+		<br>
+		<c:choose>
+			<c:when test="${empty loginUser }">
+				<form action="login" method="GET">
+					<input type="hidden" name="" value="" /> <input type="submit"
+						value="Login to add a bar" />
+				</form>
+			</c:when>
+			<c:when test="${! empty loginUser}">
+
+				<form action="createBar.do" method="GET">
+					<input type="hidden" name="" value="" /> <input type="submit"
+						value="Add Bar" />
+				</form>
+			</c:when>
+		</c:choose>
+		<br>
+		<br>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
