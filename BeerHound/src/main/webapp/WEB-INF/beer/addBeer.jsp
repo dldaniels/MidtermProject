@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,86 +13,73 @@
 	crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
-<jsp:include page = "../headersFooters/header.jsp"></jsp:include>
-</div>
-<br>
-<br>
-<br>
-<br>
-<div class="container">
-	<form:form action="addBeer.do" method="GET" modelAttribute="beer">
+	<div class="container">
+		<jsp:include page="../headersFooters/header.jsp"></jsp:include>
+	</div>
 	<br>
-	<h5>New Beer:</h5>
-	
-	<form:label path="name">Beer Name:</form:label>
-		<form:input path="name"/>
-		<form:errors path="name"/>
-		<br>
-		<form:label path="alcoholContent">Alcohol Content:</form:label>
-		<form:input path="alcoholContent"/>
-		<form:errors path="alcoholContent"/>
-		<br>
-		<form:label path="description">Description:</form:label>
-		<form:input path="description"/>
-		<form:errors path="description"/>
-		<br>
-		<form:label path="imageUrl">Image URL:</form:label>
-		<form:input path="imageUrl"/>
-		<form:errors path="imageUrl"/>
-		<br>
-		
-		<form:label path="typeOfBeer.id">Select Type of Beer:</form:label>
-		<form:select path="typeOfBeer.id">
-				<form:option value ="${1}">Lager</form:option>
-				<form:option value ="${2}">IPA-English</form:option>
-				<form:option value ="${3}">IPA-American</form:option>
-				<form:option value ="${4}">Lager-American Light</form:option>
-				<form:option value ="${5}">IPA-Session</form:option>
-				<form:option value ="${6}">American Amber</form:option>
-				<form:option value ="${7}">Blonde Ale</form:option>
-				<form:option value ="${8}">IPA-Imperial/Double</form:option>
-				<form:option value ="${9}">Milk Stout</form:option>
-				<form:option value ="${10}">Brown Ale</form:option>
-				<form:option value ="${11}">IPA-Hazy</form:option>
-				<form:option value ="${12}">Belgian Style Ale</form:option>
-				<form:option value ="${13}">Pilsner</form:option>
-				<form:option value ="${14}">Wheat Beer</form:option>
-				<form:option value ="${15}">Dark Lager</form:option>
-				<form:option value ="${16}">Stout</form:option>
-				<form:option value ="${17}">Porter</form:option>
-				<form:option value ="${18}">Oatmeal Stout</form:option>
-				<form:option value ="${19}">Irish Dry Stout</form:option>
-				<form:option value ="${20}">Specialty Beer</form:option>
-				<form:option value ="${21}">Wild & Sour Ale</form:option>
-				<form:option value ="${22}">Other</form:option>
-				        
-<%-- 					<form:option value= "2">IPA-English</form:option>
-					<form:option value= "3" ></form:option> --%>
-		
-		
-		
-			</form:select>	
-				
-		
-		<form:errors path="typeOfBeer"/>
-		<br>
-		
-		<input type="submit" value="Add beer" />
-	
-	
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		<form:form action="addBeer.do" method="GET" modelAttribute="beer">
+			<br>
+			<h5>New Beer:</h5>
 
+			<form:label path="name">Beer Name:</form:label>
+			<form:input path="name" />
+			<form:errors path="name" />
+			<br>
+			<form:label path="alcoholContent">Alcohol Content:</form:label>
+			<form:input path="alcoholContent" />
+			<form:errors path="alcoholContent" />
+			<br>
+			<form:label path="description">Description:</form:label>
+			<form:input path="description" />
+			<form:errors path="description" />
+			<br>
+			<form:label path="imageUrl">Image URL:</form:label>
+			<form:input path="imageUrl" />
+			<form:errors path="imageUrl" />
+			<br>
 
+			<form:label path="typeOfBeer.id">Select Type of Beer:</form:label>
+			<form:select path="typeOfBeer.id">
+				<form:option value="${1}">Lager</form:option>
+				<form:option value="${2}">IPA-English</form:option>
+				<form:option value="${3}">IPA-American</form:option>
+				<form:option value="${4}">Lager-American Light</form:option>
+				<form:option value="${5}">IPA-Session</form:option>
+				<form:option value="${6}">American Amber</form:option>
+				<form:option value="${7}">Blonde Ale</form:option>
+				<form:option value="${8}">IPA-Imperial/Double</form:option>
+				<form:option value="${9}">Milk Stout</form:option>
+				<form:option value="${10}">Brown Ale</form:option>
+				<form:option value="${11}">IPA-Hazy</form:option>
+				<form:option value="${12}">Belgian Style Ale</form:option>
+				<form:option value="${13}">Pilsner</form:option>
+				<form:option value="${14}">Wheat Beer</form:option>
+				<form:option value="${15}">Dark Lager</form:option>
+				<form:option value="${16}">Stout</form:option>
+				<form:option value="${17}">Porter</form:option>
+				<form:option value="${18}">Oatmeal Stout</form:option>
+				<form:option value="${19}">Irish Dry Stout</form:option>
+				<form:option value="${20}">Specialty Beer</form:option>
+				<form:option value="${21}">Wild & Sour Ale</form:option>
+				<form:option value="${22}">Other</form:option>
+			</form:select>
+			<form:errors path="typeOfBeer" />
+			<br>
 
-<!-- 
-		Name of Beer: <input type="text" name="name" placeholder="name"
-			required="required" /><br>
-			Type of Beer: <input type="text" name="type" placeholder="type" /><br>
-			Alcohol content: <input type="number" name="Alcohol content" step=".1" placeholder="Alcohol Content" /><br>
-			Image Url: <input type="text"name="image" placeholder="image" /><br> 
-			Description: <input type="text" name ="description"/> -->
-		
-	</form:form>
+			<form:label path="brewery.id"> Select Brewery:</form:label>
+			<form:select path="brewery.id">
+
+				<c:forEach items="${listBreweries}" var="brewery">
+					<option value="${brewery.id}">${brewery.name}</option>
+				</c:forEach>
+
+			</form:select>
+			<input type="submit" value="Add beer" />
+		</form:form>
 	</div>
 
 
@@ -109,3 +97,17 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

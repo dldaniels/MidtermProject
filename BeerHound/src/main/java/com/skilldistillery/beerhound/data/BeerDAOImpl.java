@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.beerhound.entities.Beer;
+import com.skilldistillery.beerhound.entities.Brewery;
 import com.skilldistillery.beerhound.entities.TypeOfBeer;
 
 @Transactional
@@ -110,5 +111,13 @@ public class BeerDAOImpl implements BeerDAO {
 		TypeOfBeer typeOfBeer = em.find(TypeOfBeer.class, id);
 		return typeOfBeer;
 	}
+
+	@Override
+	public Brewery getBrewery(int id) {
+		Brewery brewery = em.find(Brewery.class, id);
+		return brewery;
+	}
+	
+	
 
 }
