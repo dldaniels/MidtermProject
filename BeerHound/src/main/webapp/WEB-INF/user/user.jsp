@@ -50,9 +50,17 @@
 	</div>
 	
 	<div class="row">
+	
 		<div class="col">
-			<h4>Info</h4>
-			<table class="table">
+			<table class="table table-striped table-hover">
+				<thead class="thead thead-dark">
+					<tr>
+						<th>Info</th><th></th>
+					</tr>
+				</thead>
+				
+				<tbody>
+				
 				<tr>
 					<td>User ID</td><td>${user.id }</td>
 				</tr>
@@ -107,14 +115,20 @@
 					<td>ZIP</td><td>${user.address.zip }</td>
 				</tr>
 				</c:if>
+				</tbody>
 			</table>
 			
 		</div>
+		
 		<div class="col">
 			<h4>Bio</h4>
 				<p>${user.biography }</p>
-			<h4>Favorites</h4>
-			<table class="table">
+			<table class="table table-striped table-hover">
+				<thead class="thead thead-dark">
+					<tr>
+						<th>Favorites</th>
+					</tr>
+				</thead>
 					<tr>
 						<th>Bars</th>
 					</tr>
@@ -133,8 +147,13 @@
 				</c:forEach>
 			
 			</table>
-			<h4>Reviews</h4>
-			<table class="table">
+			<br>
+			<table class="table table-striped table-hover">
+				<thead class="thead thead-dark">
+					<tr>
+						<th>Reviews</th>
+					</tr>
+				</thead>
 					<tr>
 						<th>Bars</th>
 					</tr>
@@ -151,24 +170,11 @@
 						<td><a href="getBeer.do?id=${i.beer.id }">${i.beer.name }</a></td>
 					</tr>
 				</c:forEach>
-			
 			</table>
 		</div>
-		
-			
-		
+
 	</div>
-	
-		
-		
-	
-	
-	
-	
-	
-	
-	
-	
+
 </c:when>
 <c:otherwise>
 		<h3>No Result</h3>

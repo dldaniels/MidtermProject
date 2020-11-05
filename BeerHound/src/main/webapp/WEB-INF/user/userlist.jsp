@@ -17,8 +17,8 @@
 <body>
 
 <div class="container">
-<table class="table">
-		<thead>
+<table class="table table-striped table-hover">
+		<thead class="thead thead-dark">
 			<tr>
 				<th>Users</th>
 			</tr>
@@ -29,6 +29,7 @@
 				</tr>
 			</c:forEach>
 </table>
+
 </div>
 
 	<!-- bootstrap -->

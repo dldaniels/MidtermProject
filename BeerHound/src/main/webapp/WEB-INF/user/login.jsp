@@ -29,7 +29,7 @@
 		<form:input path="username"/>
 		<form:errors path="username"/>
 		<br>
-		OR
+		<p>OR</p>
 		<br>
 		<form:label path="email">Email:</form:label>
 		<form:input path="email"/>
