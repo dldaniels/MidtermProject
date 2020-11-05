@@ -128,7 +128,10 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User getUserById(int id) {
-		return em.find(User.class, id);
+		User user = em.find(User.class, id);
+		user.getFavoriteBarList().size();
+		user.getFavoriteBeerList().size();
+		return user;
 	}
 
 	@Override
@@ -137,6 +140,8 @@ public class UserDAOImpl implements UserDAO {
 		User result = null;
 		try {
 			result = em.createQuery(query, User.class).setParameter("email", email).getSingleResult();
+			result.getFavoriteBarList().size();
+			result.getFavoriteBeerList().size();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -148,6 +153,8 @@ public class UserDAOImpl implements UserDAO {
 		User result = null;
 		try {
 			result = em.createQuery(query, User.class).setParameter("username", username).getSingleResult();
+			result.getFavoriteBarList().size();
+			result.getFavoriteBeerList().size();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

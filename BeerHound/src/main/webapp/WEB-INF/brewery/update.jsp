@@ -76,20 +76,11 @@
 		<c:otherwise>
 			<h4>If you wish to edit this brewery you must login OR create a profile</h4>
 			
-			
-			
-			
-			
-			
-		</c:otherwise>
-	</c:choose>
- 
-
-
 			<br>
 			<br>
 			<br>
 			<br>
+			
 			
 			<form action="login" method="GET">
 				<input type="hidden" name="" value="" /> <input type="submit"
@@ -99,7 +90,16 @@
 			<form action="register.do" method="GET">
 				<input type="hidden" name="" value="" /> <input type="submit"
 					value="Create a user profile" />
-			</form><br>
+			</form><br> 
+			
+			
+			
+		</c:otherwise>
+	</c:choose>
+ 
+
+
+			
 			
 		<%-- 	<form action="index.do" method="GET">
 				<input type="hidden" name="" value="" /> <input type="submit"
