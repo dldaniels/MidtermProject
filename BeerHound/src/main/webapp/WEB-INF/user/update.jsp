@@ -30,28 +30,31 @@
 	<div class="row"><h3>${user.username }</h3></div>
 	
 	<div class="row">
-		<c:choose>
+		<%-- <c:choose>
 		<c:when test="${user.id == loginUser.id }">
 		<div class="col">
 			<h4>Actions</h4>
-			<a href="updateUser.do">Update Profile</a>
-			<br>
 			<form action="deleteUser.do">
 				<input type="hidden" name="id" value="${user.id }">
 				<input type="submit" value="Delete Profile" class="button">
 			</form>
 		</div>
 		</c:when>
-		</c:choose>
+		</c:choose> --%>
 		<div class="col">
-			<img alt="User Profile Image" src="${user.image }">
+			<img alt="User Profile Image" src="${user.image }" height="100">
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="col">
-			<h4>Info</h4>
-			<table class="table">
+			<table class="table table-striped table-hover">
+				<thead class="thead thead-dark">
+					<tr>
+						<th>Info</th><th></th>
+					</tr>
+				</thead>
+				<tbody>
 				<form:form action="updateUser.do" method="POST" modelAttribute="user">
 				<form:hidden path="id" value="${user.id }"/>
 				<form:hidden path="enabled" value="${user.enabled }"/>
@@ -129,20 +132,19 @@
 					<td><input type="submit" value="Update Information"/></td>
 				</tr>
 				</form:form>
+				</tbody>
 			</table>
 			
 		</div>
 		<div class="col">
 			<h4>Bio</h4>
-				<%-- <p>${user.biography }</p> --%>
-				<form:form action="updateUser.do" method="POST" modelAttribute="user">
-					<form:hidden path="id" value="${user.id }"/>
-					<form:textarea path="biography" value="${user.biography }"/>
-					<form:errors path="biography"/>
-					<input type="submit" value="Update Information"/>
-				</form:form>
-			<h4>Favorites</h4>
-			<table class="table">
+				<p>${user.biography }</p>
+			<table class="table table-striped table-hover">
+				<thead class="thead thead-dark">
+					<tr>
+						<th>Favorites</th>
+					</tr>
+				</thead>
 					<tr>
 						<th>Bars</th>
 					</tr>
@@ -161,8 +163,13 @@
 				</c:forEach>
 			
 			</table>
-			<h4>Reviews</h4>
-			<table class="table">
+			<br>
+			<table class="table table-striped table-hover">
+				<thead class="thead thead-dark">
+					<tr>
+						<th>Reviews</th>
+					</tr>
+				</thead>
 					<tr>
 						<th>Bars</th>
 					</tr>
@@ -179,7 +186,6 @@
 						<td><a href="getBeer.do?id=${i.beer.id }">${i.beer.name }</a></td>
 					</tr>
 				</c:forEach>
-			
 			</table>
 		</div>
 		

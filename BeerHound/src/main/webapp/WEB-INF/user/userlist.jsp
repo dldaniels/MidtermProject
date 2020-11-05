@@ -15,10 +15,16 @@
 <title>User Results</title>
 </head>
 <body>
-
 <div class="container">
-<table class="table">
-		<thead>
+<jsp:include page = "../headersFooters/header.jsp"></jsp:include>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+<table class="table table-striped table-hover">
+		<thead class="thead thead-dark">
 			<tr>
 				<th>Users</th>
 			</tr>
@@ -29,6 +35,7 @@
 				</tr>
 			</c:forEach>
 </table>
+
 </div>
 
 	<!-- bootstrap -->
