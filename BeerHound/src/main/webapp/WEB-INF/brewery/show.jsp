@@ -36,7 +36,7 @@
 			<%-- 	<p>	<a href="${brewery.breweryWebsite}">${brewery.breweryWebsite}</a> <p>  --%>
 				
 				<img src="${brewery.breweryLogoUrl}" width = "200" height = "200"><br>
-				${brewery.address}<br>
+				<p>${brewery.address.street} ${brewery.address.city}, ${brewery.address.state} ${brewery.address.zip}</p><br>
 				
 				
 			<!-- 	<h3>List of beers</h3><br> -->
