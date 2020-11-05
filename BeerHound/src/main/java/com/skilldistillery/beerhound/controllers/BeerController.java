@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.beerhound.data.BeerDAO;
+import com.skilldistillery.beerhound.data.IndexDAO;
 import com.skilldistillery.beerhound.entities.Beer;
+import com.skilldistillery.beerhound.entities.Brewery;
 import com.skilldistillery.beerhound.entities.TypeOfBeer;
 
 @Controller
@@ -20,6 +22,8 @@ public class BeerController {
 
 	@Autowired
 	private BeerDAO beerDao;
+	@Autowired
+	private IndexDAO indexDao;
 
 	@RequestMapping(path = "getBeer.do", method = RequestMethod.GET)
 	public String getBeerById(Integer id, Model model, HttpSession session) {
@@ -43,13 +47,16 @@ public class BeerController {
 	}
 
 	@RequestMapping(path = "addBeerForm.do", method = RequestMethod.GET)
-	public String addBeerForm(Beer beer, HttpSession session) {
+	public String addBeerForm(Beer beer, HttpSession session, Model model) {
+		List<Brewery> listBreweries = indexDao.getBreweries();
+		model.addAttribute("listBreweries" , listBreweries);
 		return "beer/addBeer";
 	}
 
 	@RequestMapping(path = "addBeer.do")
 	public String addBeer(Beer beer, Model model, HttpSession session) {
 		beer.setTypeOfBeer(beerDao.getBeerType(beer.getTypeOfBeer().getId()));
+		beer.setBrewery(beerDao.getBrewery(beer.getBrewery().getId()));
 		model.addAttribute("beer", beerDao.createBeer(beer));
 		return "beer/beerAction";
 	}
@@ -85,16 +92,14 @@ public class BeerController {
 		return "beer/beerList";
 
 	}
-	
+
 	@RequestMapping(path = "findBeerbySearch.do")
 	public String findByKeyword(String keyword, Model model, HttpSession session) {
 		List<Beer> searchList = beerDao.findByKeyword(keyword);
 		model.addAttribute("beers", searchList);
 		System.out.println(searchList);
 		return "beer/searchResults";
-		
-		
+
 	}
-	
-	
+
 }
