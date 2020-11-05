@@ -15,7 +15,13 @@
 <title>User Results</title>
 </head>
 <body>
-
+<div class="container">
+<jsp:include page = "../headersFooters/header.jsp"></jsp:include>
+</div>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
 <table class="table table-striped table-hover">
 		<thead class="thead thead-dark">

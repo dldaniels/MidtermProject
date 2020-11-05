@@ -30,21 +30,19 @@
 	<div class="row"><h3>${user.username }</h3></div>
 	
 	<div class="row">
-		<c:choose>
+		<%-- <c:choose>
 		<c:when test="${user.id == loginUser.id }">
 		<div class="col">
 			<h4>Actions</h4>
-			<a href="updateUser.do">Update Profile</a>
-			<br>
 			<form action="deleteUser.do">
 				<input type="hidden" name="id" value="${user.id }">
 				<input type="submit" value="Delete Profile" class="button">
 			</form>
 		</div>
 		</c:when>
-		</c:choose>
+		</c:choose> --%>
 		<div class="col">
-			<img alt="User Profile Image" src="${user.image }">
+			<img alt="User Profile Image" src="${user.image }" height="100">
 		</div>
 	</div>
 	
