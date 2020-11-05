@@ -138,9 +138,7 @@
 
 
 		
-		<textarea name ="review" value="" placeholder="leave review here" rows="5" cols="60">
-          
-         		</textarea>
+		<textarea name ="review" value="" placeholder="leave review here" rows="5" cols="60"></textarea>
 		<br>
 		<br>
 
