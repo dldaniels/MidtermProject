@@ -1,5 +1,5 @@
 package com.skilldistillery.beerhound.controllers;
- 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -149,6 +149,7 @@ public class UserController {
 		Beer beer = beerDao.findBeer(beerId);
 		User user = (User) session.getAttribute("loginUser");
 		userDao.updateUserBeerFavorites(user, beer);
+		session.setAttribute("loginUser", userDao.getUserById(user.getId()));
 		model.addAttribute("beer", beer);
 		
 		return "beer/showBeer";
@@ -161,7 +162,7 @@ public class UserController {
 		userDao.updateUserBarFavorites(user, bar);
 		model.addAttribute("bar", bar);
 		List<Beer> beerList = indexDao.getBeers();
-
+		session.setAttribute("loginUser", userDao.getUserById(user.getId()));
 		model.addAttribute("beerList", beerList);
 		
 		return "bar/bar";

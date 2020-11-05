@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+	<%@ taglib uri="/WEB-INF/custom-functions.tld" prefix="fn" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -25,13 +27,29 @@
 	<br>
 
 	<div class="container-fluid">
+	<div class="row"></div>
 		<h3>${bar.name}</h3>
+	<div class="row">
+		<div class="col">
 		<br> <img src="${bar.logoUrl}" width="200" height="200" />
+		</div>
+		<div class="col">
 		<p>${bar.description}
 		<p>
 		<p>${bar.phoneNumber}</p>
-		<p>${bar.website}</p>
-		<p>${bar.address.street} ${bar.address.city} ${bar.address.state} ${bar.address.zip}</p>
+		<p><a href="${bar.website}">Website</a></p>
+		<p>${bar.address.street} <br>${bar.address.city}, ${bar.address.state} ${bar.address.zip}</p>
+		</div>
+		<div class="col">
+			<iframe
+  				width="300"
+  				height="250"
+  				frameborder="3" style="border:0"
+  				src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBHmCXr5IdHwRvUCAvA_cmXjJadZe0Ldzw
+    			&q=${bar.address.street },${bar.address.city },${bar.address.state }" allowfullscreen>
+			</iframe>
+		</div>
+	</div>
 		<table class="table table-dark">
 			<thead>
 				<tr>
@@ -82,10 +100,10 @@
 					<td><input type="hidden" name="barId" value="${bar.id }">
 					</td>
 					<td><label for="price">Price:</label> <input type="number"
-						name="price" value=4></td>
+						step=".01" title="Currency" name="price" placeholder="0.00" min="0"></td>
 					<td><select name="beerId">
 							<c:forEach items="${beerList}" var="beer">
-								<option value="${beer.id}">${beer.name}</option>
+								<option value="${beer.id}">${beer.brewery.name } - ${beer.name}</option>
 							</c:forEach>
 					</select></td>
 
@@ -132,7 +150,7 @@
 						<tr>
 							<td>${ratings.starRating} stars</td>
 							<td>${ratings.ratingDate}</td>
-							<td>${ratings.user.username}</td>
+							<td><a href="getUser.do?id=${ratings.user.id}">${ratings.user.username}</a></td>
 							<td>${ratings.review}</td>
 						</tr>
 					</c:forEach>
@@ -195,14 +213,27 @@
 
 		<!-- add to favorites -->
 		<c:if test="${not empty loginUser }">
-			<div>
-				<form action="favoriteBar.do" method="GET">
-					<button class="btn btn-outline-secondary" type="submit"
-						name="barId" value="${bar.id}">Add to Favorites</button>
-				</form>
-			</div>
-		</c:if>
-		<br> <br> <br> <br>
+	<c:choose>
+	<c:when test="${ ! fn:contains( loginUser.favoriteBarList, bar ) }">
+	<div>
+		<form action="favoriteBar.do" method="GET">
+			<button class="btn btn-outline-secondary" type="submit" name="barId"
+					value="${bar.id}">Add to Favorites
+			</button>
+		</form>
+	</div>
+	</c:when>
+	<c:otherwise>
+		<form action="favoriteBar.do" method="GET">
+			<button class="btn btn-outline-secondary" type="submit" name="barId"
+					value="${bar.id}">Remove from Favorites
+			</button>
+		</form>
+	</c:otherwise>
+	</c:choose>
+	</c:if>
+	
+		<br>
 		<c:choose>
 
 			<c:when test="${empty loginUser }">
