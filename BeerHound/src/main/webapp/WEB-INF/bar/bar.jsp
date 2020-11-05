@@ -31,7 +31,15 @@
 		<h3>${bar.name}</h3>
 	<div class="row">
 		<div class="col">
-		<br> <img src="${bar.logoUrl}" width="200" height="200" />
+		
+		<br> <%-- <img src="${bar.logoUrl}" width="200" height="200" /> --%>
+		<c:if test="${empty bar.logoUrl}">
+							<p>No Logo</p>
+						</c:if>
+						<c:if test="${! empty bar.logoUrl}">
+							<p><img src="${bar.logoUrl}" width="200" height="200">
+							</p>
+						</c:if>
 		</div>
 		<div class="col">
 		<p>${bar.description}

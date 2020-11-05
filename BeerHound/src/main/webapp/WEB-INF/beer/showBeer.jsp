@@ -44,7 +44,14 @@
 			<c:forEach items="${beer.beerPrice}" var="beerPrice">
 				<tr>
 					<td><a href="getBar.do?id=${beerPrice.bar.id}">${beerPrice.bar.name}</a></td>
-					<td><img src="${beerPrice.bar.logoUrl}" width ="100" height = "100">
+<%-- 					<td><img src="${beerPrice.bar.logoUrl}" width ="100" height = "100">
+ --%>					<c:if test="${empty beerPrice.bar.logoUrl}">
+							<td>No Logo</td>
+						</c:if>
+						<c:if test="${! empty beerPrice.bar.logoUrl}">
+							<td><img src="${beerPrice.bar.logoUrl}" width="100" height="100">
+							</td>
+						</c:if>
 				</tr>
 		</c:forEach>
 		</tbody>
