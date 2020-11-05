@@ -20,14 +20,13 @@
 </div>
 <br>
 <br>
+<br>
+<br>
 	<div class="container-fluid">
 
 		<h3>Beer List</h3>
 
-		<form action="getBeer.do" method="GET">
-			Beer ID: <input type="text" name="id" /> <input type="submit"
-				value="Find Beer" />
-		</form>
+	
 		<br>
 		
 
@@ -72,9 +71,9 @@
 		<br>
 
 	</div>
-		<div class="container">
+<%-- 		<div class="container">
 <jsp:include page = "../headersFooters/footer.jsp"></jsp:include>
-</div>
+</div> --%>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
