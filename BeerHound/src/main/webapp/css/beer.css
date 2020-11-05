@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+.background{
+	background-image: url("https://standard-knapp.com/dev/wp-content/uploads/2020/06/craft-beer.jpg");
+	opacity: 0.4;
+}

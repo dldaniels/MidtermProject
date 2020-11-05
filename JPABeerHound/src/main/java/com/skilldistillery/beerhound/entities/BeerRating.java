@@ -1,6 +1,6 @@
 package com.skilldistillery.beerhound.entities;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,7 +25,7 @@ public class BeerRating {
 	
 	@Column(name="rating_date")
 	@CreationTimestamp
-	private LocalDate ratingDate;
+	private LocalDateTime ratingDate;
 
 	@ManyToOne
 	@JoinColumn(name="beer_id")
@@ -43,7 +43,7 @@ public class BeerRating {
 	}
 
 
-	public BeerRating(int id, int starRating, LocalDate ratingDate) {
+	public BeerRating(int id, int starRating, LocalDateTime ratingDate) {
 		super();
 		Id = id;
 		this.starRating = starRating;
@@ -71,12 +71,12 @@ public class BeerRating {
 	}
 
 
-	public LocalDate getRatingDate() {
+	public LocalDateTime getRatingDate() {
 		return ratingDate;
 	}
 
 
-	public void setRatingDate(LocalDate ratingDate) {
+	public void setRatingDate(LocalDateTime ratingDate) {
 		this.ratingDate = ratingDate;
 	}
 	
