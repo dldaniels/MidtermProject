@@ -280,8 +280,8 @@
 			<c:when test="${! empty loginUser}">
 
 				<form action="deletebar.do" method="GET">
-					<input type="hidden" value="${bar.id}" name="id"> <button
-						type="submit" value="Delete Bar">Delete Bar</button>
+					<input type="hidden" value="${bar.id}" name="id"> 
+					<button type="submit" value="Delete Bar" class="btn btn-danger">Delete Bar</button>
 				</form>
 			</c:when>
 
