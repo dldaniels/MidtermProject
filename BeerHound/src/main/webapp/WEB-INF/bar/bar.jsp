@@ -149,7 +149,7 @@
 		<br>
 		<div class="container-fluid">
 
-
+<%-- 
 			<h2>Reviews</h2>
 			<c:set var="sum" value="${0}" />
 			<c:forEach items="${bar.barRatings}" var="ratings">
@@ -177,7 +177,7 @@
 						</tr>
 					</c:forEach>
 				</tbody>
-			</table>
+			</table> --%>
 
 
 

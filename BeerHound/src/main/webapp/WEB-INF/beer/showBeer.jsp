@@ -97,7 +97,7 @@
 
 
 
-<h2>Reviews</h2>
+<%-- <h2>Reviews</h2>
 			<c:set var="sum" value="${0}"/>
 <c:forEach items="${beer.beerRating}" var="ratings">
 			<c:set var="counter" value="${counter + 1}"/>
@@ -125,7 +125,7 @@
 			</c:forEach>
 		</tbody>
 	</table> 
-
+ --%>
 
 <br>
 <br>
