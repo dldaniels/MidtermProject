@@ -27,13 +27,29 @@
 	<br>
 
 	<div class="container-fluid">
+	<div class="row"></div>
 		<h3>${bar.name}</h3>
+	<div class="row">
+		<div class="col">
 		<br> <img src="${bar.logoUrl}" width="200" height="200" />
+		</div>
+		<div class="col">
 		<p>${bar.description}
 		<p>
 		<p>${bar.phoneNumber}</p>
-		<p>${bar.website}</p>
-		<p>${bar.address.street} ${bar.address.city} ${bar.address.state} ${bar.address.zip}</p>
+		<p><a href="${bar.website}">Website</a></p>
+		<p>${bar.address.street} <br>${bar.address.city}, ${bar.address.state} ${bar.address.zip}</p>
+		</div>
+		<div class="col">
+			<iframe
+  				width="300"
+  				height="250"
+  				frameborder="3" style="border:0"
+  				src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBHmCXr5IdHwRvUCAvA_cmXjJadZe0Ldzw
+    			&q=${bar.address.street },${bar.address.city },${bar.address.state }" allowfullscreen>
+			</iframe>
+		</div>
+	</div>
 		<table class="table table-dark">
 			<thead>
 				<tr>
