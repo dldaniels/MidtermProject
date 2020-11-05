@@ -121,8 +121,9 @@ public class UserController {
 			return "user/login";
 		}
 		session.setAttribute("loginUser", loggedInUser);
-		model.addAttribute("user", loggedInUser);
-		return "user/user";
+//		model.addAttribute("user", loggedInUser);
+//		return "user/user";
+		return "index";
 	}
 	
 	@RequestMapping(path="updateUser")
