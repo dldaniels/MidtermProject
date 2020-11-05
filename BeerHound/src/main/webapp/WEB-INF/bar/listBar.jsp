@@ -13,6 +13,8 @@
 </head>
 
 <body>
+<link rel="stylesheet" href="css/bar.css">
+
 	<div class="container">
 		<jsp:include page="../headersFooters/header.jsp"></jsp:include><br>
 	</div>
@@ -42,7 +44,7 @@
 				</form>
 			</c:when>
 		</c:choose> --%>
-		<table class="table table-striped table-hover">
+		<table class="table table-striped table-hover table-light">
 			<thead class="thead thead-dark">
 				<tr>
 					<th>Bar Name</th>
