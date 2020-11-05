@@ -3,6 +3,7 @@ package com.skilldistillery.beerhound.data;
 import java.util.List;
 
 import com.skilldistillery.beerhound.entities.Beer;
+import com.skilldistillery.beerhound.entities.Brewery;
 import com.skilldistillery.beerhound.entities.TypeOfBeer;
 
 public interface BeerDAO {
@@ -17,6 +18,7 @@ public interface BeerDAO {
 	List <Beer>findAll();
 	List <Beer>findByType(int id);
 	TypeOfBeer getBeerType(int id);
+	Brewery getBrewery(int id);
 	
 
 	
