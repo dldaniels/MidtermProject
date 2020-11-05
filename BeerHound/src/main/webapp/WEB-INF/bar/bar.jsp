@@ -58,10 +58,13 @@
 			</iframe>
 		</div>
 	</div>
-		<table class="table table-dark">
-			<thead>
+		<table class="table table-striped table-hover">
+			<thead class="thead thead-dark">
 				<tr>
 					<th>List of Beers</th>
+					<th></th>
+					<th></th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -75,8 +78,8 @@
 
 								<c:when test="${empty loginUser }">
 									<form action="login" method="GET">
-										<input type="hidden" name="" value="" /> <input type="submit"
-											value="Login to edit bar menu" />
+										<input type="hidden" name="" value="" /> <button type="submit"
+											value="Login to edit bar menu">Login to edit bar menu</button>
 									</form>
 								</c:when>
 
@@ -87,8 +90,8 @@
 									<form action="removeBeer.do" method="POST">
 										<input type="hidden" name="beerPriceId"
 											value="${beerPrice.id}" /> <input type="hidden" name="barId"
-											value="${bar.id}" /> <input type="submit"
-											value="Delete beer from menu" />
+											value="${bar.id}" /> <button type="submit"
+											value="Delete beer from menu">Delete Beer from Menu</button>
 									</form>
 
 								</c:when>
@@ -124,7 +127,7 @@
 					</form:select>
 			</td> --%>
 					<td>
-						<button type="submit">Submit</button>
+						<button type="submit">Add Beer to menu</button>
 					</td>
 				</tr>
 			</table>
@@ -144,8 +147,8 @@
 				<c:set var="sum" value="${sum + ratings.starRating}" />
 			</c:forEach>
 			<p>Average rating ${sum / counter} stars</p>
-			<table class="table table-dark">
-				<thead>
+			<table class="table table-striped table-hover">
+			<thead class="thead thead-dark">
 					<tr>
 						<th>Rating</th>
 						<th>Date</th>
@@ -209,8 +212,8 @@
 			<c:if test="${empty loginUser }">
 
 				<form action="login" method="GET">
-					<input type="hidden" name="" value="" /> <input type="submit"
-						value="Login to add a review" />
+					<input type="hidden" name="" value="" /> <button type="submit"
+						value="Login to add a review">Login to add a review</button>
 				</form>
 
 
@@ -224,7 +227,7 @@
 	<c:when test="${ ! fn:contains( loginUser.favoriteBarList, bar ) }">
 	<div>
 		<form action="favoriteBar.do" method="GET">
-			<button class="btn btn-outline-secondary" type="submit" name="barId"
+			<button type="submit" name="barId"
 					value="${bar.id}">Add to Favorites
 			</button>
 		</form>
@@ -232,7 +235,7 @@
 	</c:when>
 	<c:otherwise>
 		<form action="favoriteBar.do" method="GET">
-			<button class="btn btn-outline-secondary" type="submit" name="barId"
+			<button type="submit" name="barId"
 					value="${bar.id}">Remove from Favorites
 			</button>
 		</form>
@@ -245,38 +248,38 @@
 
 			<c:when test="${empty loginUser }">
 				<form action="login" method="GET">
-					<input type="hidden" name="" value="" /> <input type="submit"
-						value="Login to update Bar Info" />
+					<input type="hidden" name="" value="" /> <button type="submit"
+						value="Login to update Bar Info">Login to Update Bar Info</button>
 				</form>
 			</c:when>
 			<c:when test="${! empty loginUser}">
 
 				<form action="updatebar.do" method="GET">
-					<input type="hidden" value="${bar.id}" name="id"> <input
-						type="submit" value="Update Bar info">
+					<input type="hidden" value="${bar.id}" name="id"> <button
+						type="submit" value="Update Bar info">Update Bar Info</button>
 				</form>
 			</c:when>
 		</c:choose>
 		<c:choose>
 			<c:when test="${empty loginUser }">
 				<form action="login" method="GET">
-					<input type="hidden" name="" value="" /> <input type="submit"
-						value="Login to Delete Bar" />
+					<input type="hidden" name="" value="" /> <button type="submit"
+						value="Login to Delete Bar">Login to Delete Bar</button>
 				</form>
 			</c:when>
 			<c:when test="${! empty loginUser}">
 
 				<form action="deletebar.do" method="GET">
-					<input type="hidden" value="${bar.id}" name="id"> <input
-						type="submit" value="Delete Bar">
+					<input type="hidden" value="${bar.id}" name="id"> <button
+						type="submit" value="Delete Bar">Delete Bar</button>
 				</form>
 			</c:when>
 
 
 		</c:choose>
 		<form action="/" method="GET">
-			<input type="hidden" name="" value="" /> <input type="submit"
-				value="Home" />
+			<input type="hidden" name="" value="" /> <Button type="submit"
+				value="Home">Home</Button>
 		</form>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
