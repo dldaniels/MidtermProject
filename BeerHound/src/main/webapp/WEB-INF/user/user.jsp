@@ -48,6 +48,7 @@
 			<img alt="User Profile Image" src="${user.image }" height="100">
 		</div>
 	</div>
+	<br>
 	
 	<div class="row">
 	
