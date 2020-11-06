@@ -82,19 +82,27 @@
 		<textarea name ="review" value="" placeholder="leave review here" rows="5" cols="60"></textarea>
 		<br>
 
-		<button type=“submit”>Submit</button>
+		<button class="btn btn-primary" type=“submit”>Submit</button>
 	</form:form>
 	</c:if>
 	<c:if test="${ empty loginUser }">
 	
 	<form action="login" method="GET">
-				<input type="hidden" name="" value="" /> <input type="submit"
-					value="Login to leave review" />
+	
+	
+	<form action="addBrewery.do" method="GET">
+	<button type="submit" class="btn btn-primary">Login to leave review</button>
+	</form>
+	
+	
+	
+	
+				<!-- <input type="hidden" name="" value="" /> <input type="submit"
+					value="Login to leave review" /> -->
 			</form><br>
 			
 			<form action="register.do" method="GET">
-				<input type="hidden" name="" value="" /> <input type="submit"
-					value="Create a user profile to leave review" />
+				<button type="submit" class="btn btn-primary">create profile to leave a review</button>
 			</form><br> 
 	
 	</c:if>
@@ -103,8 +111,8 @@
 	<br>
 	<br>
 			<form action="getBar.do" method="GET">
-				<input type="hidden" name="id" value="${bar.id}" /> <input
-					type="submit" value="Return to bar page" />
+				<input type="hidden" name="id" value="${bar.id}" /> 
+				<button type="submit" class="btn btn-primary">return to bar page</button>
 			</form>
 	
 </div>

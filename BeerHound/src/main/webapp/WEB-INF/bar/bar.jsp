@@ -88,8 +88,8 @@
 
 								<c:when test="${empty loginUser }">
 									<form action="login" method="GET">
-										<input type="hidden" name="" value="" /> <button type="submit"
-											value="Login to edit bar menu">Login to edit bar menu</button>
+										<input type="hidden" name="" value="" /> 
+										<button type="submit" class="btn btn-primary">Login to edit bar menu</button>
 									</form>
 								</c:when>
 
@@ -100,8 +100,8 @@
 									<form action="removeBeer.do" method="POST">
 										<input type="hidden" name="beerPriceId"
 											value="${beerPrice.id}" /> <input type="hidden" name="barId"
-											value="${bar.id}" /> <button type="submit"
-											value="Delete beer from menu">Delete Beer from Menu</button>
+											value="${bar.id}" /> 
+											<button type="submit" class="btn btn-primary">Delete beer from menu</button>
 									</form>
 
 								</c:when>
@@ -117,7 +117,7 @@
 
 		<!-- update menu -->
 		<form action="updateMenu.do" method="post">
-			<table>
+			<table class="table table-striped table-hover">
 				<tr>
 					<td><input type="hidden" name="barId" value="${bar.id }">
 					</td>
@@ -137,7 +137,7 @@
 					</form:select>
 			</td> --%>
 					<td>
-						<button type="submit">Add Beer to menu</button>
+						<button type="submit" class="btn btn-primary">Add beer to menu</button>
 					</td>
 				</tr>
 			</table>
@@ -209,7 +209,7 @@
 
 
 
-					<button type=“submit”>Submit</button>
+					<button type="submit" class="btn btn-primary">Submit</button>
 
 
 
@@ -222,8 +222,7 @@
 			<c:if test="${empty loginUser }">
 
 				<form action="login" method="GET">
-					<input type="hidden" name="" value="" /> <button type="submit"
-						value="Login to add a review">Login to add a review</button>
+					<input type="hidden" name="" value="" /> <button type="submit" class="btn btn-primary">Login to leave review</button>
 				</form>
 
 
@@ -237,15 +236,17 @@
 	<c:when test="${ ! fn:contains( loginUser.favoriteBarList, bar ) }">
 	<div>
 		<form action="favoriteBar.do" method="GET">
-			<button type="submit" name="barId"
-					value="${bar.id}">Add to Favorites
+			<button class="btn btn-primary" type="submit" name="barId"
+					value="${bar.id}" >Add to Favorites
 			</button>
+			
+			
 		</form>
 	</div>
 	</c:when>
 	<c:otherwise>
 		<form action="favoriteBar.do" method="GET">
-			<button type="submit" name="barId"
+			<button class="btn btn-primary" type="submit" name="barId"
 					value="${bar.id}">Remove from Favorites
 			</button>
 		</form>
@@ -257,40 +258,67 @@
 		<c:choose>
 
 			<c:when test="${empty loginUser }">
-				<form action="login" method="GET">
-					<input type="hidden" name="" value="" /> <button type="submit"
-						value="Login to update Bar Info">Login to Update Bar Info</button>
-				</form>
+			
+			
+			
+			<form action="login" method="GET">
+					<input type="hidden" name="" value="" /> 
+					
+					
+					
+					
+						<button class="btn btn-primary" type="submit"
+						value="Login to update Bar Info">Login to Update Bar Info</button> 
+						
+						
+						
+						
+				</form> 
 			</c:when>
 			<c:when test="${! empty loginUser}">
 
 				<form action="updatebar.do" method="GET">
 					<input type="hidden" value="${bar.id}" name="id"> <button
-						type="submit" value="Update Bar info">Update Bar Info</button>
+						class="btn btn-primary" type="submit" value="Update Bar info">Update Bar Info</button>
 				</form>
 			</c:when>
 		</c:choose>
+		<br>
 		<c:choose>
-			<c:when test="${empty loginUser }">
+		
+		 
+		
+		 <c:when test="${empty loginUser }">
 				<form action="login" method="GET">
-					<input type="hidden" name="" value="" /> <button type="submit"
-						value="Login to Delete Bar">Login to Delete Bar</button>
+					<input type="hidden" name="" value="" /> 
+					
+					
+					
+					<!-- <button class="btn btn-primary" type="submit"
+						value="Login to Delete Bar">Login to Delete Bar</button> -->
+						
+						
+						
 				</form>
-			</c:when>
+			</c:when> 
+			
 			<c:when test="${! empty loginUser}">
 
 				<form action="deletebar.do" method="GET">
 					<input type="hidden" value="${bar.id}" name="id"> <button
-						type="submit" value="Delete Bar">Delete Bar</button>
+						class="btn btn-primary" type="submit" value="Delete Bar">Delete Bar</button>
 				</form>
 			</c:when>
 
 
 		</c:choose>
-		<form action="/" method="GET">
+		<br>
+		
+		<%-- <form action="/" method="GET">
 			<input type="hidden" name="" value="" /> <Button type="submit"
 				value="Home">Home</Button>
-		</form>
+		</form> --%>
+		
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

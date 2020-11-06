@@ -41,12 +41,13 @@
 				
 			<!-- 	<h3>List of beers</h3><br> -->
 				
-			<table class="table table-dark">
+			<table class="table table-striped table-hover">
 		
 		
-		<thead>
+		<thead class="thead thead-dark">
 		  <tr>
 		  <th>List of Beers</th>
+		  <th></th>
 		  </tr>
 		</thead>
 				<br>
@@ -74,14 +75,14 @@
 			</div><br>
 			
 			<form action="getBreweryUpdate.do" method="GET">
-				<input type="hidden" name="id" value="${brewery.id }" /> <input
-					type="submit" value="Update brewery info" />
+				<input type="hidden" name="id" value="${brewery.id }" /> 
+				<button type="submit" class="btn btn-primary">Update brewery info</button>
 			</form>
 			<br>
 
 			<form action="deleteBrewery.do" method="GET">
-				<input type="hidden" name="id" value="${brewery.id}" /> <input
-					type="submit" value="Delete brewery" />
+				<input type="hidden" name="id" value="${brewery.id}" />
+				<button type="submit" class="btn btn-primary">Delete brewery</button>
 			</form>
 			<br>
 

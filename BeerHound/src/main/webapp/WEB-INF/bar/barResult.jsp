@@ -32,8 +32,8 @@
 		</c:choose>
 		<br> <br>
 		<form action="index.do" method="GET">
-			<input type="hidden" name="" value="" /> <Button type="submit"
-				value="Back to home page">Home</Button>
+			<input type="hidden" name="" value="" /> <!-- <Button type="submit"
+				value="Back to home page">Home</Button> -->
 		</form>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

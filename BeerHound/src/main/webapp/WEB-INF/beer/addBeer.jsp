@@ -78,7 +78,7 @@
 				</c:forEach>
 
 			</form:select>
-			<input type="submit" value="Add beer" />
+			<button type="submit" class="btn btn-primary">Add beer</button>
 		</form:form>
 	</div>
 
