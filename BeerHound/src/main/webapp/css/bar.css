@@ -2,6 +2,5 @@
 body{
 	background-image: url('https://media.cntraveler.com/photos/5bdb0a1b2e350417aea9d728/16:9/w_1600%2Cc_limit/Death%2520%26%2520Co%2520Denver_Elliott%2520Clark_D%26C_Denver17.jpg');
 	background-repeat: no-repeat;
-
-	
+	background-size: cover;
 }
