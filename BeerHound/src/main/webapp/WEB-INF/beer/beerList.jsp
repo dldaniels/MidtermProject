@@ -36,30 +36,9 @@ body, html {
   transform: translate(-50%, -50%);
   color: white;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 
-=======
->>>>>>> 21a16450658f6c6825c6d4a3f65a8e3c63072d62
-=======
 
-/* 
 
->>>>>>> 13c828494899365ccbfdb1caa95580aeca07bd43
-.hero-text button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 10px 25px;
-  color: black;
-  background-color: #ddd;
-  text-align: center;
-  cursor: pointer;
-}
-.hero-text button:hover {
-  background-color: #555;
-  color: white;
-} */
+
 </style>	
 
 	
@@ -78,10 +57,7 @@ body, html {
   <div class="hero-text">
   <p> "Good people drink good beer"<br>
    - Hunter S. Thompson</p>
-   
-
-   
-  </div>
+    </div>
 </div>
 	<div class="container-fuid">
 		<br>
@@ -108,15 +84,15 @@ body, html {
 	
 		<c:if test="${! empty loginUser }">
 		<form action="addBeerForm.do" method="GET">
-		<input type= "submit" value = "Add Beer" />
+		<button type="submit" class="btn btn-primary btn-lg btn-block">Add A Beer</button>
 		</form>
 		
 		</c:if>
 		
 		<c:if test="${empty loginUser }">
 		<form action="login" method="GET">
-					<input type="hidden" name="" value="" /> <input type="submit"
-						value="Login to add a beer" />
+					<input type="hidden" name="" value="" /> 
+					<button type="submit" class="btn btn-primary btn-lg btn-block">Login to Add a Beer</button>
 				</form>
 		</c:if>
 
