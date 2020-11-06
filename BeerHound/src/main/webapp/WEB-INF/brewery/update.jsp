@@ -27,7 +27,9 @@
 	 <c:choose>
 		<c:when test= "${! empty loginUser}">
 
-		<h2>	Brewery you are editing: ${brewery.name} </h2>
+		<h2>	Brewery you are editing: ${brewery.name} </h2><br>
+			
+			<img src="${brewery.breweryLogoUrl}" width = "150" height = "150">
 			
 			
 			<form action="updateBrewery.do" method="GET"><br>
@@ -51,18 +53,18 @@
 			
 			<h3>List of beers to edit</h3><br>
 	
-	<table>
-		<thead>
+	<table class="table table-striped table-hover">
+		<thead class="thead thead-dark">
 		  <tr>
-			<th>Beer ID</th>
-			<th>Name</th>
+			<th>Beer name</th>
+			<th></th>
 		  </tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${brewery.beers}" var="beer">
 				<tr>
-					<td>${beer.id}</td>
 					<td><a href="getBeer.do?id=${beer.id}">${beer.name}</a></td>
+					<td><img src="${beer.imageUrl}" width = "150" height = "150"></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -70,7 +72,7 @@
 			<br>
 				
 			<br>
-			<button type=“submit” name=“id” value=“${brewery.id}“>Submit</button>
+			<button class="btn btn-primary" type=“submit” name=“id” value=“${brewery.id}“>Submit</button>
 			</form><br>
 		</c:when>
 		<c:otherwise>
@@ -83,13 +85,11 @@
 			
 			
 			<form action="login" method="GET">
-				<input type="hidden" name="" value="" /> <input type="submit"
-					value="Login" />
+				<button type="submit" class="btn btn-primary">Login</button>
 			</form><br>
 			
 			<form action="register.do" method="GET">
-				<input type="hidden" name="" value="" /> <input type="submit"
-					value="Create a user profile" />
+				<button type="submit" class="btn btn-primary">Create user profile</button>
 			</form><br> 
 			
 			

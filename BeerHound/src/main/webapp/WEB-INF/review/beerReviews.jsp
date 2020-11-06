@@ -87,20 +87,18 @@
 		<textarea name ="review" value="" placeholder="leave review here" rows="5" cols="60"></textarea>
 		<br>
 
-		<button type=“submit”>Submit</button>
+		<button type="submit" class="btn btn-primary">Submit</button>
 	</form:form>
 	</c:if>
 	
 	<c:if test="${ empty loginUser }">
 	
 	<form action="login" method="GET">
-				<input type="hidden" name="" value="" /> <input type="submit"
-					value="Login to leave review" />
+				<input type="hidden" name="" value="" /> <button type="submit" class="btn btn-primary">Login to add a review</button>
 			</form><br>
 			
 			<form action="register.do" method="GET">
-				<input type="hidden" name="" value="" /> <input type="submit"
-					value="Create a user profile to leave review" />
+				<input type="hidden" name="" value="" /> <button type="submit" class="btn btn-primary">Create a user profile to leave a review</button>
 			</form><br> 
 	
 	</c:if>
@@ -109,8 +107,8 @@
 	<br>
 	<br>
 	<form action="getBeer.do" method="GET">
-				<input type="hidden" name="id" value="${beer.id}" /> <input
-					type="submit" value="Return to beer page" />
+				<input type="hidden" name="id" value="${beer.id}" /> 
+				<button type="submit" class="btn btn-primary">Return to beer page</button>
 			</form>
 	
 

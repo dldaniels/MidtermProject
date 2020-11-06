@@ -14,6 +14,7 @@
 <div class="container">
 <jsp:include page = "../headersFooters/header.jsp"></jsp:include>
 </div>
+<div class="container-fluid">
 <br>
 <br>
 <br>
@@ -82,14 +83,15 @@
 					<option value="WV">WV</option>
 					<option value="WY">WY</option>
 					</select> <br>
-					  <input type="text" name="address.zip" value="${bar.address.zip}"/><br>
-	<button type="submit" name="Update Bar">Update Bar</button>
+					  <input type="text" name="address.zip" value="${bar.address.zip}"/><br><br>
+	<button type="submit" class="btn btn-primary">Update bar</button>
 	
 </form>
 		<form action="/" method="GET">
-		<input type="hidden" name="" value="" /> <button type="submit"
-			value="Home">Home</button>
+		<input type="hidden" name="" value="" /> <!-- <button type="submit"
+			value="Home">Home</button> -->
 	</form>
+	</div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
