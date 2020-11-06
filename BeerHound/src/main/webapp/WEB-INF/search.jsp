@@ -120,7 +120,8 @@
 
 	</div>
 	</div>
-<div class="footer">
+<div class="container-fluid">
+<jsp:include page = "headersFooters/footer.jsp"></jsp:include>
 </div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
