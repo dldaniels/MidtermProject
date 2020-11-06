@@ -157,17 +157,19 @@
 		
 		<textarea name ="review" value="" placeholder="leave review here" rows="5" cols="60"></textarea>
 		<br>
-		<br>
+		
 
-		<button type=“submit”>Submit</button>
+		<button type="submit" class="btn btn-primary">Submit</button>
+		<br>
+		<br>
 	</form:form>
 </c:if>
 
 <c:if test="${empty loginUser }">
 
 				<form action="login" method="GET">
-					<input type="hidden" name="" value="" /> <input type="submit"
-						value="Login to add a review" />
+					<input type="hidden" name="" value="" /> 
+					<button type="submit" class="btn btn-primary">Login to add a review</button>
 				</form>
 
 

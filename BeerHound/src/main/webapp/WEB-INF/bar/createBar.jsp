@@ -17,6 +17,8 @@
 <div class="container">
 <jsp:include page = "../headersFooters/header.jsp"></jsp:include><br>
 </div>
+
+<div class="container-fluid">
 <br>
 <br>
 <br>
@@ -88,14 +90,19 @@ ZipCode: <input type="text" name="zip" value="${bar.address.zip}"/><br>
 
 <!-- TimeLastUpdated: <input type="text" name="timeLastUpdated"/><br> -->
 <!-- Logo: <input type="text" name="logoUrl"/><br> -->
-<button type="submit" value="Submit">Submit</button><br>
+
+<br><br><br>
+
+<button type="submit" class="btn btn-primary">Submit</button>
 <br>
 </form>
-		<form action="/" method="GET">
+		<%-- <form action="/" method="GET">
 		<input type="hidden" name="" value="" /> <button type="submit"
 			value="Home">Home</button>
-	</form>
+	</form> --%>
 
+
+</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
