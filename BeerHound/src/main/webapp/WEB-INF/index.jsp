@@ -25,6 +25,7 @@
 <br>
 
 <div class="container">
+
 <blockquote class="blockquote text-center">
 	<h2> Sniff out your favorite brews with Beer Hound!</h2>
 	<br>
@@ -35,6 +36,7 @@ of lame beer? So are we.
 We here at Beer Hound believe that life is too short to drink bogus beer. Join our community of beer drinkers to find and update any bar
 taplist near you so we all can avoid walking into a watering hole that only serves the basic big corporate brands.
 </blockquote>
+
 </div>
 <div class="row">
 	<img src="images/beer.jpg"  width ="100%" alt="beer" class ="img">
