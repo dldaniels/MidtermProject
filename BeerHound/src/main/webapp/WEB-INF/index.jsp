@@ -42,6 +42,10 @@ taplist near you so we all can avoid walking into a watering hole that only serv
 	<img src="images/beer.jpg"  width ="100%" alt="beer" class ="img">
 </div>
 
+<div class="container-fluid">
+<jsp:include page = "headersFooters/footer.jsp"></jsp:include>
+</div>
+
 
 	<!-- bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
