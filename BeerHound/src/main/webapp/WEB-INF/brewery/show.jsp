@@ -5,13 +5,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" >
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
+	
 <title>Brewery edit</title>
 </head>
 <body>
@@ -22,11 +23,10 @@
 <br>
 <br>
 <br>
-
 <div class="container">
 	<c:choose>
 		<c:when test="${! empty brewery }">
-			<div>
+			
 			
 				<h2><a href="${brewery.breweryWebsite}">
 				${brewery.name}
@@ -39,10 +39,10 @@
 				<p>${brewery.address.street} ${brewery.address.city}, ${brewery.address.state} ${brewery.address.zip}</p><br>
 				
 				
+	</div>	
 			<!-- 	<h3>List of beers</h3><br> -->
 				
 			<table class="table table-striped table-hover">
-		
 		
 		<thead class="thead thead-dark">
 		  <tr>
@@ -70,21 +70,6 @@
 			
 				
 				
-				
-				
-			</div><br>
-			
-			<form action="getBreweryUpdate.do" method="GET">
-				<input type="hidden" name="id" value="${brewery.id }" /> 
-				<button type="submit" class="btn btn-primary">Update brewery info</button>
-			</form>
-			<br>
-
-			<form action="deleteBrewery.do" method="GET">
-				<input type="hidden" name="id" value="${brewery.id}" />
-				<button type="submit" class="btn btn-primary">Delete brewery</button>
-			</form>
-			<br>
 
 	<%-- 		<form action="/" method="GET">
 				<input type="hidden" name="" value="" /> <input type="submit"
@@ -103,9 +88,32 @@
 
 		</c:otherwise>
 	</c:choose>
+			<div class ="container-fluid">
+				
+<br>
+			<form action="getBreweryUpdate.do" method="GET">
+				<input type="hidden" name="id" value="${brewery.id }" /> 
+				<button type="submit" class="btn btn-primary">Update brewery info</button>
+			</form>
+			<br>
+		<c:if test="${! empty loginUser && loginUser.role== 'ADMIN'}">	
+			<form action="deleteBrewery.do" method="GET">
+				<input type="hidden" name="id" value="${brewery.id}" />
+				<button type="submit" class="btn btn-danger">Delete brewery</button>
+			</form>
+			<br>
+</c:if>
+
+
+		
+
 
 </div>
 
+
+<div class="container-fluid">
+<jsp:include page = "../headersFooters/footer.jsp"></jsp:include>
+</div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
