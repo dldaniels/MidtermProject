@@ -58,7 +58,7 @@
 				<form:form action="updateUser.do" method="POST" modelAttribute="user">
 				<form:hidden path="id" value="${user.id }"/>
 				<form:hidden path="enabled" value="${user.enabled }"/>
-				<form:hidden path="role" value="${user.role }"/>
+				<%-- <form:hidden path="role" value="${user.role }"/> --%>
 				<form:hidden path="biography" value="${user.biography }"/>
 				<tr>
 					<td>ID</td><td>${user.id }</td>
@@ -82,7 +82,13 @@
 					<td>Enabled</td><td>${user.enabled }</td>
 				</tr>
 				<tr>
-					<td>Role</td><td>${user.role }</td>
+					<c:if test="${loginUser.role != 'ADMIN' }">
+						<td>Role</td><td>${user.role }</td>
+					</c:if>
+					<c:if test="${loginUser.role == 'ADMIN' }">
+						<td><form:label path="role">Role</form:label></td>
+						<td><form:input path="role" value="${user.role }"/></td>
+					</c:if>
 				</tr>
 				<tr>
 					<td><form:label path="firstName">First Name</form:label></td>
