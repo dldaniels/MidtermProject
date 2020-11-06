@@ -13,14 +13,27 @@
 </head>
 
 <body>
+<link rel="stylesheet" href="css/bar.css">
+
 	<div class="container">
 		<jsp:include page="../headersFooters/header.jsp"></jsp:include><br>
 	</div>
 	<br>
 	<br>
 	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<div class="container-fluid">
-		<h3>Bar List</h3>
+	<!-- 	<h3>Bar List</h3> -->
 	<br>
 		<!-- <form action="getBar.do" method="GET">
 			<input type="text" name="id" /> <input type="submit"
@@ -42,13 +55,8 @@
 				</form>
 			</c:when>
 		</c:choose> --%>
-		<table class="table table-striped table-hover">
-			<thead class="thead thead-dark">
-				<tr>
-					<th>Bar Name</th>
-					<th></th>
-				</tr>
-			</thead>
+		<table class="table table-striped table-hover table-light">
+			
 			<tbody>
 				<c:forEach items="${bars}" var="bar">
 					<tr>
