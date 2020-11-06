@@ -8,7 +8,7 @@
 </head>
 <body>
 
- <nav class="navbar navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+ <nav class="navbar navbar fixed-bottom navbar-expand-sm bg-light">
 
     <div class="footer-nav-left">
 <p class="footer-copyright">© 2020 Beer Hound, Inc.</p>
