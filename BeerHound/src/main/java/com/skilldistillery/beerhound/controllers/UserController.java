@@ -88,7 +88,7 @@ public class UserController {
 			return "user/delete";
 		}
 		// if not admin and not same user, also cannot delete
-		if (loggedInUser.getRole() != "ADMIN" && loggedInUser.getId() != userToDelete.getId()) {
+		if (!loggedInUser.getRole().equals("ADMIN") && loggedInUser.getId() != userToDelete.getId()) {
 			model.addAttribute("deleted", wasDeleted);
 			return "user/delete";
 		}
