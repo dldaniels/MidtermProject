@@ -42,16 +42,19 @@
         </ul>
         </div>
         
-        <div style="float:left;" >
+        <div class="navbar-right" style="float:right;">
       
-        
+      <!--   
         <span class="align-bottom"> <a href="#" class="fa fa-facebook"></a>
         </span>
         <span class="align-bottom"> <a href="#" class="fa fa-twitter"></a>
         </span>
         <span class="align-bottom"> <a href="#" class="fa fa-instagram"></a>
-        </span>
+        </span> -->
        
+       <a href="#"><i class="fa fa-facebook"></i></a>
+       <a href="#"><i class="fa fa-twitter"></i></a>
+       <a href="#"><i class="fa fa-instagram"></i></a>
         
 
 
