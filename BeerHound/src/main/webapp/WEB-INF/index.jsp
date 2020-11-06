@@ -23,15 +23,12 @@
 <br>
 <div class="container">
 <div class="row">
-	<h2>Beer Hound</h2>
-	<p>
-	Tired of walking into a bar only to find that their tap lists consist 
-of lame beer? So are we. 
-<br>
-Life is to short to drink crappy beer, find and update any bar
-taplist near you to avoid walking into a place that only serves Coors.
-	
-	</p>
+	<div>
+	<h2 class="text-center">Beer Hound</h2>
+	<br>
+	<p>Tired of walking into a bar only to find that their tap lists consist of lame beer? So are we.</p>
+	<p>Life is to short to drink crappy beer, find and update any bar taplist near you to avoid walking into a place that only serves Coors.</p>
+	</div>
 </div>
 <div class="row">
 	<img src="images/beer.jpg"  width ="100%" alt="beer" class ="img">

@@ -24,29 +24,37 @@
 <br>
 <div class="container">
 <form:form action="createUser.do" method="POST" modelAttribute="user">
-		<br>
+		<div class="form-group">
 		<form:label path="username">Username:</form:label>
 		<form:input path="username"/>
 		<form:errors path="username"/>
-		<br>
+		</div>
+		<div class="form-group">
 		<form:label path="email">Email:</form:label>
 		<form:input path="email"/>
 		<form:errors path="email"/>
-		<br>
+		</div>
+		<div class="form-group">
 		<form:label path="password">Password:</form:label>
 		<form:input path="password"/>
 		<form:errors path="password"/>
-		<br>
+		</div>
+		<div class="form-group">
 		<form:label path="firstName">First Name:</form:label>
 		<form:input path="firstName"/>
 		<form:errors path="firstName"/>
-		<br>
+		</div>
+		<div class="form-group">
 		<form:label path="lastName">Last Name:</form:label>
 		<form:input path="lastName"/>
 		<form:errors path="lastName"/>
-		<br>
+		</div>
+		<div class="form-group">
 		<form:hidden path="enabled" value="true"/>
-		<input type="submit" value="Register"/>
+		</div>
+		<div class="form-group">
+		<button type="submit" class="btn btn-primary">Register</button>
+		</div>
 	
 	
 	</form:form>
