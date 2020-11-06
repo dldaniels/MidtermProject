@@ -39,7 +39,7 @@
 			<br>
 			<form action="deleteUser.do">
 				<input type="hidden" name="id" value="${user.id }">
-				<button type="submit" class="btn btn-primary">Delete profile</button>
+				<button type="submit" class="btn btn-danger">Delete profile</button>
 			</form>
 		</div>
 		</c:when>
@@ -184,7 +184,9 @@
 </div>
 
 
-
+<div class="container-fluid">
+<jsp:include page = "../headersFooters/footer.jsp"></jsp:include>
+</div>
 	<!-- bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

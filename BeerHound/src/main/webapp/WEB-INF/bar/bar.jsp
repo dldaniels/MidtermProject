@@ -302,11 +302,13 @@
 				</form>
 			</c:when> 
 			
-			<c:when test="${! empty loginUser}">
+			<c:when test="${! empty loginUser && loginUser.role == 'ADMIN'}">
 
 				<form action="deletebar.do" method="GET">
-					<input type="hidden" value="${bar.id}" name="id"> <button
-						class="btn btn-primary" type="submit" value="Delete Bar">Delete Bar</button>
+
+					<input type="hidden" value="${bar.id}" name="id"> 
+					<button type="submit" value="Delete Bar" class="btn btn-danger">Delete Bar</button>
+
 				</form>
 			</c:when>
 
@@ -320,6 +322,9 @@
 		</form> --%>
 		
 	</div>
+	<div class="container-fluid">
+<jsp:include page = "../headersFooters/footer.jsp"></jsp:include>
+</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>

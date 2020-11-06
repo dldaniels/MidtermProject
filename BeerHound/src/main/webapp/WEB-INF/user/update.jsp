@@ -58,7 +58,7 @@
 				<form:form action="updateUser.do" method="POST" modelAttribute="user">
 				<form:hidden path="id" value="${user.id }"/>
 				<form:hidden path="enabled" value="${user.enabled }"/>
-				<form:hidden path="role" value="${user.role }"/>
+				<%-- <form:hidden path="role" value="${user.role }"/> --%>
 				<form:hidden path="biography" value="${user.biography }"/>
 				<tr>
 					<td>ID</td><td>${user.id }</td>
@@ -82,7 +82,13 @@
 					<td>Enabled</td><td>${user.enabled }</td>
 				</tr>
 				<tr>
-					<td>Role</td><td>${user.role }</td>
+					<c:if test="${loginUser.role != 'ADMIN' }">
+						<td>Role</td><td>${user.role }</td>
+					</c:if>
+					<c:if test="${loginUser.role == 'ADMIN' }">
+						<td><form:label path="role">Role</form:label></td>
+						<td><form:input path="role" value="${user.role }"/></td>
+					</c:if>
 				</tr>
 				<tr>
 					<td><form:label path="firstName">First Name</form:label></td>
@@ -211,7 +217,9 @@
 </div>
 
 
-
+<div class="container-fluid">
+<jsp:include page = "../headersFooters/footer.jsp"></jsp:include>
+</div>
 	<!-- bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

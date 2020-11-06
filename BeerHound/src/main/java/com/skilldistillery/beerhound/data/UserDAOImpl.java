@@ -147,6 +147,7 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return result;
 	}
+	
 	@Override
 	public User getUserByUsername(String username) {
 		String query = "SELECT u FROM User u WHERE u.username = :username";
@@ -181,6 +182,9 @@ public class UserDAOImpl implements UserDAO {
 			}
 		} else if (user.getUsername() != null) {
 			dbUser = getUserByUsername(user.getUsername());
+			if (dbUser == null) {
+				return null;
+			}
 		}
 		if (dbUser.getPassword().equals(user.getPassword())) {
 			return dbUser;
