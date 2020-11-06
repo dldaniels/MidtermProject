@@ -26,6 +26,12 @@
 	<br>
 	<br>
 	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<div class="container-fluid">
 	<!-- 	<h3>Bar List</h3> -->
 	<br>
@@ -50,12 +56,7 @@
 			</c:when>
 		</c:choose> --%>
 		<table class="table table-striped table-hover table-light">
-			<thead class="thead thead-dark">
-				<tr>
-					<th>Bar Name</th>
-					<th></th>
-				</tr>
-			</thead>
+			
 			<tbody>
 				<c:forEach items="${bars}" var="bar">
 					<tr>
