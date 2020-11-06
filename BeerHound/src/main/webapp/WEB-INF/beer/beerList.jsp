@@ -23,7 +23,7 @@ body, html {
 
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/beerLineup.jpg");
-  height: 50%;
+  height: 60%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -38,7 +38,7 @@ body, html {
   transform: translate(-50%, -50%);
   color: white;
 }
-
+/* 
 .hero-text button {
   border: none;
   outline: 0;
@@ -53,7 +53,7 @@ body, html {
 .hero-text button:hover {
   background-color: #555;
   color: white;
-}
+} */
 </style>	
 
 	
