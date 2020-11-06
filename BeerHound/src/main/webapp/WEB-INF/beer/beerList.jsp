@@ -20,7 +20,6 @@ body, html {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/beerLineup.jpg");
   height: 60%;
@@ -29,7 +28,6 @@ body, html {
   background-size: cover;
   position: relative;
 }
-
 .hero-text {
   text-align: center;
   position: absolute;
@@ -38,7 +36,9 @@ body, html {
   transform: translate(-50%, -50%);
   color: white;
 }
+
 /* 
+
 .hero-text button {
   border: none;
   outline: 0;
@@ -49,7 +49,6 @@ body, html {
   text-align: center;
   cursor: pointer;
 }
-
 .hero-text button:hover {
   background-color: #555;
   color: white;
