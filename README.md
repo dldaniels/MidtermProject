@@ -19,17 +19,10 @@
 - HTTP session
 - gradle
 - Handling requests
--
--
--
 
 
 ## How to run - Instructions
 
--
--
--
--
 
 - People who are beer enthusiasts can have a tendency to gravitate to certain breweries and their tap list. With that being said, we thought it would be a good idea to add a brewery table and that specific breweries list of beers in the database.
 - With the same reasoning specified above. We added a Bar list to our database so beer enthusiasts are able to see exactly which beers to expect at any given location. the Bar list takes you to each bar's page which shows the bar's location, link to their website and a beer list with pricing for each beer carried.
