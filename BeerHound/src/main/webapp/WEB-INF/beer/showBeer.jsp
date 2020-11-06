@@ -163,7 +163,7 @@
 	<c:when test="${ ! fn:contains( loginUser.favoriteBeerList, beer ) }">
 	<div>
 		<form action="favoriteBeer.do" method="GET">
-			<button class="btn btn-outline-secondary" type="submit" name="beerId"
+			<button class="btn btn-primary" type="submit" name="beerId"
 					value="${beer.id}">Add to Favorites
 			</button>
 		</form>
@@ -171,7 +171,7 @@
 	</c:when>
 	<c:otherwise>
 		<form action="favoriteBeer.do" method="GET">
-			<button class="btn btn-outline-secondary" type="submit" name="beerId"
+			<button class="btn btn-primary" type="submit" name="beerId"
 					value="${beer.id}">Remove from Favorites
 			</button>
 		</form>
@@ -180,7 +180,7 @@
 	</c:if>
 
 		<form action="updateBeerForm.do" method="GET">
-				<button class="btn btn-outline-secondary" type="submit" name="id"
+				<button class="btn btn-primary" type="submit" name="id"
 					value="${beer.id}">Edit Beer</button>
 			</form>
 	
