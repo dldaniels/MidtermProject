@@ -88,11 +88,11 @@
 
 		<br> <a href="getBrewery.do?id=${beer.brewery.id}">${beer.brewery.name}</a>
 		<br> <img src="${beer.imageUrl}" width="200" height="200">
-		
-		${beer.description}
+		<br>
+		<p>${beer.description}</p>
 
 	</div>
-	<div class="container-fluid">
+	
 <br>
 
 
@@ -157,17 +157,19 @@
 		
 		<textarea name ="review" value="" placeholder="leave review here" rows="5" cols="60"></textarea>
 		<br>
-		<br>
+		
 
-		<button type=“submit”>Submit</button>
+		<button type="submit" class="btn btn-primary">Submit</button>
+		<br>
+		<br>
 	</form:form>
 </c:if>
 
 <c:if test="${empty loginUser }">
 
 				<form action="login" method="GET">
-					<input type="hidden" name="" value="" /> <input type="submit"
-						value="Login to add a review" />
+					<input type="hidden" name="" value="" /> 
+					<button type="submit" class="btn btn-primary">Login to add a review</button>
 				</form>
 
 
@@ -221,8 +223,9 @@
 	<br>
 
 	</div>
-		<div class="container">
-<%-- <jsp:include page = "../headersFooters/footer.jsp"></jsp:include> --%>
+
+	<div class="container-fluid">
+<jsp:include page = "../headersFooters/footer.jsp"></jsp:include>
 </div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

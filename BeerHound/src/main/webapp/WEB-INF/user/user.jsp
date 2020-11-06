@@ -34,12 +34,12 @@
 			<h4>Actions</h4>
 			<form action="updateUser">
 				<input type="hidden" name="id" value="${user.id }">
-				<input type="submit" value="Update Profile" class="button">
+				<button type="submit" class="btn btn-primary">Update profile</button>
 			</form>
 			<br>
 			<form action="deleteUser.do">
 				<input type="hidden" name="id" value="${user.id }">
-				<input type="submit" value="Delete Profile" class="button">
+				<button type="submit" class="btn btn-primary">Delete profile</button>
 			</form>
 		</div>
 		</c:when>
@@ -48,6 +48,7 @@
 			<img alt="User Profile Image" src="${user.image }" height="100">
 		</div>
 	</div>
+	<br>
 	
 	<div class="row">
 	

@@ -14,6 +14,8 @@
 	crossorigin="anonymous">
 </head>
 <body>
+
+
 <div class="container">
 <jsp:include page = "headersFooters/header.jsp"></jsp:include>
 </div>
@@ -21,22 +23,29 @@
 <br>
 <br>
 <br>
+
 <div class="container">
-<div class="row">
-	<h2>Beer Hound</h2>
+
+<blockquote class="blockquote text-center">
+	<h2> Sniff out your favorite brews with Beer Hound!</h2>
+	<br>
 	<p>
 	Tired of walking into a bar only to find that their tap lists consist 
 of lame beer? So are we. 
 <br>
-Life is to short to drink crappy beer, find and update any bar
-taplist near you to avoid walking into a place that only serves Coors.
-	
-	</p>
+We here at Beer Hound believe that life is too short to drink bogus beer. Join our community of beer drinkers to find and update any bar
+taplist near you so we all can avoid walking into a watering hole that only serves the basic big corporate brands.
+</blockquote>
+
 </div>
 <div class="row">
 	<img src="images/beer.jpg"  width ="100%" alt="beer" class ="img">
 </div>
+
+<div class="container-fluid">
+<jsp:include page = "headersFooters/footer.jsp"></jsp:include>
 </div>
+
 
 	<!-- bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

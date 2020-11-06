@@ -27,7 +27,7 @@
 	<br>
 	<br>
 	<div class="container-fluid">
-		<h3>Bar List</h3>
+	<!-- 	<h3>Bar List</h3> -->
 	<br>
 		<!-- <form action="getBar.do" method="GET">
 			<input type="text" name="id" /> <input type="submit"
@@ -77,15 +77,22 @@
 		<c:choose>
 			<c:when test="${empty loginUser }">
 				<form action="login" method="GET">
-					<input type="hidden" name="" value="" /> <button type="submit"
-						value="Login to add a bar">Login to add a bar</button>
+					<input type="hidden" name="" value="" /><button type="submit" class="btn btn-primary">Login in to add bar</button>
 				</form>
 			</c:when>
 			<c:when test="${! empty loginUser}">
 
 				<form action="createBar.do" method="GET">
-					<input type="hidden" name="" value="" /> <button type="submit"
-						value="Add Bar">Add Bar</button>
+					<input type="hidden" name="" value="" /> 
+					<button type="submit" class="btn btn-primary">Add bar</button>
+					<!-- 
+					original button
+					
+					<button type="submit"
+						value="Add Bar">Add Bar</button> 
+						
+						
+						-->
 				</form>
 			</c:when>
 		</c:choose>

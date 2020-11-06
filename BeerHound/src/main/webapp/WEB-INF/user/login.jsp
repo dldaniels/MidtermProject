@@ -22,24 +22,34 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
+
 <form:form action="login.do" method="POST" modelAttribute="user">
-		<br>
+	<div class="form-group">
 		<form:label path="username">Username:</form:label>
-		<form:input path="username"/>
+		<form:input path="username" placeholder="Enter username"/>
 		<form:errors path="username"/>
-		<br>
+	</div>
+	<div class="form-group">
 		<p>OR</p>
-		<br>
+	</div>
+	<div class="form-group">
 		<form:label path="email">Email:</form:label>
-		<form:input path="email"/>
+		<form:input path="email" type="email" placeholder="Enter email"/>
 		<form:errors path="email"/>
-		<br>
+	</div>
+	<div class="form-group">
 		<form:label path="password">Password:</form:label>
-		<form:input path="password"/>
+		<form:input path="password" placeholder="Password" type="password"/>
 		<form:errors path="password"/>
-		<br>
-		<input type="submit" value="Login"/>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Login</button>
+	</div>
 	</form:form>
 </div>
 	<!-- bootstrap -->

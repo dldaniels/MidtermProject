@@ -12,24 +12,25 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
+	<link rel="stylesheet" href="css/brewery.css">
 <title>Brewery edit</title>
 </head>
+
 <body>
+
 <div class="container">
 <jsp:include page = "../headersFooters/header.jsp"></jsp:include>
 </div>
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br>
 
-<div class="container-fluid">
-<h3>List of Breweries</h3><br>
-	
+
+
+
+<br><br><br><br>
 	<table class="table table-striped table-hover">
 		<thead class="thead thead-dark">
 		  <tr>
-			<th>Brewery Name</th>
+			<th >Brewery Name</th>
 			<th></th>
 			<th></th>
 		  </tr>
@@ -45,13 +46,27 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	
+<div class="container-fluid">	
+
+
 	<form action="addBrewery.do" method="GET">
-		<input type="hidden" name="" value="" /> <input type="submit"
-			value="Add Brewery" />
-	</form><br>
-	</div>
+	<button type="submit" class="btn btn-primary btn-lg btn-block">Add brewery button</button>
+	</form>
+	<br><br><br><br>
 	
+	
+
+	
+	
+	
+	
+	<%-- <form action="addBrewery.do" method="GET">
+		<input type="hidden" name="" value="" /> <input type="submit"
+			value="Add Brewery" /> --%>
+	</form><br>
+	
+	
+</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
