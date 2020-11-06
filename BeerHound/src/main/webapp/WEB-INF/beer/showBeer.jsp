@@ -27,7 +27,9 @@
 
 
 	<div class="container-fluid">
-		<h2>${beer.name}</h2>
+	
+
+		<h3>${beer.name}</h3>
 		
 		<c:set var="sum" value="${0}" />
 			<c:forEach items="${beer.beerRating}" var="ratings">
@@ -35,37 +37,27 @@
 				<c:set var="sum" value="${sum + ratings.starRating}" />
 			</c:forEach>
 			<a href="beerReviews.do?id=${beer.id}">Average rating ${sum / counter} stars</a>
+	<div class="row">
+	<div class="col">
+	
+	<p> <a href="getBrewery.do?id=${beer.brewery.id}">${beer.brewery.name}</a></p>
+		 <img src="${beer.imageUrl}" width="200" height="200">
+	
+	</div>
+	<div class="col">
 		
-		<br>
-		<br>
-		<br>
-		<h4>${beer.typeOfBeer.typeName}</h4>
-		Alcohol Content:
-		<h4>${beer.alcoholContent}%</h4>
-
+		<p>Type of beer: ${beer.typeOfBeer.typeName}</p>
+		<p>Alcohol Content: ${beer.alcoholContent}% </p>  
 		
-		<table class="table table-dark">
-		<thead>
-		  <tr>
-		  <th>List of Bars</th>
-		  </tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${beer.beerPrice}" var="beerPrice">
-				<tr>
-					<td><a href="getBar.do?id=${beerPrice.bar.id}">${beerPrice.bar.name}</a></td>
-<%-- 					<td><img src="${beerPrice.bar.logoUrl}" width ="100" height = "100">
- --%>					<c:if test="${empty beerPrice.bar.logoUrl}">
-							<td>No Logo</td>
-						</c:if>
-						<c:if test="${! empty beerPrice.bar.logoUrl}">
-							<td><img src="${beerPrice.bar.logoUrl}" width="100" height="100">
-							</td>
-						</c:if>
-				</tr>
-		</c:forEach>
-		</tbody>
-	</table>
+	</div>	
+ <div class="container-fluid">
+		
+		<p>${beer.description}</p>
+</div>
+	</div>
+	</div>
+	
+		
 	<%-- 	<form action="updateBeerForm.do" method="GET">
 			<button class="btn btn secondary" type="submit" name="id"
 				value="${beer.id }">Edit Beer</button>
@@ -79,21 +71,11 @@
 	
 	
 		
-		<form action="updateBeerForm.do" method="GET">
-				<button class="btn btn-outline-secondary" type="submit" name="id"
-					value="${beer.id}">Edit Beer</button>
-			</form>
 		
 		
 
-		<br> <a href="getBrewery.do?id=${beer.brewery.id}">${beer.brewery.name}</a>
-		<br> <img src="${beer.imageUrl}" width="200" height="200">
-		<br>
-		<p>${beer.description}</p>
-
-	</div>
 	
-<br>
+
 
 
 
@@ -127,10 +109,8 @@
 	</table> 
  --%>
 
-<br>
-<br>
-<br>
 
+<div class="container-fluid">
 
 <c:if test="${! empty loginUser }">
 
@@ -199,8 +179,12 @@
 	</c:choose>
 	</c:if>
 
+		<form action="updateBeerForm.do" method="GET">
+				<button class="btn btn-outline-secondary" type="submit" name="id"
+					value="${beer.id}">Edit Beer</button>
+			</form>
 	
-	
+	</div>
 
 		
 	<%-- 	<form action="updateBeerForm.do" method="GET">
@@ -211,6 +195,28 @@
 		
 
 
+		<table class="table table-light">
+		<thead>
+		  <tr>
+		  <th>You may be able to enjoy this beer at the following locations</th>
+		  </tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${beer.beerPrice}" var="beerPrice">
+				<tr>
+					<td><a href="getBar.do?id=${beerPrice.bar.id}">${beerPrice.bar.name}</a></td>
+<%-- 					<td><img src="${beerPrice.bar.logoUrl}" width ="100" height = "100">
+ --%>					<c:if test="${empty beerPrice.bar.logoUrl}">
+							<td>No Logo</td>
+						</c:if>
+						<c:if test="${! empty beerPrice.bar.logoUrl}">
+							<td><img src="${beerPrice.bar.logoUrl}" width="100" height="100">
+							</td>
+						</c:if>
+				</tr>
+		</c:forEach>
+		</tbody>
+	</table>
 
 	
 
