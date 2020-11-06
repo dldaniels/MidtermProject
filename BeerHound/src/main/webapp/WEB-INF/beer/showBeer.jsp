@@ -154,6 +154,7 @@
 
 
 			</c:if>
+			<br>
 
 
 	
@@ -177,6 +178,7 @@
 		</form>
 	</c:otherwise>
 	</c:choose>
+	<br>
 	</c:if>
 
 		<form action="updateBeerForm.do" method="GET">
