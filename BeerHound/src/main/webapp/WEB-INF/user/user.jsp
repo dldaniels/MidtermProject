@@ -39,7 +39,7 @@
 			<br>
 			<form action="deleteUser.do">
 				<input type="hidden" name="id" value="${user.id }">
-				<button type="submit" class="btn btn-primary">Delete profile</button>
+				<button type="submit" class="btn btn-danger">Delete profile</button>
 			</form>
 		</div>
 		</c:when>

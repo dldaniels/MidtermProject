@@ -115,7 +115,7 @@ public class UserController {
 		
 		User loggedInUser = userDao.login(user);
 		if (loggedInUser == null) {
-			errors.reject("Username or Password Incorrect");
+			errors.rejectValue("password", "error.password", "Incorrect username/email or password");
 		}		
 		if (errors.getErrorCount() != 0) {
 			return "user/login";
