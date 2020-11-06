@@ -80,12 +80,12 @@ body, html {
 	<div class="container-fuid">
 		<br>
 		<table class="table table-striped table-hover">
-			<thead class="thead thead-dark">
+			<!-- <thead class="thead thead-dark">
 				<tr>
 					<th>Beer Name</th>
-					<th></th>
-				</tr>
-			</thead>
+					<th></th> -->
+			<!-- 	</tr>
+			</thead> -->
 			<tbody>
 				<c:forEach items="${beers}" var="beer">
 					<tr>
