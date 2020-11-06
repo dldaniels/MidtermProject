@@ -70,21 +70,6 @@
 			
 				
 				
-			<div class ="container-fluid">
-				
-<br>
-			
-			<form action="getBreweryUpdate.do" method="GET">
-				<input type="hidden" name="id" value="${brewery.id }" /> 
-				<button type="submit" class="btn btn-primary">Update brewery info</button>
-			</form>
-			<br>
-
-			<form action="deleteBrewery.do" method="GET">
-				<input type="hidden" name="id" value="${brewery.id}" />
-				<button type="submit" class="btn btn-primary">Delete brewery</button>
-			</form>
-			<br>
 
 	<%-- 		<form action="/" method="GET">
 				<input type="hidden" name="" value="" /> <input type="submit"
@@ -103,6 +88,25 @@
 
 		</c:otherwise>
 	</c:choose>
+			<div class ="container-fluid">
+				
+<br>
+			<form action="getBreweryUpdate.do" method="GET">
+				<input type="hidden" name="id" value="${brewery.id }" /> 
+				<button type="submit" class="btn btn-primary">Update brewery info</button>
+			</form>
+			<br>
+		<c:if test="${! empty loginUser && loginUser.role== 'ADMIN'}">	
+			<form action="deleteBrewery.do" method="GET">
+				<input type="hidden" name="id" value="${brewery.id}" />
+				<button type="submit" class="btn btn-danger">Delete brewery</button>
+			</form>
+			<br>
+</c:if>
+
+
+		
+
 
 </div>
 
