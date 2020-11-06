@@ -68,7 +68,7 @@
 	
 		<c:if test="${! empty loginUser }">
 		<form action="addBeerForm.do" method="GET">
-		Add A Beer: <input type= "submit" value = "Add Beer" />
+		<input type= "submit" value = "Add Beer" />
 		</form>
 		
 		</c:if>
