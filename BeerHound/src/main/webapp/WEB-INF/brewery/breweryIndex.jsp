@@ -50,7 +50,7 @@
 
 
 	<form action="addBrewery.do" method="GET">
-	<button type="submit" class="btn btn-primary btn-lg btn-block">Add brewery button</button>
+	<button type="submit" class="btn btn-primary btn-lg btn-block">Add brewery</button>
 	</form>
 	<br><br><br><br>
 	

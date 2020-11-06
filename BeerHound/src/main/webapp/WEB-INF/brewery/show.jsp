@@ -22,11 +22,10 @@
 <br>
 <br>
 <br>
-
 <div class="container">
 	<c:choose>
 		<c:when test="${! empty brewery }">
-			<div>
+			
 			
 				<h2><a href="${brewery.breweryWebsite}">
 				${brewery.name}
@@ -39,10 +38,10 @@
 				<p>${brewery.address.street} ${brewery.address.city}, ${brewery.address.state} ${brewery.address.zip}</p><br>
 				
 				
+	</div>	
 			<!-- 	<h3>List of beers</h3><br> -->
 				
 			<table class="table table-striped table-hover">
-		
 		
 		<thead class="thead thead-dark">
 		  <tr>
@@ -70,9 +69,9 @@
 			
 				
 				
+			<div class ="container-fluid">
 				
-				
-			</div><br>
+<br>
 			
 			<form action="getBreweryUpdate.do" method="GET">
 				<input type="hidden" name="id" value="${brewery.id }" /> 
