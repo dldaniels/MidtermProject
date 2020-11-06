@@ -37,9 +37,15 @@ body, html {
   color: white;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* 
 =======
 >>>>>>> 21a16450658f6c6825c6d4a3f65a8e3c63072d62
+=======
+
+/* 
+
+>>>>>>> 13c828494899365ccbfdb1caa95580aeca07bd43
 .hero-text button {
   border: none;
   outline: 0;
