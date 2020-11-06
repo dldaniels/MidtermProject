@@ -174,6 +174,7 @@
 
 
 	
+<<<<<<< HEAD
 	<!-- add to favorites -->
 	<c:if test="${not empty loginUser }">
 	<c:choose>
@@ -191,6 +192,11 @@
 			<button class="btn btn-outline-secondary" type="submit" name="beerId"
 					value="${beer.id}">Remove from Favorites
 			</button>
+=======
+		<c:if test="${! empty loginUser }">
+		<form action="addBeerForm.do" method="GET">
+		<input type= "submit" value = "Add Beer" />
+>>>>>>> d3ee0f671c0be4d0ceb6ff43ef07b4d6ec7602c0
 		</form>
 	</c:otherwise>
 	</c:choose>
