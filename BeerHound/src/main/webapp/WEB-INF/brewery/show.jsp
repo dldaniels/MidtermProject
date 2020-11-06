@@ -24,19 +24,37 @@
 <br>
 <br>
 <div class="container">
+<br>
+<br>
 	<c:choose>
 		<c:when test="${! empty brewery }">
 			
 			
+				<div class="row">
+				<div class="col">
 				<h2><a href="${brewery.breweryWebsite}">
 				${brewery.name}
 				</a> </h2>
+				<img src="${brewery.breweryLogoUrl}" width = "200" height = "200">
+				<p>${brewery.address.street} ${brewery.address.city}, ${brewery.address.state} ${brewery.address.zip}</p>
+				</div>
+				<div class="col">
+				<br>
+			<iframe
+  				width="300"
+  				height="250"
+  				frameborder="3" style="border:0"
+  				src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBHmCXr5IdHwRvUCAvA_cmXjJadZe0Ldzw
+    			&q=${brewery.address.street },${brewery.address.city },${brewery.address.state }" allowfullscreen>
+			</iframe>
+		</div>
+				</div>
+				
+				
 				
 				
 			<%-- 	<p>	<a href="${brewery.breweryWebsite}">${brewery.breweryWebsite}</a> <p>  --%>
 				
-				<img src="${brewery.breweryLogoUrl}" width = "200" height = "200"><br>
-				<p>${brewery.address.street} ${brewery.address.city}, ${brewery.address.state} ${brewery.address.zip}</p><br>
 				
 				
 	</div>	
